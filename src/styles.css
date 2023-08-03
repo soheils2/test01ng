@@ -4,4 +4,26 @@
 @tailwind components;
 @tailwind utilities;
 
+/* @import "./assets/deeppurple-amber.css"; */
 @import "~@angular/material/prebuilt-themes/deeppurple-amber";
+/* @import "~@angular/material/prebuilt-themes/pink-bluegrey"; */
+.rtl-grid {
+  direction: rtl;
+}
+
+.mdc-text-field--filled:not(.mdc-text-field--disabled) {
+  background-color: rgb(245 245 245);
+
+  /* box-shadow: 10px 5px 60px -5px rgba(0, 0, 0, 0.2); */
+}
+.warn-snackbar {
+  --mdc-snackbar-container-color: darkorange;
+  --mat-mdc-snack-bar-button-color: white;
+  padding-bottom: 2vh;
+}
+
+.success-snackbar {
+  --mdc-snackbar-container-color: green;
+  --mat-mdc-snack-bar-button-color: white;
+  padding-bottom: 2vh;
+}
