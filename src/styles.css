@@ -21,6 +21,11 @@
   --mat-mdc-snack-bar-button-color: white;
   padding-bottom: 2vh;
 }
+.err-snackbar {
+  --mdc-snackbar-container-color: darkred;
+  --mat-mdc-snack-bar-button-color: white;
+  padding-bottom: 2vh;
+}
 
 .success-snackbar {
   --mdc-snackbar-container-color: green;
