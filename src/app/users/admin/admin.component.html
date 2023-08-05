@@ -1,0 +1,10 @@
+<div class="pt-20 p-4">
+  <div class="flex ">
+    <div class="flex-1 bg-white border-2 p-2">First Name</div>
+    <div class=" flex-1 bg-white border-2 p-2">Last Name</div>
+    <div class="flex-1 bg-white border-2 p-2">Email</div>
+    <div class=" flex-1 bg-white border-2 p-2">Approved</div>
+    <div class="flex-1 bg-white border-2 p-2">Delete</div>
+  </div>
+  <div class=" p-4 rounded-lg shadow-sm m-4 bg-slate-100" *ngFor="let person of dataList">{{person.email}} </div>
+</div>

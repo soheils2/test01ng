@@ -1,0 +1,56 @@
+<div class="flex justify-center items-end w-100 h-screen bg-slate-100 pb-12">
+  <!-- <div class="flex flex-1 flex-wrap  h-[80vh] bg-green-950">
+    <span>hello</span>
+  </div> -->
+  <div
+    class="flex flex-col h-[80vh] w-[45vh]  rounded-[1vh] p-4 pt-[8vh] shadow-sm bg-white shadow-black overflow-hidden  ">
+
+    <h1 class="text-center text-[6vh] text-purple-800">خوش آمدید</h1>
+    <h1 class="text-center text-[2vh] pb-[6vh] text-gray-600 ">لطفا برای ورود نام کاربری و رمز عبور خود را وارد نمایید
+    </h1>
+    <div>
+      <!-- <div class="flex w-100  bg-yellow-500 justify-center items-center   "> -->
+      <form #loginFrom="ngForm" class="flex flex-col rtl-grid" (submit)="onLogin(loginFrom)">
+
+        <mat-form-field class="flex-1 mb-3 ">
+          <mat-label>آدرس ایمیل</mat-label>
+
+          <input [(ngModel)]="credentials.username" #EmailInput="ngModel" required email name="email" type="email"
+            matInput placeholder="your-name@gmail.com">
+
+          <mat-error *ngIf="EmailInput.errors?.[('required')]">
+            ایمیل <strong>ضروری</strong> است
+          </mat-error>
+
+          <mat-error *ngIf="EmailInput.errors?.['email'] && !EmailInput.errors?.['required']">
+            فرمت ایمیل وارد شده اشتباه است
+          </mat-error>
+        </mat-form-field>
+
+
+        <mat-form-field class="">
+          <mat-label>رمز عبور</mat-label>
+
+          <input [(ngModel)]="credentials.password" #PassInput="ngModel" required name="password" type="password"
+            matInput>
+
+          <mat-error *ngIf="PassInput.errors?.['required']">
+            رمز عبور <strong>ضروری</strong> است
+          </mat-error>
+
+        </mat-form-field>
+
+        <button type="submit" mat-raised-button class="text-[2.5vh] font-bold mt-[2vh]" color="primary">ورود</button>
+
+      </form>
+
+      <div class="flex w-100 justify-between mt-[3vh]">
+        <a href="" class="text-cyan-700 text-[2.5vh] ">ثبت نام کاربر جدید</a>
+        <a href="" class="text-cyan-700 text-[2.5vh] ">بازیابی رمز عبور</a>
+      </div>
+      <!-- </div> -->
+
+    </div>
+
+  </div>
+</div>

@@ -1,20 +1,30 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AppComponent } from './app.component';
-import { NotFoundComponent } from './not-found/not-found.component';
-import { LoginComponent } from './login/login.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { AuthComponent } from './auth/auth.component';
-import { RegisterComponent } from './register/register.component';
-import { SupportComponent } from './support/support.component';
+
+import { NotFoundComponent } from './shared/not-found/not-found.component';
+import { LoginComponent } from './account/login/login.component';
+import { DashboardComponent } from './users/dashboard/dashboard.component';
+
+import { AuthGuard } from './core/auth.guard';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'login', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
-  { path: 'signup', component: RegisterComponent },
-  { path: 'dash', component: DashboardComponent },
-  { path: 'auth', component: AuthComponent },
-  { path: 'support', component: SupportComponent },
+  {
+    path: '',
+    //  redirectTo: 'dash', pathMatch: 'full' ,
+    // { path: 'signup', component: RegisterComponent },
+    // { path: 'dash', component: DashboardComponent, canActivate: [AuthGuard] },
+    // { path: 'auth', component: AuthComponent },
+    // { path: 'support', component: SupportComponent },
+    children: [
+      {
+        path: '',
+        component: DashboardComponent,
+        canActivate: [AuthGuard],
+        data: { allowedRoles: ['user'] },
+      },
+    ],
+  },
   { path: '**', component: NotFoundComponent },
 ];
 

@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { AccountService } from './core/account.service';
+import { Router } from '@angular/router';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-root',
@@ -6,8 +9,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  title = 'Account Maker pro';
-
+  title = 'user Manager pro';
+  constructor(
+    private _snackBar: MatSnackBar,
+    private accountService: AccountService,
+    public router: Router
+  ) {}
   data = [
     {
       title: 'Fire',
@@ -94,4 +101,20 @@ export class AppComponent {
     const str2 = arr.join(' ');
     return str2;
   };
+
+  onSignOut() {
+    if (this.accountService.isAuthenticated) {
+      this.accountService.signOut();
+
+      this.router.navigate(['/login']);
+
+      this._snackBar.open('با موفقیت خارج شدید به امید دیدار مجدد', '', {
+        horizontalPosition: 'center',
+        verticalPosition: 'top',
+        direction: 'rtl',
+        panelClass: ['warn-snackbar'],
+        duration: 3000,
+      });
+    }
+  }
 }

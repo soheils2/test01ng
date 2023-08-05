@@ -1,7 +1,7 @@
 <div class="flex flex-col overflow-hidden">
 
   <mat-toolbar *ngIf="true" color="primary" class="fixed top-0 z-10 overflow-hidden">
-    <button routerLink="/dash" mat-icon-button class="">
+    <button routerLink="/" mat-icon-button class="">
       <mat-icon>home</mat-icon>
     </button>
     <span class="text-[2.5vh]">{{title}}</span>
@@ -11,7 +11,7 @@
       <mat-menu #menu="matMenu">
         <button mat-menu-item><mat-icon>dashboard</mat-icon>Dashboard</button>
         <button mat-menu-item><mat-icon>wallpaper</mat-icon>about</button>
-        <button mat-menu-item><mat-icon>account_box</mat-icon>LogOut</button>
+        <button (click)="onSignOut()" mat-menu-item><mat-icon>account_box</mat-icon>LogOut</button>
 
 
       </mat-menu>
