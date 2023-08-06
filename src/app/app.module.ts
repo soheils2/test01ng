@@ -26,6 +26,8 @@ import { MatInputModule } from '@angular/material/input';
 import { HttpClientModule } from '@angular/common/http';
 import { ConfirmPhoneComponent } from './account/confirm-phone/confirm-phone.component';
 
+import { httpInterceptorProviders } from './core/http-interceptors';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -52,7 +54,7 @@ import { ConfirmPhoneComponent } from './account/confirm-phone/confirm-phone.com
     ReactiveFormsModule,
     MatSnackBarModule,
   ],
-  providers: [],
+  providers: [httpInterceptorProviders],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
