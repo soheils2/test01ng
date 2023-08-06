@@ -15,8 +15,8 @@
         <mat-form-field class="flex-1 mb-3 ">
           <mat-label>آدرس ایمیل</mat-label>
 
-          <input [(ngModel)]="credentials.username" #EmailInput="ngModel" required email name="email" type="email"
-            matInput placeholder="your-name@gmail.com">
+          <input (click)="$event.target.select()" [(ngModel)]="credentials.username" #EmailInput="ngModel" required
+            email name="email" type="email" matInput placeholder="your-name@gmail.com">
 
           <mat-error *ngIf="EmailInput.errors?.[('required')]">
             ایمیل <strong>ضروری</strong> است
@@ -31,8 +31,8 @@
         <mat-form-field class="">
           <mat-label>رمز عبور</mat-label>
 
-          <input [(ngModel)]="credentials.password" #PassInput="ngModel" required name="password" type="password"
-            matInput>
+          <input (click)="$event.target.select()" [(ngModel)]="credentials.password" #PassInput="ngModel" required
+            name="password" type="password" matInput>
 
           <mat-error *ngIf="PassInput.errors?.['required']">
             رمز عبور <strong>ضروری</strong> است
@@ -45,8 +45,8 @@
       </form>
 
       <div class="flex w-100 justify-between mt-[3vh]">
-        <a href="" class="text-cyan-700 text-[2.5vh] ">ثبت نام کاربر جدید</a>
-        <a href="" class="text-cyan-700 text-[2.5vh] ">بازیابی رمز عبور</a>
+        <a class="text-cyan-700 text-[2.5vh] ">ثبت نام کاربر جدید</a>
+        <a class="text-cyan-700 text-[2.5vh] ">بازیابی رمز عبور</a>
       </div>
       <!-- </div> -->
 
