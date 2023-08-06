@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { AccountService } from './core/account.service';
 import { Router } from '@angular/router';
-import { MatSnackBar } from '@angular/material/snack-bar';
+
+import { NotifyService } from './shared/notify.service';
 
 @Component({
   selector: 'app-root',
@@ -11,7 +12,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 export class AppComponent {
   title = 'user Manager pro';
   constructor(
-    private _snackBar: MatSnackBar,
+    private notify: NotifyService,
     private accountService: AccountService,
     public router: Router
   ) {}
@@ -107,14 +108,7 @@ export class AppComponent {
       this.accountService.signOut();
 
       this.router.navigate(['/login']);
-
-      this._snackBar.open('با موفقیت خارج شدید به امید دیدار مجدد', '', {
-        horizontalPosition: 'center',
-        verticalPosition: 'top',
-        direction: 'rtl',
-        panelClass: ['warn-snackbar'],
-        duration: 3000,
-      });
+      this.notify.warn('با موفقیت خارج شدید به امید دیدار مجدد', 3000);
     }
   }
 }

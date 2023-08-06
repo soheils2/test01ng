@@ -8,14 +8,10 @@ import {
   Validators,
 } from '@angular/forms';
 
-import {
-  MatSnackBar,
-  MatSnackBarHorizontalPosition,
-  MatSnackBarVerticalPosition,
-} from '@angular/material/snack-bar';
 import { Router, RouterLink } from '@angular/router';
 import { LoginRequest } from '../../shared/login-request.model';
 import { AccountService } from '../../core/account.service';
+import { NotifyService } from 'src/app/shared/notify.service';
 
 @Component({
   selector: 'app-login',
@@ -35,13 +31,10 @@ export class LoginComponent implements OnInit {
   credentials = { username: '', password: '' };
 
   constructor(
-    private _snackBar: MatSnackBar,
+    private notify: NotifyService,
     private accountService: AccountService,
     public router: Router
   ) {}
-
-  horizontalPosition: MatSnackBarHorizontalPosition = 'right';
-  verticalPosition: MatSnackBarVerticalPosition = 'bottom';
 
   onLogin(_form: any) {
     this.submitAttempted = true;
@@ -65,28 +58,20 @@ export class LoginComponent implements OnInit {
               : '/';
 
             this.accountService.redirectUrl = null;
-            this.router.navigateByUrl(redirect);
+            this.loginSucces();
+            setTimeout(() => {
+              this.router.navigateByUrl(redirect);
+            }, 1600);
           }
         },
         (error) => {
           this.message = error;
-          this._snackBar.open(JSON.stringify(this.message), '', {
-            horizontalPosition: this.horizontalPosition,
-            verticalPosition: this.verticalPosition,
-            panelClass: ['err-snackbar'],
-            duration: 1000,
-          });
+          this.notify.err(JSON.stringify(this.message));
         }
       );
     } //
     else {
-      this._snackBar.open('❗️ لطفا مقادیر وارد شده را بررسی نمایید', '', {
-        horizontalPosition: this.horizontalPosition,
-        verticalPosition: this.verticalPosition,
-        direction: 'rtl',
-        panelClass: ['warn-snackbar'],
-        duration: 1000,
-      });
+      this.notify.warn('❗️ لطفا مقادیر وارد شده را بررسی نمایید');
     }
   }
 
@@ -105,18 +90,6 @@ export class LoginComponent implements OnInit {
   ]);
 
   loginSucces() {
-    const snackBarRef = this._snackBar.open('ورود موفق', 'انتقال به داشبورد', {
-      horizontalPosition: this.horizontalPosition,
-      verticalPosition: this.verticalPosition,
-      direction: 'rtl',
-      duration: 3000,
-    });
-    snackBarRef.afterDismissed().subscribe((info) => {
-      if (info.dismissedByAction === true) {
-        console.log('dismissedByAction');
-      } else {
-        console.log('dismissed', info);
-      }
-    });
+    this.notify.success('ورود موفق ِدرحال انتقال به داشبورد', 3000);
   }
 }
