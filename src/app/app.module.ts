@@ -27,6 +27,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ConfirmPhoneComponent } from './account/confirm-phone/confirm-phone.component';
 
 import { httpInterceptorProviders } from './core/http-interceptors';
+import { A11yModule } from '@angular/cdk/a11y';
 
 @NgModule({
   declarations: [
@@ -53,6 +54,7 @@ import { httpInterceptorProviders } from './core/http-interceptors';
     MatInputModule,
     ReactiveFormsModule,
     MatSnackBarModule,
+    A11yModule,
   ],
   providers: [httpInterceptorProviders],
   bootstrap: [AppComponent],

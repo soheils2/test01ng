@@ -13,6 +13,10 @@ import { NotifyService } from 'src/app/shared/notify.service';
 })
 export class DashboardComponent implements OnInit, OnDestroy {
   dashboard$: Observable<Dash>;
+  changeEmail: boolean = false;
+  sent: boolean = false;
+
+  inputRef = false;
 
   dashboard: Dash;
   dashForm = this.fb.group({
@@ -42,6 +46,9 @@ export class DashboardComponent implements OnInit, OnDestroy {
   get phone() {
     return this.dashForm.get('phone');
   }
+  get isEmailActive() {
+    return this.dashForm.get('isEmailActive');
+  }
 
   submitAttempted = false;
   errors: string[] = [];
@@ -67,6 +74,12 @@ export class DashboardComponent implements OnInit, OnDestroy {
       let _dd = new Dash();
       Object.assign(_dd, data.resolvedValues.dash);
       this.originalDash = _dd;
+
+      if (!this.dashboard.isEmailActive) {
+        // this.accountService.signOut();
+        // this.router.navigate(['/login']);
+        // this.notify.warn('با موفقیت خارج شدید به امید دیدار مجدد', 3000);
+      }
     });
 
     // this.accountService.getDashboard();
@@ -92,6 +105,25 @@ export class DashboardComponent implements OnInit, OnDestroy {
     }
 
     return true;
+  }
+  onChangeEmail(isActive: boolean = true) {
+    this.changeEmail = isActive;
+    this.inputRef = isActive;
+  }
+  discradeChangeEmail() {
+    this.changeEmail = true;
+  }
+
+  reqReConfirm() {
+    this.sent = true;
+    this.accountService.reSendEmail().subscribe((stt) => {
+      console.log('stt:', stt);
+      this.notify.success('درخواست شما برای سرور ارسال شد!', 3000);
+    });
+  }
+  reqChangeEmail() {
+    this.notify.warn('تغییر ایمیل فعلا مقدور نیست!', 3000);
+    //TODO -> Make it Real
   }
   onSubmit() {
     this.submitAttempted = true;

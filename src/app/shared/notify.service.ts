@@ -11,7 +11,7 @@ import {
 export class NotifyService {
   constructor(private _snackBar: MatSnackBar) {}
 
-  horizontalPosition: MatSnackBarHorizontalPosition = 'right';
+  horizontalPosition: MatSnackBarHorizontalPosition = 'left';
   verticalPosition: MatSnackBarVerticalPosition = 'bottom';
 
   success(msg: string, duration: number = 1600, isFa: boolean = true) {
