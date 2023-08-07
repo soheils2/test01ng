@@ -8,6 +8,9 @@ import { DashboardComponent } from './users/dashboard/dashboard.component';
 import { AuthGuard } from './core/auth.guard';
 import { DashResolverService } from './shared/account-resolvers.service';
 
+// import { DashResolverService } from './shared/account-resolvers.service';
+import { ConfirmEmailComponent } from './account/confirm-email/confirm-email.component';
+
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
   {
@@ -24,6 +27,13 @@ const routes: Routes = [
         canActivate: [AuthGuard],
         data: { allowedRoles: ['user'] },
         resolve: { resolvedValues: DashResolverService },
+      },
+      {
+        path: 'verfyEmail/:token',
+        component: ConfirmEmailComponent,
+        // canActivate: [AuthGuard],
+        // data: { allowedRoles: ['user'] },
+        // resolve: { resolvedValues: DashResolverService },
       },
     ],
   },

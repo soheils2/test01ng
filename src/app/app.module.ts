@@ -27,6 +27,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { ConfirmPhoneComponent } from './account/confirm-phone/confirm-phone.component';
 
 import { httpInterceptorProviders } from './core/http-interceptors';
+import { ConfirmEmailComponent } from './account/confirm-email/confirm-email.component';
+
 import { A11yModule } from '@angular/cdk/a11y';
 
 @NgModule({
@@ -38,6 +40,7 @@ import { A11yModule } from '@angular/cdk/a11y';
     SupportComponent,
     ConfirmPhoneComponent,
     RegisterComponent,
+    ConfirmEmailComponent,
   ],
   imports: [
     BrowserModule,
