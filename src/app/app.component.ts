@@ -10,7 +10,7 @@ import { NotifyService } from './shared/notify.service';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  title = 'user Manager pro';
+  title = 'کاربر پلاس';
   constructor(
     private notify: NotifyService,
     private accountService: AccountService,
@@ -91,6 +91,10 @@ export class AppComponent {
       description: '',
     },
   ];
+
+  get isAuthenticated(): boolean {
+    return this.accountService.isAuthenticated;
+  }
 
   prettiFy = (_str: string) => {
     const arr = _str.split(' ');
