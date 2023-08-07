@@ -1,1 +1,230 @@
-<p class="mt-16">dashboard works!</p>
+<p class="mt-16"></p>
+
+<div *ngIf="!dashboard.isEmailActive"
+  class="z-10 right-0 top-0 w-full h-full flex flex-col fixed items-center justify-center bg-[rgba(20,20,20,0.9)] rtl-grid">
+  <p class="text-white text-[4vh] text-center">ایمیل شما تایید نشده است!
+    <br> لطفا برای ادامه نسبت به فعالسازی ایمیل خود از طریق لینک
+    ارسال شده اقدام نمائید
+
+  </p>
+  <div class="flex w-full justify-center items-center">
+
+    <span class="text-white text-[3vh]">ایمیل: </span>
+    <input [cdkTrapFocusAutoCapture]="inputRef" [cdkTrapFocus]="inputRef" onfocus="this.select();"
+      [disabled]="!changeEmail"
+      class="text-white bg-transparent w-[25vh] mr-[2vh] border-b-2 border-b-orange-700  text-center"
+      value="{{dashboard.email}}">
+    <button *ngIf="changeEmail" (click)="onChangeEmail(false)"
+      class=" text-[3vh] mr-[1vh]  rounded-md text-red-600 bg-transparent  font-bold">X</button>
+  </div>
+
+
+  <div *ngIf="!sent" class="flex w-full justify-center ">
+
+    <button *ngIf="!changeEmail" (click)="onChangeEmail()"
+      class="mx-[4vh] text-[2.5vh] py-[1vh] px-[2vh] rounded-md text-white bg-red-900  font-bold mt-[2vh]">تغییر
+      ایمیل</button>
+
+
+    <button *ngIf="!changeEmail" (click)="reqReConfirm()"
+      class="mx-[4vh] text-[2.5vh]  py-[1vh] px-[2vh] rounded-md text-white bg-green-900  font-bold mt-[2vh]"
+      color="primary">ارسال
+      دوباره</button>
+
+    <button *ngIf="changeEmail" (click)="reqChangeEmail()"
+      class="mx-[4vh] text-[2.5vh]  py-[1vh] px-[2vh] rounded-md text-white bg-orange-500  font-bold mt-[2vh]"
+      color="primary">ارسال ایمیل فعالسازی</button>
+
+  </div>
+
+
+</div>
+<div class="row p-[2vh] min-h-screen bg-[#f4f3ee] rtl-grid">
+  <div class="col-md-4">
+    <div class="card card-user">
+      <div class="image">
+        <img src="assets/img/soheilHeader.jpg" alt="...">
+      </div>
+      <div class="card-body">
+        <div class="author">
+          <a href="#">
+            <img class="avatar border-gray" src="assets/img/soeil.jpg" alt="...">
+          </a>
+          <h1 class="text-green-900  ">{{ dashboard.firstName+" "+dashboard.lastName}}</h1>
+          <p class="" style="direction: ltr;">
+            <strong>@soeil</strong>
+          </p>
+        </div>
+        <p class="description text-center" style="direction: ltr;">
+          <strong> Software-developer
+            <br>+5 years of Scrolling in Programming</strong>
+          <br>Angular, Nextjs, Reactjs
+          <br>React-Native, Flutter
+          <br>TypeScrypt, Node, C++
+        </p>
+      </div>
+      <div class="card-footer">
+        <hr>
+        <div class="button-container" style="direction: ltr;">
+          <div class="row">
+            <div class="col-lg-3 col-md-6 col-6 ml-auto">
+              <h5>
+                <img class="h-[12vh] object-contain w-100" src="assets/img/node.png" alt="...">
+                <br>
+                <small>Backend</small>
+              </h5>
+            </div>
+            <div class="col-lg-4 col-md-6 col-6 ml-auto mr-auto">
+              <h5>
+                <img class="h-[12vh] object-contain w-100" src="assets/img/angular.png" alt="...">
+                <br>
+                <small>Frontend</small>
+              </h5>
+            </div>
+            <div class="col-lg-3 col-md-6 col-6 ml-auto mr-auto">
+              <h5>
+                <img class="h-[12vh] object-cover w-100" src="assets/img/esp32.png" alt="...">
+                <br>
+                <small>Embeded</small>
+              </h5>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="col-md-8 ">
+    <div class="card card-user">
+      <div class="card-header">
+        <h5 class="card-title">ویرایش پروفایل</h5>
+      </div>
+      <div class="card-body ">
+        <form [formGroup]="dashForm" (ngSubmit)="onSubmit()">
+          <div class="row">
+            <div class="col-md-5 pr-1">
+              <div class="form-group">
+                <label>شرکت</label>
+                <input type="text" class="form-control" disabled="" placeholder="Company" value="DemisCo Inc">
+              </div>
+            </div>
+
+            <div class="col-md-4 pl-1">
+              <div class="form-group">
+                <label for="exampleInputEmail1">آدرس ایمیل</label>
+                <input type="email" class="form-control" formControlName="email" placeholder="Email"
+                  value={{dashboard.email}}>
+              </div>
+
+              <div *ngIf="email.invalid && submitAttempted" class="text-red-800 font-bold mb-[2vh]">
+                <div *ngIf="email.errors?.['required']">
+                  ایمیل ضروری است
+                </div>
+                <div *ngIf="email.errors?.['email']">
+                  ایمیل نامعتبر
+                </div>
+                <div *ngIf="email.errors?.['inUse']">
+                  این آدرس رزرو میباشد
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3 px-1">
+              <div class="form-group">
+                <label>تلفن همراه</label>
+                <input type="text" class="form-control" formControlName="phone" placeholder="phone"
+                  value={{dashboard.phone}}>
+              </div>
+
+              <div *ngIf="phone.invalid && submitAttempted" class="text-red-800 font-bold mb-[2vh]">
+                <div *ngIf="phone.errors?.['required']">
+                  تلفن ضروری است.
+                </div>
+                <div *ngIf="phone.errors?.['pattern']">
+                  شماره تلفن نامعتبر
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6 pr-1">
+              <div class="form-group">
+                <label>نام</label>
+                <input type="text" class="form-control" formControlName="firstName" placeholder="First Name"
+                  value={{dashboard.firstName}}>
+              </div>
+
+              <div *ngIf="firstName.invalid && submitAttempted" class="text-red-800 font-bold mb-[2vh]">
+                <div *ngIf="firstName.errors?.['required']">
+                  نام ضروری است
+                </div>
+              </div>
+
+            </div>
+            <div class="col-md-6 pl-1">
+              <div class="form-group">
+                <label>نام خانوادگی</label>
+                <input type="text" class="form-control" formControlName="lastName" placeholder="Last Name"
+                  value={{dashboard.lastName}}>
+              </div>
+              <div *ngIf="lastName.invalid && submitAttempted" class="text-red-800 font-bold mb-[2vh]">
+                <div *ngIf="lastName.errors?.['required']">
+                  نام خانوادگی ضروری است.
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group">
+                <label>آدرس</label>
+                <input type="text" class="form-control" disabled placeholder="Home Address" value="Isfahan , IRAN">
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-4 pr-1">
+              <div class="form-group">
+                <label>شهر</label>
+                <input type="text" class="form-control" disabled placeholder="City" value="Isfahan">
+              </div>
+            </div>
+            <div class="col-md-4 px-1">
+              <div class="form-group">
+                <label>کشور</label>
+                <input type="text" class="form-control" disabled placeholder="Country" value="Iran">
+              </div>
+            </div>
+            <div class="col-md-4 pl-1">
+              <div class="form-group">
+                <label>کدپستی</label>
+                <input type="number" class="form-control" disabled placeholder="ZIP Code" value="8196900000">
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group">
+                <label>درباره من</label>
+                <textarea class="form-control textarea ">
+Software-developer with 5-years of Experience in programming + Management
+Developing is my passion and I like to share my knowledge about it.
+I'm a Reliable teammate
+I'll always be happy to meet new people,cultures and learn new things.</textarea>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div *ngIf="dashboard.isEmailActive" class="flex justify-end items-center update ml-auto mr-auto">
+              <button
+                class="text-[2.5vh] font-bold mt-[2vh] border-green-700 border-1 rounded-md px-[3vh] py-[1vh] text-green-900"
+                color="primary" type="submit">بروزرسانی
+                اطلاعات</button>
+
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

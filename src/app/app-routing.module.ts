@@ -6,6 +6,7 @@ import { LoginComponent } from './account/login/login.component';
 import { DashboardComponent } from './users/dashboard/dashboard.component';
 
 import { AuthGuard } from './core/auth.guard';
+import { DashResolverService } from './shared/account-resolvers.service';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -22,6 +23,7 @@ const routes: Routes = [
         component: DashboardComponent,
         canActivate: [AuthGuard],
         data: { allowedRoles: ['user'] },
+        resolve: { resolvedValues: DashResolverService },
       },
     ],
   },

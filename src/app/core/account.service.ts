@@ -12,6 +12,7 @@ import { LoginRequest } from '../shared/login-request.model';
 import { LoginResponse } from '../shared/login-response.model';
 import { AuthInfo } from '../shared/auth-info.model';
 import { ResetPassword } from '../shared/reset-password.model';
+import { Dash } from '../shared/dash-response.model';
 
 @Injectable({
   providedIn: 'root',
@@ -72,32 +73,15 @@ export class AccountService {
     return this.http.get(url, httpOptions);
   }
 
-  private handleLoginError(
-    error: HttpErrorResponse
-  ): Observable<LoginResponse> {
-    if (error.error instanceof ErrorEvent) {
-      // A client-side or network error occurred. Handle it accordingly.
-      console.error('An error occurred:', error.error.message);
-    } else {
-      // The backend returned an unsuccessful response code.
-      // The response body may contain clues as to what went wrong,
-      console.error(
-        `Backend returned code ${error.status}, ` + `body was: ${error.error}`
-      );
-    }
-    // return an observable with a user-facing error message
-    //return throwError(
-    //  'Something bad happened; please try again later.');
-    let loginResponse: LoginResponse = {
-      success: false,
-      token: '',
-      expiresInMinutes: null,
-      message: error.error.message,
-      email: '',
-      role: '',
+  reSendEmail() {
+    console.log('sending...');
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+      }),
     };
-
-    return of(loginResponse);
+    const url = window['baseUrl'] + '/api/resendemail/';
+    return this.http.get(url, httpOptions).pipe(catchError(this.handleError));
   }
 
   redirectUrl: string;
@@ -137,21 +121,42 @@ export class AccountService {
         'Content-Type': 'application/json',
       }),
     };
-    // console.log('connecting..', window['baseUrl']);
     const url = window['baseUrl'] + '/api/login';
-    // const url = "https://localhost:44374/api/Login";
 
     return this.http.post<LoginResponse>(url, loginRequestVM, httpOptions).pipe(
-      // retry(3),
       shareReplay(),
-      // catchError(this.handleLoginError),
       catchError(this.handleError),
       tap((response) => this.updateAuthInfo(response))
     );
   }
 
+  getDashboard(): Observable<Dash> {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+      }),
+    };
+    const url = window['baseUrl'] + '/api/dash';
+
+    return this.http.get<Dash>(url, httpOptions);
+  }
+
+  updateUser(userVm: Dash) {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+      }),
+    };
+
+    const url = window['baseUrl'] + '/api/updatedash/';
+
+    return this.http
+      .put<Dash>(url, userVm, httpOptions)
+      .pipe(catchError(this.handleError));
+  }
+
   private updateAuthInfo(response: LoginResponse) {
-    console.log('updateAuthInfo', response);
+    // console.log('updateAuthInfo', response);
     if (response.success === true) {
       this._isAuthenticated = response.success;
       this._token = response.token;

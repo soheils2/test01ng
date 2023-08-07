@@ -1,12 +1,12 @@
 <div class="flex flex-col overflow-hidden">
 
-  <mat-toolbar *ngIf="true" color="primary" class="fixed top-0 z-10 overflow-hidden">
+  <mat-toolbar color="primary" class="fixed top-0 z-10 overflow-hidden rtl-grid z-20">
     <button routerLink="/" mat-icon-button class="">
       <mat-icon>home</mat-icon>
     </button>
-    <span class="text-[2.5vh]">{{title}}</span>
+    <span class="text-[2.5vh] font-bold">{{title}}</span>
     <span class="spacer"></span>
-    <button mat-button [matMenuTriggerFor]="menu">
+    <button *ngIf="isAuthenticated" mat-button [matMenuTriggerFor]="menu">
       <mat-icon>person</mat-icon>
       <mat-menu #menu="matMenu">
         <button mat-menu-item><mat-icon>dashboard</mat-icon>Dashboard</button>
@@ -16,12 +16,11 @@
 
       </mat-menu>
     </button>
-    <button class="flex items-center" mat-button onclick="window.location.href='https://github.com/soheils2/test01ng'">
+    <button class="flex items-center " mat-button onclick="window.location.href='https://github.com/soheils2/test01ng'">
       <div class="flex items-center">
         <img _ngcontent-ng-c3202968170="" matbuttonicon="" src="../assets/github-circle-white-transparent.svg"
           alt="angular" aria-hidden="true" class="logo docs-navbar--github-logo">
         <!-- <mat-icon>cloud</mat-icon> -->
-        <span class="text-[2vh] pl-1">GitHub</span>
       </div>
     </button>
   </mat-toolbar>
