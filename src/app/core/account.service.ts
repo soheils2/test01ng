@@ -160,6 +160,20 @@ export class AccountService {
       .pipe(catchError(this.handleError));
   }
 
+  updateUser(userVm: Dash) {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+      }),
+    };
+
+    const url = window['baseUrl'] + '/api/updatedash/';
+
+    return this.http
+      .put<Dash>(url, userVm, httpOptions)
+      .pipe(catchError(this.handleError));
+  }
+
   private updateAuthInfo(response: LoginResponse) {
     // console.log('updateAuthInfo', response);
     if (response.success === true) {
