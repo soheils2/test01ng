@@ -56,18 +56,16 @@ export class AccountService {
     // .pipe(catchError(this.handleError('register', user)));
   }
 
-  confirmEmail(userId: string, code: string) {
+  confirmEmail(vr_token: string) {
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json', //,
         // 'Authorization': 'my-auth-token'
       }),
-      params: new HttpParams()
-        .set('userId', userId)
-        .set('code', encodeURIComponent(code)),
+      // params: new HttpParams().set('verifyToken', vr_token),
     };
 
-    const url = window['baseUrl'] + '/api/confirm-email';
+    const url = window['baseUrl'] + '/api/verfyEmail/' + vr_token;
     // const url = "https://localhost:44374/api/ConfirmEmail";
 
     return this.http.get(url, httpOptions);
