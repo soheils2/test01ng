@@ -1,0 +1,30 @@
+<div class="flex flex-col items-center justify-center w-100 h-screen bg-slate-100 rtl-grid ">
+  <img class="h-[34vh]" src="assets/img/verifyemail.png" alt="...">
+  <div class="text-center text-[1vh]" *ngIf="cnf_Stt==CNF_Type.waiting">
+    <h1>🟠 در حال اعتبار سنجی</h1>
+  </div>
+  <div class="text-center text-[1vh]" *ngIf="cnf_Stt==CNF_Type.Confirmed">
+    <h1>✅ تبریک ایمیل شما با موفقیت اعتبار سنجی شد</h1>
+  </div>
+  <div class="text-center text-[1vh] text-red-600" *ngIf="cnf_Stt==CNF_Type.Suspended">
+    <h1>🔴 این آدرس توسط مدیر حذف یا بلاک شده است</h1>
+  </div>
+  <div class="text-center text-[1vh]  text-red-600" *ngIf="cnf_Stt==CNF_Type.Invalid">
+    <h1>🔴 شناسه نامعتبر</h1>
+  </div>
+  <div class="text-center text-[1vh]  text-red-600" *ngIf="cnf_Stt==CNF_Type.notFound">
+    <h1>🔴 سرور یافت نشد</h1>
+  </div>
+  <div class="text-center text-[1vh]  text-green-600" *ngIf="cnf_Stt==CNF_Type.Duplicated">
+    <h1>✅ ایمیل قبلا تایید شده است</h1>
+  </div>
+  <div class="text-center text-[1vh]  text-red-600" *ngIf="cnf_Stt==CNF_Type.Internal">
+    <h1>🔴 خطای سرور لطفا با پشتیبانی تماس بگیرید</h1>
+  </div>
+
+  <div *ngIf="cnf_Stt!=CNF_Type.waiting">
+    <h2 class="text-center text-slate-600 font-thin text-[3vh]" routerLink="/">در حال انتقال به صفحه
+      اصلی...<strong>(الان برو 🏠).</strong>
+    </h2>
+  </div>
+</div>

@@ -35,11 +35,11 @@ export class ConfirmEmailComponent implements OnInit {
     console.log('err happnd', error.status);
 
     this.cnf_Stt = error.status;
-    if (error.status == this.CNF_Type.Duplicated) {
-      setTimeout(() => {
-        this.router.navigate(['/']);
-      }, 3000);
-    }
+
+    setTimeout(() => {
+      this.router.navigate(['/']);
+    }, 8000);
+
     return throwError('Something bad happened; please try again later.');
   }
 
@@ -55,7 +55,7 @@ export class ConfirmEmailComponent implements OnInit {
           this.cnf_Stt = this.CNF_Type.Confirmed;
           setTimeout(() => {
             this.router.navigate(['/']);
-          }, 3000);
+          }, 8000);
 
           // this.
           // console.log('stt:', stt);
