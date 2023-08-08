@@ -31,7 +31,7 @@ export class DashResolverService implements Resolve<{ dash: boolean | Dash }> {
         this.accountService.signOut();
         this.router.navigate(['/login']);
         this.notify.err('اکانت شما یافت نشد لطفا دوباره وارد شوید', 3000);
-        return throwError(error);
+        return throwError(() => new Error(error));
       }), // Navigate to users list at error
       take(1),
       map((results) => {

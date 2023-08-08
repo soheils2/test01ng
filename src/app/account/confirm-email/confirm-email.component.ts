@@ -40,7 +40,9 @@ export class ConfirmEmailComponent implements OnInit {
       this.router.navigate(['/']);
     }, 8000);
 
-    return throwError('Something bad happened; please try again later.');
+    return throwError(
+      () => new Error('Something bad happened; please try again later.')
+    );
   }
 
   ngOnInit() {
@@ -48,10 +50,8 @@ export class ConfirmEmailComponent implements OnInit {
       (params) => (this.vrToken = params.get('token'))
     );
     setTimeout(() => {
-      this.accountService
-        .confirmEmail(this.vrToken)
-        .pipe(catchError(this.handleError.bind(this)))
-        .subscribe((stt) => {
+      this.accountService.confirmEmail(this.vrToken).subscribe({
+        complete: () => {
           this.cnf_Stt = this.CNF_Type.Confirmed;
           setTimeout(() => {
             this.router.navigate(['/']);
@@ -59,7 +59,17 @@ export class ConfirmEmailComponent implements OnInit {
 
           // this.
           // console.log('stt:', stt);
-        });
+        },
+        error: (error) => {
+          // console.log('err happnd', error.status);
+
+          this.cnf_Stt = error.status;
+
+          setTimeout(() => {
+            this.router.navigate(['/']);
+          }, 8000);
+        },
+      });
     }, 1500);
   }
 }

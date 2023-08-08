@@ -32,9 +32,9 @@ export class AccountService {
       );
     } else if (error.status == 400) {
       // Model validation error, return validation messages.
-      return throwError(error.error);
+      return throwError(() => new Error(error.error));
     } else if (error.status == 401) {
-      return throwError('Username or password incorrect!');
+      return throwError(() => new Error('Username or password incorrect!'));
     }
 
     // return an observable with a user-facing error message
