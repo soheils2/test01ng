@@ -27,7 +27,9 @@ export class AccountService {
     if (error.error instanceof ErrorEvent) {
       // A client-side or network error occurred. Handle it accordingly.
       console.error('An error occurred:', error.error.message);
-      return throwError('Something bad happened; please try again later.');
+      return throwError(
+        () => new Error('Something bad happened; please try again later.')
+      );
     } else if (error.status == 400) {
       // Model validation error, return validation messages.
       return throwError(error.error);
@@ -36,7 +38,9 @@ export class AccountService {
     }
 
     // return an observable with a user-facing error message
-    return throwError('Something bad happened; please try again later.');
+    return throwError(
+      () => new Error('Something bad happened; please try again later.')
+    );
   }
 
   register(register: Register) {
@@ -47,12 +51,11 @@ export class AccountService {
       }),
     };
 
-    const url = window['apiUrl'] + '/api/register';
+    const url = window['baseUrl'] + '/api/register';
     // const url = "https://localhost:44374/api/Register";
 
-    return this.http
-      .post<Register>(url, register, httpOptions)
-      .pipe(catchError(this.handleError));
+    return this.http.post<Register>(url, register, httpOptions);
+    // .pipe(catchError(this.handleError));
     // .pipe(catchError(this.handleError('register', user)));
   }
 
