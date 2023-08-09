@@ -30,6 +30,8 @@ import { httpInterceptorProviders } from './core/http-interceptors';
 import { ConfirmEmailComponent } from './account/confirm-email/confirm-email.component';
 
 import { A11yModule } from '@angular/cdk/a11y';
+import { PasswordChangeComponent } from './users/password-change/password-change.component';
+import { UserDeleteComponent } from './users/user-delete/user-delete.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +43,8 @@ import { A11yModule } from '@angular/cdk/a11y';
     ConfirmPhoneComponent,
     RegisterComponent,
     ConfirmEmailComponent,
+    PasswordChangeComponent,
+    UserDeleteComponent,
   ],
   imports: [
     BrowserModule,

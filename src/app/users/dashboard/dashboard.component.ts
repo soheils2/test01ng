@@ -136,14 +136,16 @@ export class DashboardComponent implements OnInit, OnDestroy {
         this.accountService
           .updateUser(_dash)
           .pipe(takeUntil(this.onDestroy$))
-          .subscribe(
-            (createdUser) => {
+          .subscribe({
+            complete: () => {
+              console.log('completed');
+
               this.notify.success('تغییرات موفق', 3000);
               this.dashForm.markAsPristine(); // So that navigating away is allowed by the guard after saving
               this.router.navigate(['/login']);
             },
-            (error) => {
-              // console.log('err hpnd:', error);
+            error: (error) => {
+              console.log('err hpnd2:', error);
 
               if (error.hasOwnProperty('inUse')) {
                 // integrate into angular's validation if we have field validation
@@ -157,8 +159,11 @@ export class DashboardComponent implements OnInit, OnDestroy {
                 // if we have cross field validation then show the validation error at the top of the screen
                 this.errors.push(error['email']);
               }
-            }
-          );
+            },
+            next: (rsp) => {
+              console.log('next hpnd:', rsp);
+            },
+          });
       } else {
         this.notify.warn('بدون تغییر', 500);
       }
