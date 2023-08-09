@@ -43,6 +43,11 @@
 
         </mat-form-field>
 
+
+        <mat-checkbox name="isSuperUser" [(ngModel)]="credentials.isSuperUser" #adminCheck="ngModel">ورود به پنل
+          پشتیبانی</mat-checkbox>
+
+
         <button type="submit" mat-raised-button class="text-[2.5vh] font-bold mt-[2vh]" color="primary">ورود</button>
 
         <div class="flex w-100 justify-end mt-[3vh]">

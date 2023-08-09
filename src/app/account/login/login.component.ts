@@ -1,3 +1,4 @@
+import { PRESET_LoginRequest } from './../../shared/login-request.model';
 import { Component, OnInit, ViewChild } from '@angular/core';
 
 import {
@@ -16,8 +17,6 @@ import {
   Register,
   PRESET_RegisterRequest,
 } from 'src/app/shared/register.model';
-import { catchError, map, throwError } from 'rxjs';
-import { HttpErrorResponse } from '@angular/common/http';
 
 enum STTs {
   Login = 0,
@@ -46,12 +45,22 @@ export class LoginComponent implements OnInit {
   setSttState(_state: STTs) {
     this.sttState = _state;
   }
+  credentials = {
+    username: '',
+    password: '',
+    re_password: '',
+    isSuperUser: false,
+  };
 
   ngOnInit() {
-    this.credentials = { username: '', password: '', re_password: '' };
+    this.credentials = {
+      username: '',
+      password: '',
+      re_password: '',
+      isSuperUser: false,
+    };
     if (this.accountService.isAuthenticated) this.router.navigate(['/']);
   }
-  credentials = { username: '', password: '', re_password: '' };
 
   constructor(
     private notify: NotifyService,
@@ -61,19 +70,21 @@ export class LoginComponent implements OnInit {
 
   onLogin(_form: any) {
     this.submitAttempted = true;
-    console.warn('_form:', _form);
+    // console.warn('_form:', this.credentials.isSuperUser);
+
     if (_form.valid) {
       let loginVM: LoginRequest = {
+        ...PRESET_LoginRequest,
         email: this.credentials.username,
         password: this.credentials.password,
+        isSuperUser: this.credentials.isSuperUser,
       };
 
-      this.accountService.login(loginVM).subscribe(
-        (response) => {
+      this.accountService.login(loginVM).subscribe({
+        complete: () => {
           this.status = this.accountService.isAuthenticated
             ? 'Authenticated!'
             : 'Unauthenticated!';
-          this.message = response.message;
 
           if (this.accountService.isAuthenticated) {
             let redirect = this.accountService.redirectUrl
@@ -87,11 +98,10 @@ export class LoginComponent implements OnInit {
             }, 1600);
           }
         },
-        (error) => {
-          this.message = error;
-          this.notify.err(JSON.stringify(this.message));
-        }
-      );
+        error: (error) => {
+          this.notify.err('اطلاعات ورودی نادرست میباشد.');
+        },
+      });
     } //
     else {
       this.notify.warn('❗️ لطفا مقادیر وارد شده را بررسی نمایید');
