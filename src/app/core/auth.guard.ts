@@ -40,7 +40,9 @@ export class AuthGuard implements CanActivate, CanLoad {
 
     this.accountService.redirectUrl = url;
 
-    this.router.navigate(['/login']);
+    this.router.navigate([
+      this.accountService.role == 'support' ? '/support' : '/login',
+    ]);
     return false;
   }
 }

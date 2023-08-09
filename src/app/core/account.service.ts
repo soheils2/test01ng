@@ -11,8 +11,9 @@ import { throwError, of, Observable } from 'rxjs';
 import { LoginRequest } from '../shared/login-request.model';
 import { LoginResponse } from '../shared/login-response.model';
 import { AuthInfo } from '../shared/auth-info.model';
-import { ResetPassword } from '../shared/reset-password.model';
+
 import { Dash } from '../shared/dash-response.model';
+import { PageUsers } from '../shared/page-users.model';
 
 @Injectable({
   providedIn: 'root',
@@ -151,9 +152,8 @@ export class AccountService {
 
     const url = window['baseUrl'] + '/api/updatedash/';
 
-    return this.http
-      .put<Dash>(url, userVm, httpOptions)
-      .pipe(catchError(this.handleError));
+    return this.http.put<Dash>(url, userVm, httpOptions);
+    // .pipe(catchError(this.handleError));
   }
 
   private updateAuthInfo(response: LoginResponse) {
@@ -171,7 +171,7 @@ export class AccountService {
       this._email = '';
       this._role = '';
     }
-
+    if (this.role == 'support') this.redirectUrl = '/support';
     this.storeAuthInfo();
   }
 
@@ -217,43 +217,29 @@ export class AccountService {
     this.storeAuthInfo();
   }
 
-  forgotPassword(email: string) {
+  getPageUsers(): // pageNumber: number,
+  // pageSize: number,
+  // sortOrder: string,
+  // searchString: string
+  Observable<PageUsers> {
+    // const offset = (pageNumber - 1) * pageSize;
+    // const limit = pageSize;
+
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
       }),
+      // params: new HttpParams(),
+      // .set('offset', offset.toString())
+      // .set('limit', limit.toString())
+      // .set('sortOrder', sortOrder)
+      // .set('searchString', searchString),
     };
 
-    const url = window['baseUrl'] + '/api/forgot-password';
-    // const url = "https://localhost:44374/api/Login";
-
-    return this.http.post(url, { email: email }, httpOptions).pipe(
-      // retry(3),
-      shareReplay(),
-      // catchError(this.handleLoginError),
-      catchError(this.handleError)
-    );
-  }
-
-  resetPassword(resetPassword: ResetPassword) {
-    const httpOptions = {
-      headers: new HttpHeaders({
-        'Content-Type': 'application/json',
-      }),
-      params: new HttpParams().set(
-        'code',
-        encodeURIComponent(resetPassword.code)
-      ),
-    };
-
-    const url = window['baseUrl'] + '/api/reset-password';
-    // const url = "https://localhost:44374/api/Login";
-
-    return this.http.post(url, resetPassword, httpOptions).pipe(
-      // retry(3),
-      shareReplay(),
-      // catchError(this.handleLoginError),
-      catchError(this.handleError)
-    );
+    const url = window['baseUrl'] + '/api/getusers';
+    // const url = "https://localhost:44374/api/UserManagement/Users";
+    return this.http
+      .get<PageUsers>(url, httpOptions)
+      .pipe(catchError(this.handleError));
   }
 }

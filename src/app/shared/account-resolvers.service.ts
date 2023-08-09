@@ -11,6 +11,7 @@ import { Observable, of, forkJoin, throwError } from 'rxjs';
 import { take, map, catchError } from 'rxjs/operators';
 import { Dash } from './dash-response.model';
 import { NotifyService } from './notify.service';
+import { PageUsers } from './page-users.model';
 
 @Injectable({
   providedIn: 'root',
@@ -25,7 +26,7 @@ export class DashResolverService implements Resolve<{ dash: boolean | Dash }> {
   resolve(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
-  ): Observable<{ dash: boolean | Dash }> {
+  ): Observable<{ dash: boolean | Dash }> | Observable<never> {
     return this.accountService.getDashboard().pipe(
       catchError((error) => {
         this.accountService.signOut();
@@ -39,5 +40,26 @@ export class DashResolverService implements Resolve<{ dash: boolean | Dash }> {
         return { dash: results };
       })
     );
+  }
+}
+
+@Injectable({
+  providedIn: 'root',
+})
+export class UserListResolverService implements Resolve<PageUsers> {
+  constructor(private accountService: AccountService) {}
+
+  resolve(
+    route: ActivatedRouteSnapshot,
+    state: RouterStateSnapshot
+  ): Observable<PageUsers> | Observable<never> {
+    // const page = +route.queryParamMap.get('page') || 1;
+    // const pageSize = +route.queryParamMap.get('pageSize') || 10;
+    // const sortOrder = route.queryParamMap.get('sortOrder') || 'Fname';
+    // const searchString = route.queryParamMap.get('searchString') || '';
+
+    return this.accountService
+      .getPageUsers(/*page, pageSize, sortOrder, searchString*/)
+      .pipe(take(1));
   }
 }

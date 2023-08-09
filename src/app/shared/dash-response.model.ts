@@ -1,5 +1,6 @@
 export class Dash {
-  rowVersion: string;
+  rowVersion?: string;
+  _id: string;
   email: string;
   firstName: string;
   lastName: string;

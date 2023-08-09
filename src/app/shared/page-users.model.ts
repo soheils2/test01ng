@@ -1,6 +1,6 @@
-import { User } from './user.model';
+import { Dash } from './dash-response.model';
 
 export class PageUsers {
   totalUsers: number;
-  users: User[];
+  users: Dash[];
 }
