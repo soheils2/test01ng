@@ -4,422 +4,391 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>موبایل آریا | لوازم جانبی موبایل در شهرک کاوه اصفهان</title>
-<meta name="description" content="موبایل آریا؛ شارژر، کابل، هندزفری، ایرپاد، قاب گوشی، پاوربانک و اسپیکر در شهرک کاوه اصفهان. بیا، ببین، دست بزن، مطمئن بخر.">
-<meta name="theme-color" content="#2237ff">
+<meta name="description" content="موبایل آریا؛ شارژر، کابل، ایرپاد، قاب گوشی و پاوربانک در شهرک کاوه اصفهان. ببین، دست بزن و مطمئن بخر.">
+<meta name="theme-color" content="#0b0b0d">
 <style>
 @font-face{font-family:Vazirmatn;src:url(assets/fonts/Vazirmatn.woff2) format("woff2");font-weight:100 900;font-display:swap}
-@font-face{font-family:Lalezar;src:url(assets/fonts/lalezar-arabic-400-normal.woff2) format("woff2");font-display:swap;unicode-range:U+0600-06FF,U+200C-200E,U+2010-2011,U+204F,U+2E41,U+FB50-FDFF,U+FE80-FEFC}
-@font-face{font-family:Lalezar;src:url(assets/fonts/lalezar-latin-400-normal.woff2) format("woff2");font-display:swap;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
-
 :root{
-  --blue:#2237ff; --blue2:#1a2bd6; --cream:#f5f0e6; --ink:#0e0e12;
-  --orange:#ff4f1f; --lime:#cfff3d; --pink:#ff8fb8; --sky:#7fd4ff; --sun:#ffd23f;
+  --bg:#0b0b0d; --bg2:#141417; --paper:#f4f1ea; --ink:#101012; --mute:#8d8d95;
+  --amber:#ffb11b; --amber2:#ff7a1a; --line:rgba(255,255,255,.12); --tint:255,177,27;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{-webkit-text-size-adjust:100%;overflow-x:hidden}
-html.lock{overflow:hidden}
-body{font-family:Vazirmatn,Tahoma,sans-serif;background:var(--cream);color:var(--ink);line-height:1.9;overflow-x:clip}
-h1,h2,h3,.d{font-family:Lalezar,Vazirmatn,sans-serif;font-weight:400;line-height:1.08}
+html.lenis,html.lenis body{height:auto}
+.lenis.lenis-smooth{scroll-behavior:auto!important}
+.lenis.lenis-stopped{overflow:hidden}
+body{font-family:Vazirmatn,Tahoma,sans-serif;background:var(--bg);color:#f4f1ea;line-height:1.95;overflow-x:clip;-webkit-font-smoothing:antialiased}
+h1,h2,h3{font-weight:800;line-height:1.4;letter-spacing:-.01em}
 a{color:inherit;text-decoration:none}
-button{font:inherit;color:inherit}
-.wrap{width:min(1180px,100% - 40px);margin-inline:auto}
-::selection{background:var(--ink);color:var(--lime)}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 svg{display:block}
+.wrap{width:min(1200px,100% - 48px);margin-inline:auto}
+::selection{background:var(--amber);color:#000}
 
 /* ============ Loader ============ */
-.loader{position:fixed;inset:0;z-index:1000;display:grid;place-items:center;pointer-events:all;animation:safe 0s 6s forwards}
+.loader{position:fixed;inset:0;z-index:1000;background:var(--bg);display:grid;place-items:center;animation:safe 0s 6s forwards}
 @keyframes safe{to{visibility:hidden}}
-.loader .half{position:absolute;inset-inline:0;height:50.5%;background:var(--ink)}
-.loader .top{top:0}.loader .bot{bottom:0}
-.ld{position:relative;z-index:2;text-align:center;color:var(--cream)}
-.ld .bat{direction:ltr;width:210px;height:96px;border:8px solid var(--cream);border-radius:22px;position:relative;margin:0 auto 20px;padding:8px}
-.ld .bat::after{content:"";position:absolute;inset-inline-end:-22px;top:26px;width:12px;height:28px;background:var(--cream);border-radius:0 6px 6px 0}
-.ld .fillbar{height:100%;width:0;background:var(--lime);border-radius:8px}
-.ld .pct{font-family:Lalezar;font-size:4.4rem;line-height:1;letter-spacing:.02em}
-.ld small{opacity:.7;display:block;margin-top:6px}
+.ld{text-align:center}
+.ld .mark{font-size:clamp(3rem,10vw,6rem);font-weight:900;display:flex;gap:.08em;justify-content:center;overflow:hidden;line-height:1.5}
+.ld .mark span{display:inline-block}
+.ld .line{width:min(260px,60vw);height:2px;background:var(--line);margin:14px auto 12px;overflow:hidden;border-radius:2px}
+.ld .line i{display:block;height:100%;width:100%;background:var(--amber);transform-origin:right;transform:scaleX(0)}
+.ld small{color:var(--mute);font-size:.85rem}
 
-/* ============ Top bar ============ */
-.bar{position:fixed;inset-inline:0;top:0;z-index:60;padding:14px 0;transition:transform .4s}
-.bar .wrap{display:flex;align-items:center;justify-content:space-between}
-.logo{font-family:Lalezar;font-size:1.9rem;color:var(--cream);display:flex;align-items:center;gap:10px;mix-blend-mode:difference}
-.logo i{width:16px;height:16px;border-radius:50%;background:var(--lime);display:block;animation:ping 2s infinite}
-@keyframes ping{0%{box-shadow:0 0 0 0 rgba(207,255,61,.8)}100%{box-shadow:0 0 0 18px rgba(207,255,61,0)}}
-.pill{display:inline-flex;align-items:center;gap:8px;padding:11px 24px;border-radius:999px;background:var(--lime);color:var(--ink);font-weight:800;border:3px solid var(--ink);box-shadow:4px 4px 0 var(--ink);cursor:pointer;transition:background .2s,box-shadow .2s}
-.pill:hover{transform:translate(2px,2px);box-shadow:2px 2px 0 var(--ink)}
-.pill.o{background:var(--orange);color:#fff}
-.pill.w{background:var(--cream)}
-.pill.big{padding:16px 36px;font-size:1.15rem}
-
-/* ============ Cursor ============ */
-.cur{position:fixed;top:0;left:0;width:18px;height:18px;margin:-9px 0 0 -9px;border-radius:50%;background:#fff;mix-blend-mode:difference;z-index:900;pointer-events:none;display:none}
-@media(hover:hover) and (pointer:fine){.cur{display:block}}
+/* ============ Nav ============ */
+.nav{position:fixed;top:16px;inset-inline:0;z-index:80;display:flex;justify-content:center;pointer-events:none}
+.nav .in{pointer-events:auto;display:flex;align-items:center;gap:26px;padding:8px 10px 8px 22px;border-radius:999px;background:rgba(16,16,19,.78);backdrop-filter:blur(18px) saturate(1.4);-webkit-backdrop-filter:blur(18px) saturate(1.4);border:1px solid var(--line)}
+.nav .logo{font-weight:900;font-size:1.15rem;display:flex;align-items:center;gap:9px;padding-inline-start:12px}
+.nav .logo i{width:9px;height:9px;border-radius:50%;background:var(--amber);box-shadow:0 0 14px var(--amber)}
+.nav .ls{display:flex;gap:22px;font-size:.9rem;color:#c9c9cf}
+.nav .ls a{transition:color .2s}.nav .ls a:hover{color:#fff}
+.btn{position:relative;display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:12px 26px;border-radius:999px;font-weight:700;font-size:.95rem;background:var(--amber);color:#1a1100;transition:box-shadow .3s,background .3s;will-change:transform}
+.btn:hover{box-shadow:0 0 0 6px rgba(255,177,27,.2),0 10px 40px rgba(255,177,27,.35)}
+.btn.ghost{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.28)}
+.btn.ghost:hover{background:rgba(255,255,255,.08);box-shadow:none}
+.btn.sm{padding:9px 20px;font-size:.88rem}
+.btn.dark{background:var(--ink);color:#fff}
+.btn.lg{padding:17px 38px;font-size:1.05rem}
 
 /* ============ Hero ============ */
-.hero{position:relative;min-height:100vh;background:var(--blue);color:var(--cream);overflow:hidden;
-  background-image:radial-gradient(circle at center,rgba(0,0,40,.45) 0 3.5px,transparent 4px);background-size:38px 38px}
-.hero::after{content:"";position:absolute;inset:0;background:radial-gradient(circle at var(--mx,50%) var(--my,40%),rgba(255,255,255,.18),transparent 45%);pointer-events:none}
-.giant{position:absolute;inset-inline:0;bottom:-6vw;text-align:center;font-family:Lalezar;font-size:34vw;line-height:.8;color:transparent;-webkit-text-stroke:2px rgba(245,240,230,.16);pointer-events:none;user-select:none;white-space:nowrap}
-.hero .wrap{position:relative;z-index:3;min-height:100vh;display:grid;grid-template-columns:1fr 1.05fr;align-items:center;gap:20px;padding-top:80px;padding-bottom:50px}
-.loc{display:inline-flex;align-items:center;gap:10px;font-weight:700;padding:5px 16px;border:2px solid var(--cream);border-radius:999px;margin-bottom:22px;font-size:.95rem}
-.loc::before{content:"";width:10px;height:10px;border-radius:50%;background:var(--lime);animation:ping 2s infinite}
-.hero h1{font-size:clamp(3rem,7.2vw,6.4rem)}
-.hero h1 .row{display:block;overflow:hidden;padding-block:.06em}
-.hero h1 .row>span{display:inline-block}
-.roller{display:inline-block;vertical-align:bottom;height:1.12em;overflow:hidden;background:var(--lime);color:var(--ink);padding-inline:.22em;border-radius:.16em;transform:rotate(-2.5deg);margin-inline:.1em;border:3px solid var(--ink);box-shadow:6px 6px 0 var(--ink)}
-.roller ul{list-style:none;display:block}
-.roller li{height:1.12em;line-height:1.12em;white-space:nowrap;text-align:center}
-.scribble{position:relative;display:inline-block}
-.scribble svg{position:absolute;inset-inline:-3%;bottom:-.12em;width:106%;height:.28em;overflow:visible}
-.scribble path{fill:none;stroke:var(--orange);stroke-width:10;stroke-linecap:round;stroke-dasharray:500;stroke-dashoffset:500}
-.lead{font-size:1.15rem;max-width:36ch;margin:22px 0 30px}
-.cta{display:flex;gap:14px;flex-wrap:wrap}
-.cue{margin-top:34px;display:flex;align-items:center;gap:10px;font-size:.85rem;opacity:.8}
-.cue i{display:block;width:2px;height:34px;background:linear-gradient(var(--lime),transparent);animation:cue 1.6s infinite;transform-origin:top}
-@keyframes cue{0%{transform:scaleY(0)}60%{transform:scaleY(1)}100%{transform:scaleY(1);opacity:0}}
+.hero{position:relative;min-height:100svh;overflow:hidden;background:
+  radial-gradient(ellipse 70% 50% at 50% 0%,#2a1f0c 0%,transparent 70%),var(--bg);display:flex;flex-direction:column;align-items:center;padding-top:130px}
+.cone{position:absolute;top:-6%;left:50%;width:min(1000px,130vw);height:118%;transform:translateX(-50%);
+  background:linear-gradient(rgba(255,214,140,.34),rgba(255,214,140,.07) 70%,transparent);
+  clip-path:polygon(41% 0,59% 0,100% 100%,0 100%);filter:blur(26px);pointer-events:none}
+.dust{position:absolute;inset:0;pointer-events:none}
+.dust i{position:absolute;left:0;top:0;width:3px;height:3px;border-radius:50%;background:rgba(255,226,170,.8);box-shadow:0 0 8px rgba(255,200,100,.9)}
+.hero .tx{position:relative;z-index:5;text-align:center;max-width:860px;padding-inline:20px}
+.pillk{display:inline-flex;align-items:center;gap:10px;font-size:.85rem;color:#d8d3c6;border:1px solid var(--line);padding:5px 16px;border-radius:999px;background:rgba(255,255,255,.04);margin-bottom:26px}
+.pillk::before{content:"";width:7px;height:7px;border-radius:50%;background:#52e08a;box-shadow:0 0 10px #52e08a}
+.hero h1{font-size:clamp(2.5rem,6.6vw,5.6rem);font-weight:900}
+.hero h1 .ln{display:block;overflow:hidden;padding-block:.05em}
+.hero h1 .ln>span{display:inline-block}
+.hero h1 em{font-style:normal;background:linear-gradient(100deg,var(--amber),var(--amber2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p.lead{color:#b9b6ad;font-size:1.15rem;max-width:34em;margin:20px auto 30px}
+.hero .cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
 
-/* قطعه‌های آویزان */
-.stage{position:relative;height:min(640px,78vh)}
-.item{position:absolute;left:var(--x);top:var(--y);width:var(--w,150px);cursor:grab;touch-action:none;z-index:var(--z,1)}
-.item:active{cursor:grabbing}
-.sw{transform-origin:50% calc(var(--len) * -1);position:relative;padding-top:0}
-.sw::before{content:"";position:absolute;left:50%;bottom:100%;height:var(--len);width:3px;margin-left:-1.5px;background:rgba(245,240,230,.75)}
-.sw::after{content:"";position:absolute;left:50%;bottom:calc(100% + var(--len) - 6px);width:14px;height:14px;margin-left:-7px;border-radius:50%;background:var(--ink);border:3px solid var(--cream)}
-.sw svg{width:100%;height:auto;filter:drop-shadow(0 12px 0 rgba(0,0,40,.35))}
-.hint{position:absolute;inset-inline:0;bottom:-8px;text-align:center;font-size:.8rem;opacity:.75}
-.badge{position:absolute;z-index:4;width:124px;height:124px;bottom:26px;left:40%;animation:spin 16s linear infinite;pointer-events:none}
+.stage{position:relative;z-index:4;width:min(760px,94vw);height:min(470px,56vw);margin-top:20px;flex:none}
+.stage .floor{position:absolute;left:50%;bottom:6%;width:62%;height:14%;transform:translateX(-50%);background:radial-gradient(ellipse,rgba(255,214,140,.45),transparent 70%);filter:blur(10px)}
+.stage .o{position:absolute;filter:drop-shadow(0 30px 40px rgba(0,0,0,.55))}
+.stage .o svg{width:100%;height:auto}
+.o.main{left:50%;top:6%;width:min(380px,50vw);margin-left:calc(min(380px,50vw) / -2)}
+.o.a{left:3%;top:30%;width:min(150px,20vw)}
+.o.b{right:2%;top:12%;width:min(170px,22vw)}
+.o.c{left:14%;bottom:2%;width:min(130px,17vw)}
+.o.d{right:12%;bottom:0;width:min(190px,25vw)}
+.scrollcue{position:absolute;bottom:22px;left:50%;z-index:6;width:22px;height:36px;border:1.5px solid rgba(255,255,255,.4);border-radius:12px;margin-left:-11px}
+.scrollcue::after{content:"";position:absolute;top:6px;left:50%;width:3px;height:7px;margin-left:-1.5px;border-radius:2px;background:var(--amber);animation:cue 1.6s infinite}
+@keyframes cue{0%{transform:translateY(0);opacity:1}100%{transform:translateY(12px);opacity:0}}
+
+/* ============ Brands ============ */
+.brands{background:var(--bg);border-block:1px solid var(--line);overflow:hidden;padding:26px 0;position:relative;z-index:5}
+.brands .t{display:flex;width:max-content;gap:70px;direction:ltr;font-weight:800;font-size:clamp(1.6rem,3vw,2.4rem);letter-spacing:.06em;white-space:nowrap;color:transparent;-webkit-text-stroke:1px rgba(255,255,255,.4)}
+.brands .t span{transition:color .3s}.brands .t span:hover{color:var(--amber);-webkit-text-stroke-color:var(--amber)}
+
+/* ============ Statement (light) ============ */
+.stmt{background:var(--paper);color:var(--ink);padding:150px 0}
+.stmt .k{font-weight:700;color:#b36b00;margin-bottom:18px;display:flex;align-items:center;gap:12px}
+.stmt .k::before{content:"";width:34px;height:2px;background:currentColor}
+.stmt p{font-size:clamp(1.7rem,4.2vw,3.5rem);font-weight:800;line-height:1.7;max-width:24em}
+.stmt .w{display:inline-block;opacity:.16}
+.stmt .hl{color:#c2570a}
+
+/* ============ Tour (pinned) ============ */
+.tour{position:relative;background:var(--bg);overflow:hidden}
+.tour::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 50% 60% at 28% 50%,rgba(var(--tint),.16),transparent 70%);pointer-events:none}
+.tpin{height:100vh;display:flex;align-items:center}
+.tgrid{display:grid;grid-template-columns:1fr 1.1fr;gap:40px;align-items:center;width:100%}
+.tlist{list-style:none;position:relative;padding-inline-end:26px}
+.tlist::before{content:"";position:absolute;inset-inline-end:0;top:0;bottom:0;width:2px;background:var(--line)}
+.tlist .bar{position:absolute;inset-inline-end:0;top:0;width:2px;height:100%;background:var(--amber);transform-origin:top;transform:scaleY(0)}
+.tlist li{padding:14px 0;opacity:.32;transition:opacity .5s}
+.tlist li.on{opacity:1}
+.tlist .h{display:flex;align-items:baseline;gap:16px}
+.tlist .n{font-weight:700;color:var(--amber);font-size:.95rem;min-width:2ch}
+.tlist h3{font-size:clamp(1.8rem,3.6vw,3rem)}
+.tlist .d{overflow:hidden;max-height:0;opacity:0;transition:max-height .6s,opacity .6s}
+.tlist li.on .d{max-height:220px;opacity:1}
+.tlist .d p{color:#b9b6ad;max-width:30em;padding:6px 0 4px 0;margin-inline-start:2.8ch}
+.tlist .chips{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0 0 2.8ch}
+.tlist .chips span{font-size:.8rem;border:1px solid var(--line);border-radius:999px;padding:0 12px;color:#d3d0c7}
+.tlist .mini{display:none}
+.tstage{position:relative;height:min(560px,70vh)}
+.tstage .pp{position:absolute;inset:0;display:grid;place-items:center;visibility:hidden}
+.tstage .pp svg{width:min(430px,38vw);height:auto;filter:drop-shadow(0 40px 50px rgba(0,0,0,.6))}
+.tstage .ring{position:absolute;left:50%;top:50%;width:min(520px,46vw);aspect-ratio:1;margin:calc(min(520px,46vw) / -2) 0 0 calc(min(520px,46vw) / -2);border-radius:50%;border:1px dashed rgba(255,255,255,.16);animation:spin 40s linear infinite}
+.tstage .ring.r2{width:min(360px,32vw);margin:calc(min(360px,32vw) / -2) 0 0 calc(min(360px,32vw) / -2);animation-direction:reverse;border-style:solid;border-color:rgba(var(--tint),.2)}
 @keyframes spin{to{transform:rotate(360deg)}}
-.badge text{font-family:Lalezar;font-size:15px;fill:var(--ink);letter-spacing:2px}
 
-/* ============ Marquee ============ */
-.mq{background:var(--orange);color:var(--ink);border-block:4px solid var(--ink);overflow:hidden;padding:12px 0;position:relative;z-index:5;will-change:transform}
-.mq.dark{background:var(--ink);color:var(--lime)}
-.mq .t{display:flex;width:max-content;gap:50px;direction:ltr;font-family:Lalezar;font-size:clamp(1.6rem,3.4vw,2.5rem);white-space:nowrap}
-.mq b{font-weight:400;opacity:.6}
-
-/* ============ Manifesto (word scrub) ============ */
-.mani{padding:140px 0 120px;background:var(--cream)}
-.mani .k{font-weight:800;color:var(--orange);margin-bottom:14px}
-.mani p{font-family:Lalezar;font-size:clamp(2rem,5.2vw,4.4rem);line-height:1.35;max-width:22em}
-.mani .w{opacity:.14;display:inline-block;transition:color .3s}
-.mani .hl{color:var(--blue)}
-.mani .hl2{color:var(--orange)}
-
-/* ============ Aisles ============ */
-.aisles{position:relative;background:var(--ink);color:var(--cream);overflow:hidden}
-.aisles .head{position:absolute;z-index:5;top:26px;inset-inline:0;pointer-events:none}
-.aisles .head .wrap{display:flex;justify-content:space-between;align-items:center;font-weight:800}
-.aisles .prog{width:min(260px,40vw);height:6px;background:rgba(245,240,230,.2);border-radius:6px;overflow:hidden}
-.aisles .prog i{display:block;height:100%;background:var(--lime);transform-origin:right;transform:scaleX(0)}
-.pin{height:100vh;position:relative;overflow:hidden}
-.track{position:absolute;right:0;top:0;height:100%;display:flex;direction:rtl;will-change:transform}
-.panel{flex:0 0 100vw;width:100vw;height:100%;display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:30px;padding:90px max(24px,7vw) 40px;position:relative;background:var(--bg)}
-.panel .n{position:absolute;inset-inline-start:4vw;bottom:-4vw;font-family:Lalezar;font-size:34vw;line-height:.8;color:transparent;-webkit-text-stroke:3px rgba(14,14,18,.2);pointer-events:none}
-.panel .txt{position:relative;z-index:2;color:var(--ink)}
-.panel .tag{display:inline-block;background:var(--ink);color:var(--cream);padding:2px 16px;border-radius:999px;font-weight:800;font-size:.9rem;margin-bottom:16px}
-.panel h3{font-size:clamp(2.6rem,6vw,5.2rem);margin-bottom:14px}
-.panel p{font-size:1.15rem;max-width:30ch;margin-bottom:10px}
-.panel ul{list-style:none;display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
-.panel li{border:2px solid var(--ink);border-radius:999px;padding:0 14px;font-size:.88rem;font-weight:700;background:rgba(255,255,255,.35)}
-.panel .prod{position:relative;z-index:2;display:grid;place-items:center}
-.panel .prod svg{width:min(420px,36vw);height:auto;filter:drop-shadow(14px 16px 0 rgba(14,14,18,.9))}
+/* ============ Bento (light) ============ */
+.bento{background:var(--paper);color:var(--ink);padding:140px 0 120px}
+.sec-k{font-weight:700;color:#b36b00;display:flex;align-items:center;gap:12px;margin-bottom:12px}
+.sec-k::before{content:"";width:34px;height:2px;background:currentColor}
+.bento h2{font-size:clamp(2.2rem,5vw,4rem);max-width:15em}
+.bg{display:grid;grid-template-columns:repeat(6,1fr);grid-auto-rows:minmax(190px,auto);gap:18px;margin-top:50px}
+.bc{position:relative;border-radius:28px;padding:30px;background:#fff;border:1px solid rgba(16,16,18,.08);overflow:hidden;display:flex;flex-direction:column;justify-content:space-between;--sx:50%;--sy:50%}
+.bc::before{content:"";position:absolute;inset:0;background:radial-gradient(300px circle at var(--sx) var(--sy),rgba(255,177,27,.22),transparent 60%);opacity:0;transition:opacity .3s;pointer-events:none}
+.bc:hover::before{opacity:1}
+.bc.dk{background:var(--ink);color:#f4f1ea}
+.bc.am{background:var(--amber);color:#201400}
+.bc .big{font-size:clamp(3.4rem,7vw,6rem);font-weight:900;line-height:1.1}
+.bc h3{font-size:1.5rem;margin-bottom:4px}
+.bc p{opacity:.72;max-width:26em}
+.s2{grid-column:span 2}.s3{grid-column:span 3}.s4{grid-column:span 4}.r2{grid-row:span 2}
+.bc .ico{width:46px;height:46px;stroke:currentColor;fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
 
 /* ============ Finder ============ */
-.finder{background:var(--lime);padding:110px 0;border-block:4px solid var(--ink);position:relative;overflow:hidden}
-.finder .k{font-weight:800}
-.finder h2{font-size:clamp(2.6rem,6vw,5rem);margin:6px 0 10px}
-.finder .grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start;margin-top:30px}
-.qs .step{margin-bottom:26px}
-.qs b{display:block;font-size:1.1rem;margin-bottom:10px}
-.chips{display:flex;gap:10px;flex-wrap:wrap}
-.chip{padding:10px 22px;border-radius:999px;background:var(--cream);border:3px solid var(--ink);font-weight:700;font-size:1rem;cursor:pointer;box-shadow:4px 4px 0 var(--ink);transition:background .15s,color .15s,box-shadow .15s}
-.chip:hover{transform:translate(2px,2px);box-shadow:2px 2px 0 var(--ink)}
-.chip.sel{background:var(--ink);color:var(--lime);transform:translate(4px,4px);box-shadow:0 0 0 var(--ink)}
-.ans{background:var(--cream);border:4px solid var(--ink);border-radius:24px;box-shadow:10px 10px 0 var(--ink);padding:28px;min-height:280px}
-.ans .ph{opacity:.55;display:grid;place-items:center;height:220px;text-align:center}
-.ans h3{font-size:2rem;margin-bottom:10px}
-.ans ul{list-style:none;display:grid;gap:10px;margin:0 0 18px}
-.ans li{display:flex;gap:12px;align-items:center;background:#fff;border:2px solid var(--ink);border-radius:14px;padding:10px 14px;font-weight:600}
-.ans li::before{content:"✓";display:grid;place-items:center;width:26px;height:26px;border-radius:50%;background:var(--orange);color:#fff;flex:none;font-size:.9rem}
-.ans small{display:block;opacity:.7;margin-bottom:14px}
-
-/* ============ Numbers ============ */
-.nums{padding:120px 0;background:var(--cream)}
-.nums .row{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:36px}
-.num{border:4px solid var(--ink);border-radius:26px;padding:28px;background:#fff;box-shadow:8px 8px 0 var(--ink)}
-.num:nth-child(2){background:var(--sky)}.num:nth-child(3){background:var(--pink)}
-.num b{font-family:Lalezar;font-size:clamp(4rem,9vw,7rem);line-height:1;display:block}
-.num span{font-weight:700}
-.nums h2{font-size:clamp(2.4rem,5.5vw,4.4rem);max-width:14em}
-
-/* ============ Promise ============ */
-.why{background:var(--blue);color:var(--cream);padding:120px 0;background-image:radial-gradient(circle at center,rgba(0,0,40,.45) 0 3.5px,transparent 4px);background-size:38px 38px}
-.why h2{font-size:clamp(2.4rem,5.5vw,4.6rem);margin-bottom:40px}
-.why .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
-.why .c{background:var(--cream);color:var(--ink);border:4px solid var(--ink);border-radius:26px;padding:28px;box-shadow:8px 8px 0 var(--ink)}
-.why .c b{font-family:Lalezar;font-size:3.6rem;color:var(--orange);line-height:1;display:block}
-.why .c h3{font-size:1.9rem;margin:6px 0}
+.finder{background:var(--bg);padding:140px 0;border-top:1px solid var(--line);position:relative;overflow:hidden}
+.finder::before{content:"";position:absolute;inset-inline-start:-10%;top:-20%;width:60%;height:140%;background:radial-gradient(ellipse,rgba(255,177,27,.12),transparent 65%);pointer-events:none}
+.finder h2{font-size:clamp(2.2rem,5vw,4rem)}
+.finder .sub{color:#b9b6ad;max-width:32em;margin-top:6px}
+.fg{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-top:44px;align-items:start;position:relative}
+.step{margin-bottom:30px}
+.step b{display:block;margin-bottom:12px;color:#d8d3c6;font-weight:600}
+.chips2{display:flex;gap:10px;flex-wrap:wrap}
+.chip{padding:11px 22px;border-radius:14px;border:1px solid var(--line);background:rgba(255,255,255,.03);color:#e8e5dc;transition:background .2s,border-color .2s,color .2s}
+.chip:hover{border-color:rgba(255,177,27,.6)}
+.chip.sel{background:var(--amber);border-color:var(--amber);color:#1a1100;font-weight:700}
+.ans{border-radius:28px;border:1px solid var(--line);background:linear-gradient(160deg,rgba(255,255,255,.06),rgba(255,255,255,.02));padding:30px;min-height:290px}
+.ans .ph{display:grid;place-items:center;height:230px;color:var(--mute);text-align:center}
+.ans h3{font-size:1.6rem;margin-bottom:14px}
+.ans ul{list-style:none;display:grid;gap:10px;margin-bottom:18px}
+.ans li{display:flex;gap:12px;align-items:center;padding:12px 16px;border-radius:14px;background:rgba(255,255,255,.05);border:1px solid var(--line)}
+.ans li::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--amber);box-shadow:0 0 10px var(--amber);flex:none}
+.ans small{display:block;color:var(--mute);margin-bottom:16px}
 
 /* ============ Contact ============ */
-.contact{background:var(--cream);padding:120px 0 40px}
-.contact h2{font-size:clamp(2.6rem,6vw,5rem)}
-.contact .k{font-weight:800;color:var(--orange)}
-.cg{display:grid;grid-template-columns:1fr 1.2fr;gap:36px;margin-top:34px}
-.info{background:#fff;border:4px solid var(--ink);border-radius:26px;box-shadow:8px 8px 0 var(--ink);padding:28px}
-.info dl{display:grid;gap:16px;margin-bottom:22px}
-.info dt{font-size:.8rem;color:var(--orange);font-weight:800}
+.contact{background:var(--paper);color:var(--ink);padding:140px 0 60px}
+.contact h2{font-size:clamp(2.6rem,7vw,6rem);font-weight:900;line-height:1.3}
+.contact h2 em{font-style:normal;color:#c2570a}
+.contact .lead{max-width:30em;opacity:.75;margin-top:8px}
+.cg{display:grid;grid-template-columns:1fr 1.15fr;gap:26px;margin-top:50px}
+.info{border-radius:28px;background:#fff;border:1px solid rgba(16,16,18,.08);padding:32px;display:flex;flex-direction:column;justify-content:space-between;gap:26px}
+.info dl{display:grid;gap:18px}
+.info dt{font-size:.8rem;font-weight:700;color:#b36b00}
 .info dd{font-size:1.1rem;font-weight:600}
-.acts{display:flex;gap:12px;flex-wrap:wrap}
-.map{border:4px solid var(--ink);border-radius:26px;box-shadow:8px 8px 0 var(--ink);overflow:hidden;min-height:380px;background:#ddd}
-.map iframe{width:100%;height:100%;min-height:380px;border:0;display:block}
-.plugline{margin:90px 0 0;position:relative}
-.plugline svg{width:100%;height:auto;overflow:visible}
-.plugline .cb{fill:none;stroke-linecap:round}
-.plugline .spark{opacity:0;transform-box:fill-box;transform-origin:center}
-.final{text-align:center;padding:0 0 100px}
-.final h2{font-size:clamp(2.6rem,7vw,6rem)}
-.final h2 mark{background:var(--lime);padding:0 .2em;border-radius:.15em;color:var(--ink)}
-footer{background:var(--ink);color:rgba(245,240,230,.7);padding:24px 0;text-align:center;font-size:.85rem}
+.acts{display:flex;gap:10px;flex-wrap:wrap}
+.map{position:relative;border-radius:28px;overflow:hidden;min-height:400px;background:#e4dfd3}
+.map iframe{position:absolute;inset:0;width:100%;height:100%;border:0;filter:grayscale(.85) contrast(1.05)}
+.close{margin-top:110px;text-align:center;overflow:hidden}
+.close .huge{font-weight:900;font-size:clamp(5rem,26vw,21rem);line-height:1.1;color:transparent;-webkit-text-stroke:2px rgba(16,16,18,.18);letter-spacing:-.02em;white-space:nowrap;user-select:none}
+footer{background:var(--paper);color:rgba(16,16,18,.55);padding:26px 0 40px;text-align:center;font-size:.85rem;border-top:1px solid rgba(16,16,18,.1)}
 .fab{display:none}
 
 /* ============ Mobile ============ */
 @media(max-width:900px){
-  .hero .wrap{grid-template-columns:1fr;padding-top:96px}
-  .stage{height:430px;margin-top:6px}
-  .item{--w:104px!important}
-  .badge{width:96px;height:96px;bottom:10px;left:auto;right:10px}
-  .pin{height:auto}
-  .aisles .head{position:static;padding:30px 0 0}
-  .track{position:static;display:block}
-  .panel{flex:none;width:100%;height:auto;min-height:88vh;grid-template-columns:1fr;padding:50px 24px}
-  .panel .prod svg{width:min(280px,70vw)}
-  .panel .n{font-size:60vw}
-  .finder .grid,.cg,.why .cards,.nums .row{grid-template-columns:1fr}
-  .fab{display:flex;position:fixed;bottom:14px;inset-inline-start:14px;z-index:70}
-  .ld .pct{font-size:3.4rem}
+  .nav .ls{display:none}.nav .in{gap:12px}
+  .hero{padding-top:110px}
+  .stage{height:70vw}
+  .tpin{height:auto;display:block;padding:100px 0}
+  .tgrid{grid-template-columns:1fr}
+  .tstage{display:none}
+  .tlist li{opacity:1;padding:26px 0;border-bottom:1px solid var(--line)}
+  .tlist .d{max-height:none;opacity:1}
+  .tlist .d p,.tlist .chips{margin-inline-start:0}
+  .tlist{padding-inline-end:0}.tlist::before,.tlist .bar{display:none}
+  .tlist .mini{display:block;width:200px;margin:14px auto 0;filter:drop-shadow(0 24px 30px rgba(0,0,0,.6))}
+  .bg{grid-template-columns:1fr 1fr}
+  .s2,.s3,.s4{grid-column:span 2}.r2{grid-row:auto}
+  .bc{min-height:190px}
+  .fg,.cg{grid-template-columns:1fr}
+  .map{min-height:320px}
+  .stmt,.bento,.finder{padding-block:90px}
+  .fab{display:flex;position:fixed;bottom:16px;inset-inline:16px;z-index:70;box-shadow:0 10px 30px rgba(0,0,0,.4)}
 }
-@media(prefers-reduced-motion:reduce){
-  .loader{display:none}
-  *{animation:none!important}
-  .mani .w{opacity:1}
-}
+@media(prefers-reduced-motion:reduce){.loader{display:none}*{animation:none!important}.stmt .w{opacity:1}}
 </style>
 </head>
 <body>
 
-<!-- نقاشی قطعه‌ها -->
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <defs>
-    <symbol id="p-charger" viewBox="0 0 120 130" stroke="#0e0e12" stroke-width="5" stroke-linejoin="round" stroke-linecap="round">
-      <rect x="46" y="96" width="9" height="26" rx="2" fill="#d9d9d9"/><rect x="65" y="96" width="9" height="26" rx="2" fill="#d9d9d9"/>
-      <rect x="22" y="14" width="76" height="86" rx="16" fill="#ff4f1f"/>
-      <path d="M64 28 L42 66 H58 L52 90 L80 50 H64 Z" fill="#cfff3d"/>
+    <linearGradient id="gW" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset=".6" stop-color="#e3e5ea"/><stop offset="1" stop-color="#b9bdc6"/></linearGradient>
+    <linearGradient id="gWv" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#cfd2da"/></linearGradient>
+    <linearGradient id="gD" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#47484f"/><stop offset=".5" stop-color="#1a1a1e"/><stop offset="1" stop-color="#0a0a0c"/></linearGradient>
+    <linearGradient id="gS" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f0dcb9"/><stop offset="1" stop-color="#b98c58"/></linearGradient>
+    <linearGradient id="gM" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#f4f4f5"/><stop offset=".5" stop-color="#8f949c"/><stop offset="1" stop-color="#e8e9ec"/></linearGradient>
+    <linearGradient id="gA" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffd27a"/><stop offset="1" stop-color="#ff8a00"/></linearGradient>
+    <radialGradient id="gL" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#fff2c9"/><stop offset=".4" stop-color="#ffb11b"/><stop offset="1" stop-color="#ffb11b" stop-opacity="0"/></radialGradient>
+    <linearGradient id="gHi" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".9"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>
+
+    <symbol id="p-charger" viewBox="0 0 200 200">
+      <rect x="72" y="150" width="12" height="34" rx="3" fill="url(#gM)"/><rect x="116" y="150" width="12" height="34" rx="3" fill="url(#gM)"/>
+      <rect x="46" y="16" width="108" height="140" rx="30" fill="url(#gWv)"/>
+      <rect x="46" y="16" width="108" height="60" rx="30" fill="url(#gHi)" opacity=".35"/>
+      <rect x="76" y="112" width="48" height="16" rx="8" fill="#17171a"/><rect x="82" y="117" width="36" height="6" rx="3" fill="#2d2d33"/>
+      <circle cx="100" cy="62" r="5" fill="url(#gA)"/>
+      <rect x="46" y="16" width="108" height="140" rx="30" fill="none" stroke="#ffffff" stroke-opacity=".6" stroke-width="1.5"/>
     </symbol>
-    <symbol id="p-cable" viewBox="0 0 120 130" stroke="#0e0e12" stroke-width="5" stroke-linejoin="round" stroke-linecap="round">
-      <path d="M26 100 C 6 50, 56 38, 60 70 S 100 108, 94 34" fill="none" stroke-width="16"/>
-      <path d="M26 100 C 6 50, 56 38, 60 70 S 100 108, 94 34" fill="none" stroke="#cfff3d" stroke-width="7"/>
-      <rect x="14" y="96" width="24" height="26" rx="6" fill="#e8e8e8"/><rect x="20" y="90" width="12" height="8" fill="#0e0e12"/>
-      <rect x="82" y="10" width="24" height="26" rx="6" fill="#e8e8e8"/><rect x="88" y="34" width="12" height="8" fill="#0e0e12"/>
+
+    <symbol id="p-cable" viewBox="0 0 200 200">
+      <path d="M40 168 C 14 80, 120 20, 140 84 S 52 176, 112 176 S 176 120, 164 38" fill="none" stroke="#000" stroke-opacity=".18" stroke-width="22" stroke-linecap="round"/>
+      <path d="M40 168 C 14 80, 120 20, 140 84 S 52 176, 112 176 S 176 120, 164 38" fill="none" stroke="url(#gW)" stroke-width="16" stroke-linecap="round"/>
+      <path d="M40 168 C 14 80, 120 20, 140 84 S 52 176, 112 176 S 176 120, 164 38" fill="none" stroke="#000" stroke-opacity=".14" stroke-width="16" stroke-dasharray="1.5 3.5"/>
+      <g transform="rotate(8 42 176)"><rect x="28" y="168" width="28" height="22" rx="6" fill="url(#gWv)"/><rect x="33" y="186" width="18" height="12" rx="3" fill="url(#gM)"/></g>
+      <g transform="rotate(-4 164 36)"><rect x="150" y="14" width="28" height="22" rx="6" fill="url(#gWv)"/><rect x="155" y="2" width="18" height="14" rx="3" fill="url(#gM)"/></g>
     </symbol>
-    <symbol id="p-buds" viewBox="0 0 120 130" stroke="#0e0e12" stroke-width="5" stroke-linejoin="round" stroke-linecap="round">
-      <rect x="14" y="44" width="92" height="72" rx="30" fill="#fff"/>
-      <path d="M14 76 H106" fill="none"/>
-      <path d="M38 44 V22 a8 8 0 0 1 16 0 V44 M66 44 V22 a8 8 0 0 1 16 0 V44" fill="#fff"/>
-      <circle cx="60" cy="98" r="6" fill="#cfff3d"/>
+
+    <symbol id="p-buds" viewBox="0 0 200 200">
+      <g transform="rotate(-16 62 46)"><rect x="55" y="40" width="14" height="46" rx="7" fill="url(#gWv)"/><ellipse cx="62" cy="38" rx="19" ry="17" fill="url(#gW)"/><circle cx="62" cy="42" r="5" fill="#2a2a30" opacity=".7"/></g>
+      <g transform="rotate(16 138 46)"><rect x="131" y="40" width="14" height="46" rx="7" fill="url(#gWv)"/><ellipse cx="138" cy="38" rx="19" ry="17" fill="url(#gW)"/><circle cx="138" cy="42" r="5" fill="#2a2a30" opacity=".7"/></g>
+      <rect x="22" y="92" width="156" height="94" rx="46" fill="url(#gW)"/>
+      <path d="M22 134 a46 46 0 0 1 46 -42 H132 a46 46 0 0 1 46 42 Z" fill="url(#gHi)" opacity=".3"/>
+      <path d="M26 128 H174" stroke="#000" stroke-opacity=".16" stroke-width="2"/>
+      <rect x="82" y="86" width="36" height="10" rx="5" fill="#a9adb6"/>
+      <circle cx="100" cy="156" r="5" fill="url(#gA)"/><circle cx="100" cy="156" r="14" fill="url(#gL)" opacity=".6"/>
     </symbol>
-    <symbol id="p-case" viewBox="0 0 120 130" stroke="#0e0e12" stroke-width="5" stroke-linejoin="round" stroke-linecap="round">
-      <rect x="32" y="8" width="56" height="116" rx="16" fill="#ff8fb8"/>
-      <rect x="40" y="16" width="26" height="28" rx="8" fill="#0e0e12"/>
-      <circle cx="50" cy="26" r="5" fill="#7fd4ff"/><circle cx="58" cy="36" r="5" fill="#7fd4ff"/>
-      <path d="M60 100 q0 -10 10 -10" fill="none"/>
+
+    <symbol id="p-case" viewBox="0 0 200 200">
+      <rect x="58" y="10" width="84" height="180" rx="26" fill="url(#gS)"/>
+      <rect x="58" y="10" width="84" height="180" rx="26" fill="none" stroke="#fff" stroke-opacity=".55" stroke-width="1.5"/>
+      <path d="M66 24 L100 10 L66 150 Z" fill="#fff" opacity=".12"/>
+      <rect x="67" y="19" width="48" height="50" rx="14" fill="url(#gD)"/>
+      <circle cx="82" cy="34" r="9" fill="#0a0a0c" stroke="url(#gM)" stroke-width="3"/><circle cx="82" cy="34" r="3.5" fill="#35507a"/>
+      <circle cx="100" cy="54" r="9" fill="#0a0a0c" stroke="url(#gM)" stroke-width="3"/><circle cx="100" cy="54" r="3.5" fill="#35507a"/>
+      <circle cx="104" cy="28" r="3.5" fill="#fff" opacity=".7"/>
+      <rect x="82" y="168" width="36" height="5" rx="2.5" fill="#000" opacity=".18"/>
     </symbol>
-    <symbol id="p-bank" viewBox="0 0 120 130" stroke="#0e0e12" stroke-width="5" stroke-linejoin="round" stroke-linecap="round">
-      <rect x="14" y="26" width="92" height="80" rx="16" fill="#7fd4ff"/>
-      <rect x="28" y="40" width="10" height="26" rx="3" fill="#cfff3d"/><rect x="46" y="40" width="10" height="26" rx="3" fill="#cfff3d"/><rect x="64" y="40" width="10" height="26" rx="3" fill="#cfff3d"/><rect x="82" y="40" width="10" height="26" rx="3" fill="#fff"/>
-      <rect x="40" y="82" width="40" height="12" rx="6" fill="#0e0e12"/>
-    </symbol>
-    <symbol id="p-speaker" viewBox="0 0 120 130" stroke="#0e0e12" stroke-width="5" stroke-linejoin="round" stroke-linecap="round">
-      <rect x="22" y="8" width="76" height="114" rx="18" fill="#ffd23f"/>
-      <circle cx="60" cy="42" r="20" fill="#0e0e12"/><circle cx="60" cy="42" r="8" fill="#ff4f1f"/>
-      <circle cx="60" cy="90" r="14" fill="#0e0e12"/><circle cx="60" cy="90" r="5" fill="#cfff3d"/>
+
+    <symbol id="p-bank" viewBox="0 0 200 200">
+      <rect x="20" y="52" width="160" height="100" rx="26" fill="url(#gD)"/>
+      <rect x="20" y="52" width="160" height="100" rx="26" fill="none" stroke="#fff" stroke-opacity=".22" stroke-width="1.5"/>
+      <rect x="20" y="52" width="160" height="40" rx="26" fill="url(#gHi)" opacity=".1"/>
+      <g fill="url(#gA)"><circle cx="52" cy="80" r="6"/><circle cx="76" cy="80" r="6"/><circle cx="100" cy="80" r="6"/></g><circle cx="124" cy="80" r="6" fill="#3a3b40"/>
+      <circle cx="52" cy="80" r="16" fill="url(#gL)" opacity=".5"/><circle cx="100" cy="80" r="16" fill="url(#gL)" opacity=".4"/>
+      <rect x="132" y="118" width="26" height="9" rx="4.5" fill="#050506" stroke="#4a4b52" stroke-width="1.5"/>
+      <rect x="42" y="122" width="54" height="3" rx="1.5" fill="#ffb11b" opacity=".85"/>
     </symbol>
   </defs>
 </svg>
 
-<!-- لودر -->
 <div class="loader" id="loader" aria-hidden="true">
-  <div class="half top"></div><div class="half bot"></div>
-  <div class="ld"><div class="bat"><div class="fillbar" id="ldbar"></div></div><div class="pct" id="ldnum">۰٪</div><small>در حال شارژ آریا…</small></div>
+  <div class="ld"><div class="mark" id="mark"><span>آ</span><span>ر</span><span>ی</span><span>ا</span></div><div class="line"><i id="ldbar"></i></div><small id="ldn">۰٪</small></div>
 </div>
-<div class="cur" id="cur"></div>
 
-<div class="bar" id="bar"><div class="wrap">
+<nav class="nav"><div class="in">
   <a class="logo" href="#top"><i></i>موبایل آریا</a>
-  <a class="pill" href="#contact" data-c>آدرس و تماس</a>
-</div></div>
+  <div class="ls"><a href="#tour">محصولات</a><a href="#why">چرا آریا</a><a href="#finder">چی لازم دارم؟</a><a href="#contact">آدرس</a></div>
+  <a class="btn sm" href="#contact" data-m>آدرس و تماس</a>
+</div></nav>
 
-<!-- ============ HERO ============ -->
 <header class="hero" id="top">
-  <div class="giant d" aria-hidden="true">آریا</div>
-  <div class="wrap">
-    <div class="copy">
-      <span class="loc" id="loc">شهرک کاوه، اصفهان</span>
-      <h1>
-        <span class="row"><span>گوشیت <span class="roller" id="roller"><ul><li>شارژ</li><li>ایرپاد</li><li>قاب</li><li>کابل</li><li>گلس</li><li>پاوربانک</li><li>شارژ</li></ul></span></span></span>
-        <span class="row"><span>کم داره؟</span></span>
-        <span class="row"><span class="scribble">ما داریم.<svg viewBox="0 0 300 20" preserveAspectRatio="none"><path d="M4 12 C 60 2, 110 20, 160 8 S 250 4, 296 10"/></svg></span></span>
-      </h1>
-      <p class="lead" id="lead">شارژر، کابل، ایرپاد، قاب، پاوربانک و اسپیکر؛ همه آویزون روی دیوار. بیا، ببین، <b>دست بزن</b> و با خیال راحت ببر.</p>
-      <div class="cta" id="cta">
-        <a class="pill big" href="#contact" data-c>مسیریابی تا مغازه</a>
-        <a class="pill big w" href="#finder" data-c>گوشیم چی لازم داره؟</a>
-      </div>
-      <div class="cue"><i></i>اسکرول کن؛ دیوار رو بگرد</div>
-    </div>
-
-    <div class="stage" id="stage">
-      <div class="item" style="--x:2%;--y:110px;--w:158px;--len:90px;--z:2"><div class="sw" data-depth="22"><svg viewBox="0 0 120 130"><use href="#p-charger"/></svg></div></div>
-      <div class="item" style="--x:44%;--y:60px;--w:150px;--len:60px"><div class="sw" data-depth="12"><svg viewBox="0 0 120 130"><use href="#p-case"/></svg></div></div>
-      <div class="item" style="--x:70%;--y:150px;--w:140px;--len:110px"><div class="sw" data-depth="30"><svg viewBox="0 0 120 130"><use href="#p-speaker"/></svg></div></div>
-      <div class="item" style="--x:24%;--y:300px;--w:150px;--len:70px;--z:3"><div class="sw" data-depth="18"><svg viewBox="0 0 120 130"><use href="#p-buds"/></svg></div></div>
-      <div class="item" style="--x:60%;--y:380px;--w:156px;--len:130px"><div class="sw" data-depth="26"><svg viewBox="0 0 120 130"><use href="#p-bank"/></svg></div></div>
-      <div class="item" style="--x:-2%;--y:380px;--w:140px;--len:50px"><div class="sw" data-depth="10"><svg viewBox="0 0 120 130"><use href="#p-cable"/></svg></div></div>
-      <div class="hint">بگیرشون و پرت کن</div>
+  <div class="cone"></div><div class="dust" id="dust"></div>
+  <div class="tx">
+    <div class="pillk" id="pk">شهرک کاوه · اصفهان</div>
+    <h1>
+      <span class="ln"><span>گوشی‌ات هرچی کم داره،</span></span>
+      <span class="ln"><span><em>اینجا پیدا می‌شه.</em></span></span>
+    </h1>
+    <p class="lead" id="lead">شارژر، کابل، ایرپاد، قاب و پاوربانک؛ همه یک‌جا و دم‌دست. ببین، دست بزن و مطمئن بخر.</p>
+    <div class="cta" id="cta">
+      <a class="btn lg" href="#contact" data-m>مسیریابی تا مغازه</a>
+      <a class="btn ghost lg" href="#finder" data-m>ببین چی لازم داری</a>
     </div>
   </div>
-  <svg class="badge" viewBox="0 0 150 150" aria-hidden="true">
-    <circle cx="75" cy="75" r="72" fill="#cfff3d" stroke="#0e0e12" stroke-width="4"/>
-    <defs><path id="circ" d="M75 75 m-52 0 a52 52 0 1 1 104 0 a52 52 0 1 1 -104 0"/></defs>
-    <text><textPath href="#circ">ARIA MOBILE • KAVEH • ISFAHAN • </textPath></text>
-    <path d="M60 85 L90 55 M72 55 H90 V73" fill="none" stroke="#0e0e12" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
-  </svg>
+  <div class="stage" id="stage">
+    <div class="floor"></div>
+    <div class="o c" data-d="26"><svg viewBox="0 0 200 200"><use href="#p-cable"/></svg></div>
+    <div class="o a" data-d="40"><svg viewBox="0 0 200 200"><use href="#p-charger"/></svg></div>
+    <div class="o b" data-d="34"><svg viewBox="0 0 200 200"><use href="#p-case"/></svg></div>
+    <div class="o d" data-d="46"><svg viewBox="0 0 200 200"><use href="#p-bank"/></svg></div>
+    <div class="o main" data-d="14"><svg viewBox="0 0 200 200"><use href="#p-buds"/></svg></div>
+  </div>
+  <div class="scrollcue" aria-hidden="true"></div>
 </header>
 
-<div class="mq" id="mq1" aria-hidden="true"><div class="t">
-  <span>LDNIO</span><b>✦</b><span>QCY</span><b>✦</b><span>KEZEN</span><b>✦</b><span>TWIN MAX</span><b>✦</b><span>VSMART</span><b>✦</b><span>MOXOM</span><b>✦</b><span>PHILIPS</span><b>✦</b><span>SANDISK</span><b>✦</b><span>TOSHIBA</span><b>✦</b><span>PANASONIC</span><b>✦</b><span>RAYMAX</span><b>✦</b><span>BAREO</span><b>✦</b>
-  <span>LDNIO</span><b>✦</b><span>QCY</span><b>✦</b><span>KEZEN</span><b>✦</b><span>TWIN MAX</span><b>✦</b><span>VSMART</span><b>✦</b><span>MOXOM</span><b>✦</b><span>PHILIPS</span><b>✦</b><span>SANDISK</span><b>✦</b><span>TOSHIBA</span><b>✦</b><span>PANASONIC</span><b>✦</b><span>RAYMAX</span><b>✦</b><span>BAREO</span><b>✦</b>
+<div class="brands" aria-hidden="true"><div class="t" id="mq">
+  <span>LDNIO</span><span>QCY</span><span>KEZEN</span><span>TWIN MAX</span><span>VSMART</span><span>MOXOM</span><span>PHILIPS</span><span>SANDISK</span><span>TOSHIBA</span><span>PANASONIC</span><span>RAYMAX</span><span>BAREO</span>
+  <span>LDNIO</span><span>QCY</span><span>KEZEN</span><span>TWIN MAX</span><span>VSMART</span><span>MOXOM</span><span>PHILIPS</span><span>SANDISK</span><span>TOSHIBA</span><span>PANASONIC</span><span>RAYMAX</span><span>BAREO</span>
 </div></div>
 
-<!-- ============ MANIFESTO ============ -->
-<section class="mani" id="mani">
+<section class="stmt" id="stmt">
   <div class="wrap">
-    <div class="k">یه حقیقت ساده</div>
-    <p id="manip">کابل ارزونِ بی‌کیفیت، یه ماه بعد خراب می‌شه. شارژر بد، <span class="hl2">باتری گوشی</span> رو اذیت می‌کنه. قاب ضعیف، اولین زمین‌خوردن رو تحمل نمی‌کنه. پس قبل از اینکه ارزون بخری، بیا یه بار <span class="hl">ببین و بپرس</span>. مشورتش با ما، پولش هم صفر.</p>
+    <div class="k">درباره آریا</div>
+    <p id="stp">لوازم جانبیِ خوب، کار بزرگی می‌کنه. کابلی که می‌مونه، شارژری که <span class="hl">باتری گوشی</span> رو اذیت نمی‌کنه، قابی که اولین افتادن رو تحمل می‌کنه. ما اینجاییم که قبل از خرید، با هم <span class="hl">درست انتخاب کنیم</span>؛ بدون عجله و بدون اصرار.</p>
   </div>
 </section>
 
-<!-- ============ AISLES ============ -->
-<section class="aisles" id="aisles">
-  <div class="head"><div class="wrap"><span class="d" style="font-size:1.6rem" id="aisleLbl">راهرو ۱ از ۵</span><div class="prog"><i id="aprog"></i></div></div></div>
-  <div class="pin" id="pin">
-    <div class="track" id="track">
-      <article class="panel" style="--bg:var(--orange)">
-        <div class="txt"><span class="tag">راهرو ۰۱</span><h3>شارژر</h3><p>از شارژر دیواری تا فندکی ماشین؛ فست‌شارژ تا ۶۵ وات. بگو گوشیت چیه، سریع‌ترین و امن‌ترینش رو بدیم.</p><ul><li>دیواری</li><li>فندکی</li><li>فست ۶۵W</li></ul></div>
-        <div class="prod"><svg viewBox="0 0 120 130"><use href="#p-charger"/></svg></div><div class="n" aria-hidden="true">۰۱</div>
-      </article>
-      <article class="panel" style="--bg:var(--lime)">
-        <div class="txt"><span class="tag">راهرو ۰۲</span><h3>کابل</h3><p>تایپ‌سی، میکرو، لایتنینگ، OTG و AUX. کابلی که وسط شارژ جواب نده، ارزون نیست؛ گرون‌ترینه.</p><ul><li>تایپ‌سی</li><li>لایتنینگ</li><li>میکرو</li><li>OTG</li></ul></div>
-        <div class="prod"><svg viewBox="0 0 120 130"><use href="#p-cable"/></svg></div><div class="n" aria-hidden="true">۰۲</div>
-      </article>
-      <article class="panel" style="--bg:var(--sky)">
-        <div class="txt"><span class="tag">راهرو ۰۳</span><h3>صدا</h3><p>هندزفری سیمی و بی‌سیم، ایرپاد، اوپن‌ایر کلیپ و اسپیکر؛ از کوچیک تا باند کاراکه‌دار.</p><ul><li>ایرپاد</li><li>هندزفری</li><li>اسپیکر</li></ul></div>
-        <div class="prod"><svg viewBox="0 0 120 130"><use href="#p-buds"/></svg></div><div class="n" aria-hidden="true">۰۳</div>
-      </article>
-      <article class="panel" style="--bg:var(--pink)">
-        <div class="txt"><span class="tag">راهرو ۰۴</span><h3>قاب و گلس</h3><p>قبل از افتادن بیمه‌ش کن. سیلیکونی، شفاف، طرح‌دار؛ برای مدل‌های رایج. گلس چند هزار تومنه، تعویض صفحه نه.</p><ul><li>سیلیکونی</li><li>شفاف</li><li>طرح‌دار</li><li>گلس</li></ul></div>
-        <div class="prod"><svg viewBox="0 0 120 130"><use href="#p-case"/></svg></div><div class="n" aria-hidden="true">۰۴</div>
-      </article>
-      <article class="panel" style="--bg:var(--sun)">
-        <div class="txt"><span class="tag">راهرو ۰۵</span><h3>پاوربانک و بیشتر</h3><p>پاوربانک، باتری قلمی، فلش و مموری، پایه نگهدارنده و سه‌راهی. چیزای کوچیکی که روز آدم رو نجات می‌دن.</p><ul><li>پاوربانک</li><li>باتری</li><li>فلش و مموری</li></ul></div>
-        <div class="prod"><svg viewBox="0 0 120 130"><use href="#p-bank"/></svg></div><div class="n" aria-hidden="true">۰۵</div>
-      </article>
+<section class="tour" id="tour">
+  <div class="tpin" id="tpin">
+    <div class="wrap tgrid">
+      <ul class="tlist" id="tlist">
+        <i class="bar" id="tbar"></i>
+        <li class="on"><div class="h"><span class="n">۰۱</span><h3>شارژر</h3></div><div class="d"><p>از شارژر دیواری تا فندکی ماشین، تا ۶۵ وات. بگو گوشیت چیه تا سریع‌ترین و امن‌ترینش رو نشونت بدیم.</p><div class="chips"><span>دیواری</span><span>فندکی</span><span>فست‌شارژ</span></div></div><svg class="mini" viewBox="0 0 200 200"><use href="#p-charger"/></svg></li>
+        <li><div class="h"><span class="n">۰۲</span><h3>کابل</h3></div><div class="d"><p>تایپ‌سی، لایتنینگ، میکرو، OTG و AUX. کابل ضعیف ارزون شروع می‌شه، اما گرون تموم می‌شه.</p><div class="chips"><span>تایپ‌سی</span><span>لایتنینگ</span><span>میکرو</span><span>OTG</span></div></div><svg class="mini" viewBox="0 0 200 200"><use href="#p-cable"/></svg></li>
+        <li><div class="h"><span class="n">۰۳</span><h3>صدا</h3></div><div class="d"><p>ایرپاد، هندزفری سیمی و بی‌سیم، اوپن‌ایر کلیپ و اسپیکر؛ از کوچیک تا باند کاراکه‌دار.</p><div class="chips"><span>ایرپاد</span><span>هندزفری</span><span>اسپیکر</span></div></div><svg class="mini" viewBox="0 0 200 200"><use href="#p-buds"/></svg></li>
+        <li><div class="h"><span class="n">۰۴</span><h3>قاب و گلس</h3></div><div class="d"><p>قبل از افتادن بیمه‌ش کن. گلس چند هزار تومنه، تعویض صفحه نه. سیلیکونی، شفاف و طرح‌دار برای مدل‌های رایج.</p><div class="chips"><span>سیلیکونی</span><span>شفاف</span><span>گلس</span></div></div><svg class="mini" viewBox="0 0 200 200"><use href="#p-case"/></svg></li>
+        <li><div class="h"><span class="n">۰۵</span><h3>پاوربانک</h3></div><div class="d"><p>پاوربانک، باتری قلمی، فلش و مموری و کلی ابزار کوچیک که یه روز بد رو نجات می‌دن.</p><div class="chips"><span>پاوربانک</span><span>باتری</span><span>فلش و مموری</span></div></div><svg class="mini" viewBox="0 0 200 200"><use href="#p-bank"/></svg></li>
+      </ul>
+      <div class="tstage" id="tstage" aria-hidden="true">
+        <div class="ring"></div><div class="ring r2"></div>
+        <div class="pp"><svg viewBox="0 0 200 200"><use href="#p-charger"/></svg></div>
+        <div class="pp"><svg viewBox="0 0 200 200"><use href="#p-cable"/></svg></div>
+        <div class="pp"><svg viewBox="0 0 200 200"><use href="#p-buds"/></svg></div>
+        <div class="pp"><svg viewBox="0 0 200 200"><use href="#p-case"/></svg></div>
+        <div class="pp"><svg viewBox="0 0 200 200"><use href="#p-bank"/></svg></div>
+      </div>
     </div>
   </div>
 </section>
 
-<div class="mq dark" id="mq2" aria-hidden="true"><div class="t">
-  <span>شارژر</span><b>●</b><span>کابل</span><b>●</b><span>هندزفری</span><b>●</b><span>ایرپاد</span><b>●</b><span>قاب</span><b>●</b><span>گلس</span><b>●</b><span>پاوربانک</span><b>●</b><span>اسپیکر</span><b>●</b><span>فلش</span><b>●</b><span>مموری</span><b>●</b><span>باتری</span><b>●</b>
-  <span>شارژر</span><b>●</b><span>کابل</span><b>●</b><span>هندزفری</span><b>●</b><span>ایرپاد</span><b>●</b><span>قاب</span><b>●</b><span>گلس</span><b>●</b><span>پاوربانک</span><b>●</b><span>اسپیکر</span><b>●</b><span>فلش</span><b>●</b><span>مموری</span><b>●</b><span>باتری</span><b>●</b>
-</div></div>
+<section class="bento" id="why">
+  <div class="wrap">
+    <div class="sec-k" data-r>چرا آریا</div>
+    <h2 data-r>همه‌چیز دم‌دست، بدون دردسر.</h2>
+    <div class="bg">
+      <div class="bc dk s2 r2" data-r><div><h3>یک‌جا و روی دیوار</h3><p style="color:#c9c5ba">هیچی توی کشو قایم نیست. بسته‌بندی رو ببین، مدل‌ها رو کنار هم مقایسه کن و با خیال راحت انتخاب کن.</p></div><div class="big" style="color:var(--amber)"><span data-n="8">۰</span> <span style="font-size:.38em;font-weight:700;color:#f4f1ea">دسته‌ی کالا</span></div></div>
+      <div class="bc s2" data-r><div class="big"><span data-n="12" data-plus="1">۰</span></div><div><h3>برند معتبر</h3><p>LDNIO، QCY، KEZEN، SanDisk، Philips، Panasonic و چندتای دیگه.</p></div></div>
+      <div class="bc am s2" data-r><svg class="ico" viewBox="0 0 48 48"><path d="M8 24l10 10L40 12"/></svg><div><h3>مشورت رایگان</h3><p style="opacity:.8">بگو گوشیت چیه، مناسبش رو نشونت می‌دیم.</p></div></div>
+      <div class="bc s2" data-r><svg class="ico" viewBox="0 0 48 48"><rect x="5" y="12" width="38" height="24" rx="5"/><path d="M5 20h38M12 30h8"/></svg><div><h3>کارتخوان داریم</h3><p>نقد یا کارت، هرجور راحتی.</p></div></div>
+      <div class="bc s2" data-r><svg class="ico" viewBox="0 0 48 48"><path d="M24 8c-9 0-16 7-16 16s7 16 16 16 16-7 16-16S33 8 24 8z"/><circle cx="24" cy="24" r="5"/></svg><div><h3>اول ببین، بعد بخر</h3><p>دست بزن، مقایسه کن و آروم تصمیم بگیر.</p></div></div>
+    </div>
+  </div>
+</section>
 
-<!-- ============ FINDER ============ -->
 <section class="finder" id="finder">
   <div class="wrap">
-    <div class="k">ابزار ۱۰ ثانیه‌ای</div>
-    <h2>گوشیم چی لازم داره؟</h2>
-    <p>دو تا سؤال جواب بده، لیست خریدت آماده‌ست. بدون ثبت‌نام.</p>
-    <div class="grid">
-      <div class="qs">
+    <div class="sec-k" style="color:var(--amber)" data-r>ابزار ۱۰ ثانیه‌ای</div>
+    <h2 data-r>گوشیم چی لازم داره؟</h2>
+    <p class="sub" data-r>دو تا سؤال جواب بده تا لیست خریدت آماده بشه. بدون ثبت‌نام.</p>
+    <div class="fg">
+      <div class="qs" data-r>
         <div class="step"><b>۱. گوشیت چیه؟</b>
-          <div class="chips" id="c1"><button class="chip" data-v="iphone">آیفون</button><button class="chip" data-v="samsung">سامسونگ</button><button class="chip" data-v="xiaomi">شیائومی / پوکو</button><button class="chip" data-v="other">برند دیگه</button></div></div>
+          <div class="chips2" id="c1"><button class="chip" data-v="iphone">آیفون</button><button class="chip" data-v="samsung">سامسونگ</button><button class="chip" data-v="xiaomi">شیائومی / پوکو</button><button class="chip" data-v="other">برند دیگه</button></div></div>
         <div class="step"><b>۲. الان بیشتر چی لازم داری؟</b>
-          <div class="chips" id="c2"><button class="chip" data-v="charge">شارژ سریع</button><button class="chip" data-v="music">موزیک</button><button class="chip" data-v="protect">محافظت</button><button class="chip" data-v="travel">سفر و بیرون</button></div></div>
+          <div class="chips2" id="c2"><button class="chip" data-v="charge">شارژ سریع</button><button class="chip" data-v="music">موزیک</button><button class="chip" data-v="protect">محافظت</button><button class="chip" data-v="travel">سفر و بیرون</button></div></div>
       </div>
-      <div class="ans" id="ans" aria-live="polite"><div class="ph">گزینه‌هات رو انتخاب کن<br>لیست خرید اینجا ساخته می‌شه ↓</div></div>
+      <div class="ans" id="ans" data-r aria-live="polite"><div class="ph">گزینه‌هات رو انتخاب کن؛<br>لیست خرید اینجا ساخته می‌شه.</div></div>
     </div>
   </div>
 </section>
 
-<!-- ============ NUMBERS ============ -->
-<section class="nums">
-  <div class="wrap">
-    <h2 class="d">همه‌چیز رو دیوار، هیچی توی کشو قایم نیست</h2>
-    <div class="row">
-      <div class="num"><b data-n="8">۰</b><span>دسته‌ی اصلی کالا</span></div>
-      <div class="num"><b data-n="12" data-plus="1">۰</b><span>برند معتبر روی دیوار</span></div>
-      <div class="num"><b data-n="0">۰</b><span>تومن هزینه‌ی مشورت</span></div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ WHY ============ -->
-<section class="why">
-  <div class="wrap">
-    <h2 class="d">سه دلیل که دوباره می‌آی</h2>
-    <div class="cards">
-      <div class="c"><b>۱</b><h3>همه‌چیز یک‌جا</h3><p>به‌جای گشتن بین چند مغازه، شارژر و کابل و قاب رو یک‌جا بگیر و برو. وقتت از پولت باارزش‌تره.</p></div>
-      <div class="c"><b>۲</b><h3>راهنمایی بدون اصرار</h3><p>بگو گوشیت چیه؛ مناسب‌ترینش رو نشونت می‌دیم. اگه چیزی لازم نداری، همین رو هم می‌گیم.</p></div>
-      <div class="c"><b>۳</b><h3>اول ببین، بعد بخر</h3><p>بسته‌بندی رو ببین، مدل‌ها رو کنار هم مقایسه کن و با خیال راحت تصمیم بگیر. کارتخوان هم داریم.</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ CONTACT ============ -->
 <section class="contact" id="contact">
   <div class="wrap">
-    <div class="k">پیدامون کن</div>
-    <h2 class="d">آدرس و تماس</h2>
-    <p style="max-width:50ch;margin-top:8px">اگه مدل خاصی می‌خوای قبل از اومدن بپرس؛ بعضی مدل‌ها زود تموم می‌شن و بهتره مطمئن بشی.</p>
+    <div class="sec-k" data-r>پیدامون کن</div>
+    <h2 data-r>بیا <em>ببین.</em><br>دست بزن.</h2>
+    <p class="lead" data-r>اگه مدل خاصی می‌خوای قبل از اومدن بپرس؛ بعضی مدل‌ها زود تموم می‌شن و بهتره مطمئن بشی.</p>
     <div class="cg">
-      <div class="info">
+      <div class="info" data-r>
         <dl>
           <div><dt>آدرس</dt><dd id="addr"></dd></div>
           <div><dt>تلفن</dt><dd id="phone"></dd></div>
           <div><dt>ساعت کاری</dt><dd id="hours"></dd></div>
         </dl>
-        <div class="acts"><a class="pill o" id="callBtn" href="#contact" data-c>تماس</a><a class="pill w" id="routeBtn" target="_blank" rel="noopener" href="#" data-c>مسیریابی</a></div>
+        <div class="acts"><a class="btn dark" id="callBtn" href="#contact" data-m>تماس</a><a class="btn" id="routeBtn" target="_blank" rel="noopener" href="#" data-m>باز کردن در گوگل‌مپ</a></div>
       </div>
-      <div class="map"><iframe id="mapFrame" title="نقشه موبایل آریا" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+      <div class="map" data-r><iframe id="mapFrame" title="نقشه موبایل آریا" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
     </div>
-
-    <div class="plugline" id="plugline" aria-hidden="true">
-      <svg viewBox="0 0 1000 160">
-        <path class="cb" id="cbBack" d="M0 80 C 120 80, 140 20, 260 20 S 380 140, 500 120 S 700 30, 800 80 L 880 80" stroke="#0e0e12" stroke-width="22"/>
-        <path class="cb" id="cbFront" d="M0 80 C 120 80, 140 20, 260 20 S 380 140, 500 120 S 700 30, 800 80 L 880 80" stroke="#cfff3d" stroke-width="10"/>
-        <g id="plug"><rect x="868" y="58" width="56" height="44" rx="10" fill="#e8e8e8" stroke="#0e0e12" stroke-width="5"/><rect x="924" y="66" width="26" height="10" rx="3" fill="#bbb" stroke="#0e0e12" stroke-width="3"/><rect x="924" y="84" width="26" height="10" rx="3" fill="#bbb" stroke="#0e0e12" stroke-width="3"/></g>
-        <g><rect x="958" y="38" width="38" height="84" rx="10" fill="#ffd23f" stroke="#0e0e12" stroke-width="5"/><circle cx="977" cy="80" r="6" fill="#0e0e12"/></g>
-        <g class="spark" id="spark"><path d="M930 20 l-12 24 h12 l-6 24 l22 -32 h-12 z" fill="#ff4f1f" stroke="#0e0e12" stroke-width="4" stroke-linejoin="round"/></g>
-      </svg>
-    </div>
-    <div class="final"><h2 class="d">شارژت رو <mark>اینجا</mark> پر کن.</h2>
-      <a class="pill o big" id="finalBtn" href="#contact" target="_blank" rel="noopener" data-c style="margin-top:20px">می‌آم، آریا!</a></div>
+    <div class="close" aria-hidden="true"><div class="huge" id="huge">موبایل آریا</div></div>
   </div>
 </section>
 
-<a class="pill o fab" id="fab" href="#contact">تماس با آریا</a>
+<a class="btn fab" id="fab" href="#contact">آدرس و تماس</a>
 <footer>© موبایل آریا · شهرک کاوه، اصفهان</footer>
 
 <script src="assets/vendor/gsap.min.js"></script>
 <script src="assets/vendor/ScrollTrigger.min.js"></script>
+<script src="assets/vendor/lenis.min.js"></script>
 <script>
 /* ===== اطلاعات مغازه: فقط همین بخش رو ویرایش کن ===== */
 const SHOP = {
@@ -427,21 +396,21 @@ const SHOP = {
   address: "اصفهان، شهرک کاوه، (آدرس دقیق را اینجا بنویسید)",
   phone: "",                 // مثال: "03112345678"
   hours: "هر روز، ۹ تا ۲۱ (ساعت واقعی را بنویسید)",
-  mapQuery: "موبایل آریا شهرک کاوه اصفهان"
+  mapLink: "https://maps.app.goo.gl/WAABFceGG5khpCu79?g_st=ic",   // لینک گوگل‌مپ مغازه
+  mapQuery: "موبایل آریا شهرک کاوه اصفهان"                         // برای نقشه‌ی داخل صفحه
 };
 /* ==================================================== */
 const $ = s => document.querySelector(s), $$ = s => [...document.querySelectorAll(s)];
 const fa = n => String(n).replace(/\d/g, d => '۰۱۲۳۴۵۶۷۸۹'[d]);
-const q = encodeURIComponent(SHOP.mapQuery);
 
-/* اطلاعات تماس */
 $('#addr').textContent = SHOP.address; $('#hours').textContent = SHOP.hours;
 if (SHOP.phone) { $('#phone').innerHTML = '<a href="tel:' + SHOP.phone + '" dir="ltr">' + SHOP.phone + '</a>'; $('#callBtn').href = $('#fab').href = 'tel:' + SHOP.phone; }
-else { $('#phone').textContent = 'به‌زودی'; $('#callBtn').style.display = 'none'; $('#fab').textContent = 'آدرس مغازه'; }
-$('#routeBtn').href = $('#finalBtn').href = 'https://www.google.com/maps/dir/?api=1&destination=' + q;
-$('#mapFrame').src = 'https://www.google.com/maps?q=' + q + '&hl=fa&z=16&output=embed';
+else { $('#phone').textContent = 'به‌زودی'; $('#callBtn').style.display = 'none'; $('#fab').textContent = 'مسیریابی'; $('#fab').href = SHOP.mapLink; $('#fab').target = '_blank'; }
+$('#routeBtn').href = SHOP.mapLink;
+$$('.hero .cta a')[0].href = SHOP.mapLink; $$('.hero .cta a')[0].target = '_blank';
+$('#mapFrame').src = 'https://www.google.com/maps?q=' + encodeURIComponent(SHOP.mapQuery) + '&hl=fa&z=16&output=embed';
 
-/* ابزار پیشنهاد (بدون نیاز به GSAP) */
+/* ابزار پیشنهاد */
 const REC = {
   iphone:{n:'آیفون',base:'کابل تایپ‌سی به لایتنینگ یا تایپ‌سی به تایپ‌سی (بسته به مدل)',charge:'شارژر ۲۰ وات PD',music:'ایرپاد یا هندزفری بی‌سیم سازگار با iOS',protect:'قاب سیلیکونی یا مگ‌سیف + گلس',travel:'پاوربانک سبک با خروجی PD'},
   samsung:{n:'سامسونگ',base:'کابل تایپ‌سی ۳ آمپر',charge:'شارژر ۲۵ وات یا بالاتر (PD/PPS)',music:'هندزفری بی‌سیم یا سیمی تایپ‌سی',protect:'قاب ضدضربه + گلس',travel:'پاوربانک ۱۰ هزار با فست‌شارژ'},
@@ -455,142 +424,96 @@ $('#c1').onclick = e => { if (e.target.dataset.v) { ph = e.target.dataset.v; pic
 $('#c2').onclick = e => { if (e.target.dataset.v) { nd = e.target.dataset.v; pick('#c2', e.target); show(); } };
 function show() {
   if (!ph || !nd) return;
-  const r = REC[ph], a = $('#ans');
-  a.innerHTML = '<h3>لیست خرید ' + r.n + ' برای «' + NEED[nd] + '»</h3><ul><li>' + r[nd] + '</li><li>' + r.base + '</li></ul><small>مدل دقیق گوشیت رو بگو تا بهترین گزینه‌ها رو کنار هم بذاریم.</small><a class="pill o" href="#contact" data-c>بیا نشونت بدیم</a>';
-  if (window.gsap) gsap.from('#ans h3,#ans li,#ans small,#ans .pill', {y:26, opacity:0, stagger:.08, duration:.5, ease:'back.out(2)'});
+  const r = REC[ph];
+  $('#ans').innerHTML = '<h3>لیست خرید ' + r.n + ' برای «' + NEED[nd] + '»</h3><ul><li>' + r[nd] + '</li><li>' + r.base + '</li></ul><small>مدل دقیق گوشیت رو بگو تا بهترین گزینه‌ها رو کنار هم بذاریم.</small><a class="btn" href="#contact">بیا نشونت بدیم</a>';
+  if (window.gsap) gsap.from('#ans h3,#ans li,#ans small,#ans .btn', {y:24, opacity:0, stagger:.08, duration:.6, ease:'power3.out'});
 }
 
-/* ---- اگر GSAP لود نشد، فقط محتوا نمایش داده می‌شود ---- */
-if (!window.gsap) { document.getElementById('loader').style.display = 'none'; }
+if (!window.gsap) { $('#loader').style.display = 'none'; }
 else {
 gsap.registerPlugin(ScrollTrigger);
 const reduce = matchMedia('(prefers-reduced-motion:reduce)').matches;
+const fine = matchMedia('(hover:hover) and (pointer:fine)').matches;
 const mm = gsap.matchMedia();
-document.documentElement.classList.add('lock');
+
+/* اسکرول نرم */
+let lenis = null;
+if (!reduce && window.Lenis) {
+  lenis = new Lenis({lerp:.09, wheelMultiplier:.95});
+  lenis.on('scroll', ScrollTrigger.update);
+  gsap.ticker.add(t => lenis.raf(t * 1000)); gsap.ticker.lagSmoothing(0);
+  lenis.stop();
+  $$('a[href^="#"]').forEach(a => a.addEventListener('click', e => { const t = $(a.getAttribute('href')); if (t) { e.preventDefault(); lenis.scrollTo(t, {offset:-10, duration:1.6}); } }));
+}
 window.scrollTo(0, 0);
 
-/* ---- نشانگر ---- */
-const cur = $('#cur');
-if (matchMedia('(hover:hover) and (pointer:fine)').matches) {
-  const cx = gsap.quickTo(cur, 'x', {duration:.25, ease:'power3'}), cy = gsap.quickTo(cur, 'y', {duration:.25, ease:'power3'});
-  addEventListener('pointermove', e => { cx(e.clientX); cy(e.clientY); });
-  $$('a,button,[data-c],.item').forEach(el => {
-    el.addEventListener('pointerenter', () => gsap.to(cur, {scale:3.2, duration:.3}));
-    el.addEventListener('pointerleave', () => gsap.to(cur, {scale:1, duration:.3}));
-  });
-}
-
-/* ---- بالا رفتن/پایین آمدن نوار ---- */
-let lastY = 0;
-ScrollTrigger.create({onUpdate: s => { const y = s.scroll(); gsap.to('#bar', {yPercent: y > lastY && y > 200 ? -120 : 0, duration:.35, overwrite:true}); lastY = y; }});
-
-/* ---- حرکت اصلی ورود ---- */
-const heroIn = () => {
-  const tl = gsap.timeline();
-  tl.from('#loc', {y:30, opacity:0, duration:.6, ease:'power3.out'})
-    .from('.hero h1 .row>span', {yPercent:120, rotate:6, duration:1, ease:'power4.out', stagger:.12}, '-=.3')
-    .to('.scribble path', {strokeDashoffset:0, duration:.9, ease:'power2.inOut'}, '-=.3')
-    .from('#lead', {y:24, opacity:0, duration:.7}, '-=.5')
-    .from('#cta .pill', {y:30, scale:.8, opacity:0, duration:.6, stagger:.1, ease:'back.out(2)'}, '-=.5')
-    .from('.cue', {opacity:0, duration:.6}, '-=.2')
-    .from('.badge', {scale:0, rotate:-180, duration:1, ease:'elastic.out(1,.6)'}, '-=1');
-
-  /* افتادن قطعه‌ها روی میخ و تاب‌خوردن */
-  $$('.item').forEach((it, i) => {
-    const sw = it.querySelector('.sw');
-    gsap.set(it, {y:-900, opacity:1});
-    gsap.set(sw, {rotation: gsap.utils.random(-50, 50)});
-    gsap.to(it, {y:0, duration:1.4, delay:.35 + i * .13, ease:'bounce.out'});
-    gsap.to(sw, {rotation:0, duration:2.2, delay:.45 + i * .13, ease:'elastic.out(1,.25)', onComplete: () => {
-      sw._idle = gsap.to(sw, {rotation: gsap.utils.random(3, 6) * (i % 2 ? 1 : -1), duration: gsap.utils.random(1.8, 2.8), yoyo:true, repeat:-1, ease:'sine.inOut'});
-    }});
-  });
-  return tl;
-};
-
-/* ---- چرخ کلمه‌ها ---- */
-const roller = $('#roller'), rl = $$('#roller li');
-const fit = () => {
-  const probe = document.createElement('span');
-  probe.style.cssText = 'position:absolute;visibility:hidden;white-space:nowrap;font:inherit';
-  roller.appendChild(probe);
-  let m = 0; rl.forEach(li => { probe.textContent = li.textContent; m = Math.max(m, probe.offsetWidth); });
-  probe.remove(); roller.style.width = (m + parseFloat(getComputedStyle(roller).paddingInlineStart) * 2) + 'px';
-};
-document.fonts.ready.then(fit);
-const rollTl = gsap.timeline({repeat:-1, delay:2.4});
-for (let i = 1; i < rl.length; i++) rollTl.to('#roller ul', {yPercent: -100 / rl.length * i, duration:.7, ease:'back.inOut(1.5)'}, '+=1.1');
-rollTl.set('#roller ul', {yPercent:0});
-
-/* ---- موس: نور و پارالاکس ---- */
-const hero = $('.hero');
-hero.addEventListener('pointermove', e => {
-  const r = hero.getBoundingClientRect(), nx = (e.clientX - r.left) / r.width - .5, ny = (e.clientY - r.top) / r.height - .5;
-  hero.style.setProperty('--mx', (nx + .5) * 100 + '%'); hero.style.setProperty('--my', (ny + .5) * 100 + '%');
-  $$('.sw').forEach(sw => gsap.to(sw.querySelector('svg'), {x: nx * -sw.dataset.depth, duration:.8, overwrite:'auto', ease:'power2.out'}));
-});
-
-/* ---- پرتاب قطعه‌ها (درگ) ---- */
-let drag = null;
+/* گرد و غبار داخل نور */
 (function(){
-  $$('.item').forEach(it => {
-    const sw = it.querySelector('.sw'); let sx, sy, ox, oy, lx, ly, vx = 0, vy = 0, lt;
-    it.addEventListener('pointerdown', e => {
-      it.setPointerCapture(e.pointerId); sx = e.clientX; sy = e.clientY; ox = gsap.getProperty(it, 'x'); oy = gsap.getProperty(it, 'y');
-      lx = e.clientX; ly = e.clientY; lt = performance.now(); gsap.killTweensOf(it); sw._idle && sw._idle.kill();
-      gsap.to(sw, {rotation:0, duration:.3}); gsap.set(it, {zIndex:20}); it._d = true;
-    });
-    it.addEventListener('pointermove', e => {
-      if (!it._d) return; const t = performance.now(), dt = Math.max(1, t - lt);
-      vx = (e.clientX - lx) / dt * 1000; vy = (e.clientY - ly) / dt * 1000; lx = e.clientX; ly = e.clientY; lt = t;
-      gsap.set(it, {x: ox + e.clientX - sx, y: oy + e.clientY - sy});
-      gsap.to(sw, {rotation: gsap.utils.clamp(-25, 25, vx / 40), duration:.2, overwrite:true});
-    });
-    const up = () => {
-      if (!it._d) return; it._d = false;
-      const st = $('#stage').getBoundingClientRect(), r = it.getBoundingClientRect();
-      /* جاذبه ملایم و برگشت به قفسه */
-      gsap.to(it, {x:'+=' + vx * .25, y:'+=' + vy * .25, duration:.5, ease:'power2.out'});
-      gsap.to(sw, {rotation:0, duration:1.8, ease:'elastic.out(1,.3)'});
-      gsap.to(it, {x:0, y:0, duration:1.6, delay:.9, ease:'elastic.out(1,.55)', onComplete: () => {
-        gsap.set(it, {zIndex:''});
-        sw._idle = gsap.to(sw, {rotation: 4 * (Math.random() > .5 ? 1 : -1), duration:2.2, yoyo:true, repeat:-1, ease:'sine.inOut'});
-      }});
-    };
-    it.addEventListener('pointerup', up); it.addEventListener('pointercancel', up);
-  });
+  const box = $('#dust');
+  for (let i = 0; i < 34; i++) {
+    const d = document.createElement('i'); box.appendChild(d);
+    gsap.set(d, {x: gsap.utils.random(innerWidth * .25, innerWidth * .75), y: gsap.utils.random(0, 700), scale: gsap.utils.random(.4, 1.6), opacity: gsap.utils.random(.2, .9)});
+    gsap.to(d, {y:'-=' + gsap.utils.random(80, 240), x:'+=' + gsap.utils.random(-60, 60), opacity:0, duration:gsap.utils.random(5, 11), repeat:-1, delay:gsap.utils.random(0, 6), ease:'sine.inOut', yoyo:true});
+  }
 })();
 
-/* ---- لودر ---- */
-const ld = {v:0};
-const loaderTl = gsap.timeline({onComplete: () => {
-  document.documentElement.classList.remove('lock'); $('#loader').style.display = 'none'; ScrollTrigger.refresh();
-}});
-if (reduce) { $('#loader').style.display = 'none'; document.documentElement.classList.remove('lock'); }
-else {
-  loaderTl.to(ld, {v:100, duration:1.7, ease:'power1.inOut', onUpdate: () => { $('#ldnum').textContent = fa(Math.round(ld.v)) + '٪'; $('#ldbar').style.width = ld.v + '%'; }})
-    .to('.ld', {scale:1.15, opacity:0, duration:.4, ease:'power2.in'})
-    .to('.loader .top', {yPercent:-100, duration:.9, ease:'power4.inOut'}, '>-.05')
-    .to('.loader .bot', {yPercent:100, duration:.9, ease:'power4.inOut'}, '<')
-    .add(heroIn, '-=.55');
+/* ورود هیرو */
+function heroIn() {
+  const tl = gsap.timeline();
+  tl.from('.cone', {opacity:0, duration:1.6, ease:'power2.out'})
+    .from('#pk', {y:20, opacity:0, duration:.7}, .1)
+    .from('.hero h1 .ln>span', {yPercent:115, duration:1.1, ease:'power4.out', stagger:.14}, .2)
+    .from('#lead', {y:22, opacity:0, duration:.8}, .7)
+    .from('#cta .btn', {y:26, opacity:0, stagger:.1, duration:.7, ease:'power3.out'}, .85)
+    .from('.nav .in', {y:-60, opacity:0, duration:.8, ease:'power3.out'}, .6)
+    .from('.stage .floor', {opacity:0, scaleX:.3, duration:1.4}, .6)
+    .from('.o.main', {y:140, opacity:0, scale:.8, duration:1.5, ease:'expo.out'}, .45)
+    .from('.o:not(.main)', {y:100, opacity:0, scale:.6, rotate:() => gsap.utils.random(-30, 30), stagger:.1, duration:1.3, ease:'back.out(1.5)'}, .7)
+    .from('.scrollcue', {opacity:0, duration:.8}, 1.4)
+    .add(() => {
+      $$('.o svg').forEach((s, i) => gsap.to(s, {y: gsap.utils.random(-14, -26), rotate: gsap.utils.random(-4, 4), duration: gsap.utils.random(2.4, 3.8), yoyo:true, repeat:-1, ease:'sine.inOut', delay: i * .2}));
+    }, 1.6);
+  return tl;
 }
-if (reduce) heroIn();
 
-/* ---- بنرهای برند: سرعت و کج‌شدن با اسکرول ---- */
-[['#mq1', -1], ['#mq2', 1]].forEach(([sel, dir]) => {
-  const t = $(sel + ' .t');
-  const tw = gsap.fromTo(t, {xPercent: dir < 0 ? 0 : -50}, {xPercent: dir < 0 ? -50 : 0, duration:26, ease:'none', repeat:-1});
-  ScrollTrigger.create({trigger: sel, start:'top bottom', end:'bottom top', onUpdate: s => {
-    const v = s.getVelocity();
-    gsap.to(tw, {timeScale: 1 + Math.abs(v) / 250, duration:.3, overwrite:true});
-    gsap.to(sel, {skewX: gsap.utils.clamp(-8, 8, v / -350), duration:.4, overwrite:'auto'});
-    gsap.to(tw, {timeScale: 1, duration:1.2, delay:.2, overwrite:false});
-  }});
+/* لودر */
+const ld = {v:0};
+const lt = gsap.timeline({onComplete: () => { $('#loader').style.display = 'none'; lenis && lenis.start(); ScrollTrigger.refresh(); }});
+if (reduce) { $('#loader').style.display = 'none'; heroIn(); }
+else {
+  lt.from('#mark span', {yPercent:120, stagger:.09, duration:.7, ease:'power4.out'})
+    .to(ld, {v:100, duration:1.3, ease:'power1.inOut', onUpdate: () => { $('#ldn').textContent = fa(Math.round(ld.v)) + '٪'; $('#ldbar').style.transform = 'scaleX(' + ld.v / 100 + ')'; }}, '<.1')
+    .to('.ld', {opacity:0, y:-30, duration:.45, ease:'power2.in'})
+    .to('#loader', {yPercent:-100, duration:1, ease:'expo.inOut'}, '>-.05')
+    .add(heroIn, '-=.7');
+}
+
+/* موس روی هیرو (روی خود قطعه‌ها، نه SVG داخلی که شناور است) */
+$('.hero').addEventListener('pointermove', e => {
+  const nx = e.clientX / innerWidth - .5;
+  $$('.stage .o').forEach(o => gsap.to(o, {x: nx * -o.dataset.d * 1.4, duration:1, overwrite:'auto', ease:'power3.out'}));
+  gsap.to('.cone', {x: nx * 50, duration:1.4, overwrite:'auto'});
 });
 
-/* ---- متن مانیفست: روشن‌شدن کلمه‌به‌کلمه ---- */
+/* اسکرول هیرو: باز شدن قطعه‌ها */
+const hs = {trigger:'.hero', start:'top top', end:'bottom top', scrub:.6};
+gsap.to('.o.main', {scale:1.18, yPercent:-10, scrollTrigger:hs});
+gsap.to('.o.a', {xPercent:-90, yPercent:-30, rotate:-18, scrollTrigger:hs});
+gsap.to('.o.b', {xPercent:90, yPercent:-20, rotate:16, scrollTrigger:hs});
+gsap.to('.o.c', {xPercent:-120, yPercent:50, rotate:-24, scrollTrigger:hs});
+gsap.to('.o.d', {xPercent:100, yPercent:40, rotate:14, scrollTrigger:hs});
+gsap.to('.hero .tx', {yPercent:-14, opacity:.1, scrollTrigger:hs});
+
+/* برندها */
+gsap.set('#mq', {xPercent:-50});
+const mqTw = gsap.to('#mq', {xPercent:0, duration:34, ease:'none', repeat:-1});
+ScrollTrigger.create({trigger:'.brands', start:'top bottom', end:'bottom top', onUpdate: s => {
+  gsap.to(mqTw, {timeScale: 1 + Math.abs(s.getVelocity()) / 220, duration:.3, overwrite:true});
+  gsap.to(mqTw, {timeScale:1, duration:1.4, delay:.25, overwrite:false});
+}});
+
+/* متن معرفی: روشن شدن کلمه‌ها */
 (function(){
-  const p = $('#manip');
   const walk = n => {
     if (n.nodeType === 3) {
       const f = document.createDocumentFragment();
@@ -598,65 +521,53 @@ if (reduce) heroIn();
       n.replaceWith(f);
     } else [...n.childNodes].forEach(walk);
   };
-  [...p.childNodes].forEach(walk);
-  $$('#manip .hl .w').forEach(w => w.classList.add('hl')); $$('#manip .hl2 .w').forEach(w => w.classList.add('hl2'));
-  gsap.to('#manip .w', {opacity:1, stagger:.12, ease:'none', scrollTrigger:{trigger:'#mani', start:'top 65%', end:'bottom 55%', scrub:.6}});
+  [...$('#stp').childNodes].forEach(walk);
+  $$('#stp .hl .w').forEach(w => w.classList.add('hl'));
+  gsap.to('#stp .w', {opacity:1, stagger:.12, ease:'none', scrollTrigger:{trigger:'#stmt', start:'top 70%', end:'bottom 60%', scrub:.6}});
 })();
 
-/* ---- راهروها: پین افقی ---- */
+/* تور محصولات: پین و تعویض */
 mm.add('(min-width:901px)', () => {
-  const track = $('#track'), n = $$('.panel').length;
-  const dist = () => track.scrollWidth - innerWidth;
-  const tl = gsap.to(track, {x: dist, ease:'none', scrollTrigger:{trigger:'#pin', start:'top top', end: () => '+=' + dist(), scrub:.8, pin:true, anticipatePin:1, invalidateOnRefresh:true,
-    onUpdate: s => { gsap.set('#aprog', {scaleX: s.progress}); $('#aisleLbl').textContent = 'راهرو ' + fa(Math.min(n, Math.floor(s.progress * n * .999) + 1)) + ' از ' + fa(n); }}});
-  $$('.panel .prod svg').forEach((svg, i) => {
-    gsap.fromTo(svg, {rotation:-14, y:30}, {rotation:14, y:-30, ease:'none', scrollTrigger:{trigger:'#pin', start:'top top', end:() => '+=' + dist(), scrub:true}});
-  });
+  const pp = $$('.tstage .pp'), li = $$('#tlist li'), n = pp.length;
+  const tints = ['255,177,27','110,190,255','90,224,150','255,140,170','170,140,255'];
+  gsap.set(pp, {autoAlpha:0, scale:.8, rotate:-10});
+  gsap.set(pp[0], {autoAlpha:1, scale:1, rotate:0});
+  let cur = 0;
+  const go = i => {
+    if (i === cur) return;
+    const dir = i > cur ? 1 : -1;
+    gsap.to(pp[cur], {autoAlpha:0, scale:.8, rotate: 12 * dir, y: -40 * dir, duration:.5, ease:'power2.in', overwrite:true});
+    gsap.fromTo(pp[i], {autoAlpha:0, scale:.75, rotate: -14 * dir, y: 50 * dir}, {autoAlpha:1, scale:1, rotate:0, y:0, duration:.9, ease:'back.out(1.5)', delay:.2, overwrite:true});
+    li[cur].classList.remove('on'); li[i].classList.add('on');
+    gsap.to('.tour', {'--tint': tints[i], duration:.8});
+    cur = i;
+  };
+  ScrollTrigger.create({trigger:'#tpin', start:'top top', end:'+=' + (n * 85) + '%', pin:true, scrub:true, anticipatePin:1,
+    onUpdate: s => { gsap.set('#tbar', {scaleY: s.progress}); go(Math.min(n - 1, Math.floor(s.progress * n * .9999))); }});
 });
 mm.add('(max-width:900px)', () => {
-  $$('.panel').forEach(p => {
-    gsap.from(p.querySelectorAll('.txt>*'), {y:40, opacity:0, stagger:.1, duration:.7, scrollTrigger:{trigger:p, start:'top 70%'}});
-    gsap.from(p.querySelector('.prod svg'), {scale:.5, rotate:-30, opacity:0, duration:.9, ease:'back.out(1.8)', scrollTrigger:{trigger:p, start:'top 70%'}});
-  });
+  $$('#tlist .mini').forEach(m => gsap.from(m, {y:60, scale:.7, rotate:-10, opacity:0, duration:1, ease:'back.out(1.4)', scrollTrigger:{trigger:m, start:'top 90%'}}));
 });
 
-/* ---- ابزار: ظاهرشدن ---- */
-gsap.from('.finder h2,.finder .k,.finder p', {y:50, opacity:0, stagger:.1, duration:.8, scrollTrigger:{trigger:'.finder', start:'top 70%'}});
-gsap.from('.finder .chip', {scale:.6, opacity:0, stagger:.06, duration:.5, ease:'back.out(2.4)', scrollTrigger:{trigger:'.finder .grid', start:'top 80%'}});
-gsap.from('.ans', {x:-80, rotate:-3, opacity:0, duration:.9, ease:'back.out(1.6)', scrollTrigger:{trigger:'.finder .grid', start:'top 80%'}});
+/* ظاهر شدن عمومی */
+ScrollTrigger.batch('[data-r]', {start:'top 88%', once:true, onEnter: els => gsap.from(els, {y:56, opacity:0, duration:1, stagger:.1, ease:'power3.out'})});
 
-/* ---- شمارنده‌ها ---- */
-gsap.from('.num', {y:80, rotate:(i) => (i - 1) * 6, opacity:0, stagger:.15, duration:.9, ease:'back.out(1.6)', scrollTrigger:{trigger:'.nums', start:'top 70%'}});
-$$('.num b').forEach(b => {
+/* کارت‌ها: نور دنبال موس + شمارنده */
+$$('.bc').forEach(c => c.addEventListener('pointermove', e => { const r = c.getBoundingClientRect(); c.style.setProperty('--sx', (e.clientX - r.left) + 'px'); c.style.setProperty('--sy', (e.clientY - r.top) + 'px'); }));
+$$('[data-n]').forEach(b => {
   const t = +b.dataset.n, o = {v:0};
-  ScrollTrigger.create({trigger:b, start:'top 85%', once:true, onEnter: () => gsap.to(o, {v:t, duration:1.6, ease:'power2.out', onUpdate: () => { b.textContent = fa(Math.round(o.v)) + (b.dataset.plus && Math.round(o.v) === t ? '+' : ''); }})});
+  ScrollTrigger.create({trigger:b, start:'top 90%', once:true, onEnter: () => gsap.to(o, {v:t, duration:1.8, ease:'power2.out', onUpdate: () => { b.textContent = fa(Math.round(o.v)) + (b.dataset.plus && Math.round(o.v) === t ? '+' : ''); }})});
 });
-gsap.from('.nums h2', {y:60, opacity:0, duration:.9, scrollTrigger:{trigger:'.nums h2', start:'top 85%'}});
 
-/* ---- دلایل ---- */
-gsap.from('.why h2', {y:60, opacity:0, duration:.8, scrollTrigger:{trigger:'.why', start:'top 70%'}});
-gsap.from('.why .c', {y:120, rotate:(i) => (i - 1) * -5, opacity:0, stagger:.15, duration:.9, ease:'power4.out', scrollTrigger:{trigger:'.why .cards', start:'top 80%'}});
+/* دکمه‌های مغناطیسی */
+if (fine) $$('[data-m]').forEach(b => {
+  b.addEventListener('pointermove', e => { const r = b.getBoundingClientRect(); gsap.to(b, {x:(e.clientX - r.left - r.width / 2) * .28, y:(e.clientY - r.top - r.height / 2) * .4, duration:.4, ease:'power3.out'}); });
+  b.addEventListener('pointerleave', () => gsap.to(b, {x:0, y:0, duration:.8, ease:'elastic.out(1,.4)'}));
+});
 
-/* ---- تماس ---- */
-gsap.from('.contact .k,.contact h2,.contact p', {y:50, opacity:0, stagger:.1, duration:.8, scrollTrigger:{trigger:'.contact', start:'top 75%'}});
-gsap.from('.info', {x:80, opacity:0, duration:.9, ease:'power3.out', scrollTrigger:{trigger:'.cg', start:'top 80%'}});
-gsap.from('.map', {x:-80, opacity:0, duration:.9, ease:'power3.out', scrollTrigger:{trigger:'.cg', start:'top 80%'}});
-
-/* کابل: کشیده‌شدن، وصل‌شدن، جرقه */
-(function(){
-  const back = $('#cbBack'), front = $('#cbFront'), len = back.getTotalLength();
-  gsap.set([back, front], {strokeDasharray: len, strokeDashoffset: len});
-  gsap.set('#plug', {x: 40});
-  const tl = gsap.timeline({scrollTrigger:{trigger:'#plugline', start:'top 85%', end:'top 25%', scrub:.6}});
-  tl.to([back, front], {strokeDashoffset:0, ease:'none', duration:1})
-    .to('#plug', {x:0, ease:'back.out(3)', duration:.25})
-    .fromTo('#spark', {opacity:0, scale:.2}, {opacity:1, scale:1.2, duration:.15, ease:'back.out(4)'})
-    .to('#spark', {opacity:0, scale:.6, duration:.15});
-})();
-gsap.from('.final h2', {scale:.7, opacity:0, duration:.9, ease:'back.out(1.8)', scrollTrigger:{trigger:'.final', start:'top 85%'}});
-gsap.from('.final .pill', {y:40, opacity:0, duration:.6, delay:.2, scrollTrigger:{trigger:'.final', start:'top 85%'}});
-gsap.to('.giant', {yPercent:-18, ease:'none', scrollTrigger:{trigger:'.hero', start:'top top', end:'bottom top', scrub:true}});
-window.addEventListener('load', () => ScrollTrigger.refresh());
+/* نوشته بزرگ آخر */
+gsap.fromTo('#huge', {xPercent:6}, {xPercent:-6, ease:'none', scrollTrigger:{trigger:'.close', start:'top bottom', end:'bottom top', scrub:true}});
+addEventListener('load', () => ScrollTrigger.refresh());
 }
 </script>
 </body>
