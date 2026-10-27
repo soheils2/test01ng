@@ -1,0 +1,285 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>موبایل آریا | لوازم جانبی موبایل در شهرک کاوه اصفهان</title>
+<meta name="description" content="موبایل آریا؛ شارژر، کابل، هندزفری، ایرپاد، قاب گوشی، پاوربانک، اسپیکر و مموری در شهرک کاوه اصفهان.">
+<meta name="theme-color" content="#2b1a12">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lalezar&family=Vazirmatn:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --tile:#f3ecd6;      /* کاشی دیوار مغازه */
+  --wood:#2b1a12;      /* تخته‌ی آویز */
+  --wood2:#3a2418;
+  --orange:#ff5a1f;    /* جعبه‌ی شارژر فندکی */
+  --lime:#c6ee3a;      /* جعبه‌ی QCY */
+  --ink:#1c1410;
+  --paper:#fffaf0;
+}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{font-family:Vazirmatn,Tahoma,sans-serif;background:var(--tile);color:var(--ink);line-height:1.8;overflow-x:hidden}
+h1,h2,h3,.display{font-family:Lalezar,Vazirmatn,sans-serif;font-weight:400;line-height:1.15}
+a{color:inherit}
+.wrap{width:min(1120px,100% - 32px);margin-inline:auto}
+
+/* تخته سوراخ‌دار */
+.peg{
+  background:
+    radial-gradient(circle at center,rgba(0,0,0,.55) 0 3px,transparent 3.5px) 0 0/34px 34px,
+    linear-gradient(var(--wood2),var(--wood));
+  color:var(--paper);
+}
+
+/* ---------- Hero ---------- */
+header.hero{position:relative;padding:28px 0 0;min-height:92vh;display:flex;flex-direction:column}
+nav{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.logo{font-family:Lalezar;font-size:1.9rem;text-decoration:none;display:flex;align-items:center;gap:10px}
+.logo i{width:14px;height:14px;border-radius:50%;background:var(--orange);box-shadow:0 0 0 4px rgba(255,90,31,.25)}
+nav .links{display:flex;gap:22px;font-size:.95rem}
+nav .links a{text-decoration:none;opacity:.85}
+nav .links a:hover{opacity:1;color:var(--lime)}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:11px 22px;border-radius:999px;background:var(--orange);color:#fff;text-decoration:none;font-weight:700;border:0;cursor:pointer;transition:transform .2s}
+.btn:hover{transform:translateY(-2px) rotate(-1deg)}
+.btn.ghost{background:transparent;border:2px solid currentColor;color:inherit}
+.hero-body{flex:1;display:grid;grid-template-columns:1.1fr 1fr;align-items:center;gap:30px;padding:40px 0 20px}
+.hero h1{font-size:clamp(3.2rem,9vw,7rem)}
+.hero h1 em{font-style:normal;color:var(--lime);display:inline-block;transform:rotate(-3deg)}
+.hero p.lead{font-size:1.15rem;max-width:30ch;margin:18px 0 28px;opacity:.9}
+.hero .cta{display:flex;gap:12px;flex-wrap:wrap}
+.place{display:inline-block;margin-bottom:14px;padding:3px 14px;border:1px dashed rgba(255,250,240,.5);border-radius:6px;font-size:.9rem}
+
+/* برچسب‌های آویزان */
+.rail{position:relative;height:420px}
+.rail::before{content:"";position:absolute;inset-inline:0;top:34px;height:8px;background:#9c9c9c;border-radius:4px;box-shadow:0 3px 0 #555}
+.tag{position:absolute;top:38px;width:116px;transform-origin:50% 0;animation:swing 4.5s ease-in-out infinite;animation-delay:var(--d,0s);text-align:center}
+.tag::before{content:"";display:block;width:2px;height:var(--len,30px);background:#bbb;margin:0 auto}
+.tag span{display:block;padding:14px 8px 12px;background:var(--c,var(--paper));color:var(--t,var(--ink));border-radius:10px;font-family:Lalezar;font-size:1.25rem;box-shadow:0 8px 0 rgba(0,0,0,.25);position:relative}
+.tag span::before{content:"";position:absolute;top:-6px;left:50%;width:12px;height:12px;margin-left:-6px;border-radius:50%;background:var(--wood);border:2px solid #bbb}
+.tag small{display:block;font:500 .7rem Vazirmatn;opacity:.7}
+@keyframes swing{0%,100%{transform:rotate(-4deg)}50%{transform:rotate(4deg)}}
+
+/* ---------- Marquee ---------- */
+.brands{background:var(--orange);color:#fff;padding:14px 0;overflow:hidden;transform:rotate(-1.2deg);margin:-14px -10px 0;position:relative;z-index:2}
+.brands div{display:flex;gap:46px;white-space:nowrap;width:max-content;animation:run 28s linear infinite;font-family:Lalezar;font-size:1.6rem;letter-spacing:.02em;direction:ltr}
+.brands b{font-weight:400;opacity:.55}
+@keyframes run{to{transform:translateX(-50%)}}
+
+/* ---------- Sections ---------- */
+section{padding:84px 0}
+.kicker{font-size:.9rem;font-weight:700;color:var(--orange);letter-spacing:.04em}
+h2{font-size:clamp(2.1rem,5vw,3.4rem);margin:4px 0 14px}
+.sub{max-width:52ch;opacity:.8}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:22px;margin-top:40px}
+.card{background:var(--paper);border-radius:16px 16px 16px 4px;padding:22px 20px 20px;position:relative;border:2px solid var(--ink);box-shadow:6px 6px 0 var(--ink);transition:transform .25s,box-shadow .25s}
+.card:hover{transform:translate(-3px,-3px) rotate(-.6deg);box-shadow:9px 9px 0 var(--ink)}
+.card .no{font-family:Lalezar;font-size:.95rem;position:absolute;top:-14px;inset-inline-start:16px;background:var(--lime);padding:0 12px;border:2px solid var(--ink);border-radius:999px}
+.card h3{font-size:1.6rem;margin-bottom:6px}
+.card p{font-size:.92rem;opacity:.8}
+.card svg{width:44px;height:44px;margin-bottom:8px;stroke:var(--ink);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+
+/* گالری */
+.gal{margin-top:44px;display:grid;grid-template-columns:repeat(4,1fr);gap:18px;align-items:start}
+.gal figure{background:#fff;padding:10px 10px 14px;box-shadow:0 10px 24px rgba(43,26,18,.25);transform:rotate(var(--r,0deg));transition:transform .3s}
+.gal figure:nth-child(even){margin-top:34px}
+.gal figure:hover{transform:rotate(0) scale(1.04);z-index:3;position:relative}
+.gal img{width:100%;aspect-ratio:3/4;object-fit:cover;display:block}
+.gal figcaption{font-size:.85rem;padding-top:8px;text-align:center}
+
+/* چرا ما */
+.why{background:var(--wood);color:var(--paper);position:relative}
+.why .grid{grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
+.why .item{border-top:3px solid var(--lime);padding-top:14px}
+.why .item b{font-family:Lalezar;font-size:3rem;color:var(--orange);display:block;line-height:1}
+.why h3{font-size:1.5rem;margin:6px 0}
+.why p{opacity:.8;font-size:.95rem}
+
+/* تماس */
+.contact{display:grid;grid-template-columns:1fr 1.2fr;gap:36px;margin-top:36px;align-items:stretch}
+.info{background:var(--paper);border:2px solid var(--ink);box-shadow:6px 6px 0 var(--ink);border-radius:16px;padding:26px}
+.info dl{display:grid;gap:16px;margin-bottom:22px}
+.info dt{font-size:.8rem;color:var(--orange);font-weight:700}
+.info dd{font-size:1.05rem;font-weight:500}
+.info .acts{display:flex;gap:10px;flex-wrap:wrap}
+.info .btn.ghost{color:var(--ink)}
+.map{border:2px solid var(--ink);border-radius:16px;overflow:hidden;box-shadow:6px 6px 0 var(--ink);min-height:360px;background:#ddd}
+.map iframe{width:100%;height:100%;min-height:360px;border:0;display:block;filter:sepia(.25) saturate(1.1)}
+
+footer{background:var(--ink);color:rgba(255,250,240,.7);padding:26px 0;font-size:.85rem;text-align:center}
+.fab{display:none}
+
+/* ---------- Mobile ---------- */
+@media(max-width:860px){
+  .hero-body{grid-template-columns:1fr;padding-top:20px}
+  .rail{height:330px}
+  .tag{width:92px}.tag span{font-size:1.05rem}
+  nav .links{display:none}
+  .gal{grid-template-columns:repeat(2,1fr)}
+  .contact{grid-template-columns:1fr}
+  section{padding:60px 0}
+  .fab{display:flex;position:fixed;bottom:16px;inset-inline-start:16px;z-index:9;box-shadow:0 8px 20px rgba(0,0,0,.35)}
+}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+
+/* ظاهر شدن با اسکرول */
+.rv{opacity:0;transform:translateY(24px);transition:opacity .7s,transform .7s}
+.rv.on{opacity:1;transform:none}
+</style>
+</head>
+<body>
+
+<header class="hero peg" id="top">
+  <div class="wrap" style="display:flex;flex-direction:column;flex:1">
+    <nav>
+      <a class="logo" href="#top"><i></i>موبایل آریا</a>
+      <div class="links"><a href="#products">محصولات</a><a href="#shop">فروشگاه</a><a href="#why">چرا آریا</a><a href="#contact">آدرس</a></div>
+      <a class="btn" href="#contact">آدرس و تماس</a>
+    </nav>
+
+    <div class="hero-body">
+      <div>
+        <span class="place">شهرک کاوه، اصفهان</span>
+        <h1>هرچی گوشیت <em>لازم داره</em>،<br>همین‌جا آویزونه.</h1>
+        <p class="lead">شارژر و کابل و هندزفری، قاب و ایرپاد، پاوربانک و اسپیکر. بیا ببین، دست بزن، انتخاب کن.</p>
+        <div class="cta">
+          <a class="btn" href="#contact">مسیریابی تا مغازه</a>
+          <a class="btn ghost" href="#products">دیدن محصولات</a>
+        </div>
+      </div>
+
+      <div class="rail" aria-hidden="true">
+        <div class="tag" style="right:2%;--d:-.4s;--len:26px;--c:var(--orange);--t:#fff"><span>شارژر<small>فست ۶۵ وات</small></span></div>
+        <div class="tag" style="right:22%;--d:-1.6s;--len:92px;--c:var(--lime)"><span>ایرپاد<small>بی‌سیم</small></span></div>
+        <div class="tag" style="right:42%;--d:-2.4s;--len:40px"><span>کابل<small>تایپ‌سی / لایتنینگ</small></span></div>
+        <div class="tag" style="right:62%;--d:-3.1s;--len:150px;--c:#6ec6ff"><span>قاب<small>همه مدل‌ها</small></span></div>
+        <div class="tag" style="right:82%;--d:-.9s;--len:70px;--c:#ffd23f"><span>پاوربانک<small>سبک و پرظرفیت</small></span></div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="brands" aria-hidden="true">
+  <div>
+    <span>LDNIO</span><b>✦</b><span>QCY</span><b>✦</b><span>KEZEN</span><b>✦</b><span>TWIN MAX</span><b>✦</b><span>VSMART</span><b>✦</b><span>MOXOM</span><b>✦</b><span>PHILIPS</span><b>✦</b><span>SANDISK</span><b>✦</b><span>TOSHIBA</span><b>✦</b><span>PANASONIC</span><b>✦</b><span>RAYMAX</span><b>✦</b><span>BAREO</span><b>✦</b>
+    <span>LDNIO</span><b>✦</b><span>QCY</span><b>✦</b><span>KEZEN</span><b>✦</b><span>TWIN MAX</span><b>✦</b><span>VSMART</span><b>✦</b><span>MOXOM</span><b>✦</b><span>PHILIPS</span><b>✦</b><span>SANDISK</span><b>✦</b><span>TOSHIBA</span><b>✦</b><span>PANASONIC</span><b>✦</b><span>RAYMAX</span><b>✦</b><span>BAREO</span><b>✦</b>
+  </div>
+</div>
+
+<section id="products">
+  <div class="wrap">
+    <div class="kicker rv">قفسه‌ها</div>
+    <h2 class="rv">یه دیوار پر از چیزای به‌دردبخور</h2>
+    <p class="sub rv">از سیم‌شارژ ساده تا هندزفری بی‌سیم؛ هرچی روی دیوار مغازه هست رو می‌تونی همین‌جا ببینی.</p>
+
+    <div class="grid">
+      <article class="card rv"><span class="no">۰۱</span>
+        <svg viewBox="0 0 48 48"><rect x="12" y="6" width="24" height="22" rx="4"/><path d="M18 28v8M30 28v8M24 36v6"/></svg>
+        <h3>شارژر و فندکی</h3><p>شارژر دیواری و ماشین، فست‌شارژ تا ۶۵ وات.</p></article>
+      <article class="card rv"><span class="no">۰۲</span>
+        <svg viewBox="0 0 48 48"><path d="M6 36c10 0 8-24 18-24s8 24 18 24"/><rect x="2" y="32" width="8" height="8" rx="2"/><rect x="38" y="32" width="8" height="8" rx="2"/></svg>
+        <h3>کابل و تبدیل</h3><p>تایپ‌سی، میکرو، لایتنینگ، OTG و کابل AUX.</p></article>
+      <article class="card rv"><span class="no">۰۳</span>
+        <svg viewBox="0 0 48 48"><path d="M8 28v-6a16 16 0 0 1 32 0v6"/><rect x="6" y="26" width="8" height="14" rx="3"/><rect x="34" y="26" width="8" height="14" rx="3"/></svg>
+        <h3>هندزفری و ایرپاد</h3><p>سیمی و بی‌سیم، اپن‌ایر کلیپ، مدل‌های جدید.</p></article>
+      <article class="card rv"><span class="no">۰۴</span>
+        <svg viewBox="0 0 48 48"><rect x="13" y="4" width="22" height="40" rx="5"/><circle cx="21" cy="11" r="2"/><circle cx="28" cy="11" r="2"/></svg>
+        <h3>قاب و گلس</h3><p>سیلیکونی، شفاف، طرح‌دار؛ برای گوشی‌های رایج.</p></article>
+      <article class="card rv"><span class="no">۰۵</span>
+        <svg viewBox="0 0 48 48"><rect x="8" y="14" width="30" height="20" rx="4"/><path d="M38 20h4v8h-4M14 20v8M20 20v8"/></svg>
+        <h3>پاوربانک و باتری</h3><p>پاوربانک، باتری قلمی و نیم‌قلمی معتبر.</p></article>
+      <article class="card rv"><span class="no">۰۶</span>
+        <svg viewBox="0 0 48 48"><rect x="12" y="4" width="24" height="40" rx="5"/><circle cx="24" cy="18" r="6"/><circle cx="24" cy="34" r="3"/></svg>
+        <h3>اسپیکر</h3><p>از اسپیکر کوچیک تا باند بلوتوثی کاراوکه‌دار.</p></article>
+      <article class="card rv"><span class="no">۰۷</span>
+        <svg viewBox="0 0 48 48"><rect x="12" y="6" width="22" height="30" rx="3"/><path d="M18 36v6h10v-6M18 12h10"/></svg>
+        <h3>فلش و مموری</h3><p>فلش، رم میکرو و کارت‌خوان حافظه.</p></article>
+      <article class="card rv"><span class="no">۰۸</span>
+        <svg viewBox="0 0 48 48"><circle cx="24" cy="24" r="16"/><path d="M24 14v10l7 4"/></svg>
+        <h3>و چیزای دیگه</h3><p>پایه نگهدارنده، آویز، چراغ، سه‌راهی و …</p></article>
+    </div>
+  </div>
+</section>
+
+<section id="shop" style="padding-top:20px">
+  <div class="wrap">
+    <div class="kicker rv">از داخل مغازه</div>
+    <h2 class="rv">این‌جاییم، منتظرت</h2>
+    <div class="gal">
+      <figure class="rv" style="--r:-2.5deg"><img loading="lazy" src="assets/earbuds.jpg" alt="ویترین ایرپاد و هندزفری بی‌سیم"><figcaption>ویترین ایرپاد</figcaption></figure>
+      <figure class="rv" style="--r:2deg"><img loading="lazy" src="assets/wall-cables.jpg" alt="دیوار کابل، شارژر و قاب گوشی"><figcaption>دیوار کابل و شارژر</figcaption></figure>
+      <figure class="rv" style="--r:-1.5deg"><img loading="lazy" src="assets/wall-audio.jpg" alt="هندزفری، باتری و کابل روی تخته آویز"><figcaption>هندزفری و باتری</figcaption></figure>
+      <figure class="rv" style="--r:3deg"><img loading="lazy" src="assets/desk.jpg" alt="فلش، مموری و اسپیکر"><figcaption>فلش، مموری، اسپیکر</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section class="why peg" id="why">
+  <div class="wrap">
+    <div class="kicker rv" style="color:var(--lime)">چرا آریا</div>
+    <h2 class="rv">ساده، سریع، رو‌راست</h2>
+    <div class="grid">
+      <div class="item rv"><b>۱</b><h3>همه‌چیز یک‌جا</h3><p>به‌جای گشتن چند مغازه، شارژر و کابل و قاب رو یک‌جا بگیر.</p></div>
+      <div class="item rv"><b>۲</b><h3>راهنمایی بدون اصرار</h3><p>بگو گوشیت چیه؛ مناسب‌ترین کابل و شارژر رو نشونت می‌دیم.</p></div>
+      <div class="item rv"><b>۳</b><h3>پرداخت راحت</h3><p>کارتخوان داریم؛ نقد و کارت، هرجور راحتی.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <div class="kicker rv">پیدامون کن</div>
+    <h2 class="rv">آدرس و تماس</h2>
+    <div class="contact">
+      <div class="info rv">
+        <dl>
+          <div><dt>آدرس</dt><dd id="addr"></dd></div>
+          <div><dt>تلفن</dt><dd id="phone"></dd></div>
+          <div><dt>ساعت کاری</dt><dd id="hours"></dd></div>
+        </dl>
+        <div class="acts">
+          <a class="btn" id="callBtn" href="#contact">تماس</a>
+          <a class="btn ghost" id="routeBtn" target="_blank" rel="noopener" href="#">مسیریابی</a>
+        </div>
+      </div>
+      <div class="map rv"><iframe id="mapFrame" title="نقشه موبایل آریا" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+    </div>
+  </div>
+</section>
+
+<a class="btn fab" id="fab" href="#contact">تماس با آریا</a>
+<footer>© موبایل آریا · شهرک کاوه، اصفهان</footer>
+
+<script>
+/* ===== اطلاعات مغازه: فقط همین بخش رو ویرایش کن ===== */
+const SHOP = {
+  name:  "موبایل آریا",
+  address: "اصفهان، شهرک کاوه، (آدرس دقیق را اینجا بنویسید)",
+  phone: "",                 // مثال: "03112345678"
+  hours: "هر روز، ۹ تا ۲۱ (ساعت واقعی را بنویسید)",
+  mapQuery: "موبایل آریا شهرک کاوه اصفهان"   // اگر لینک دقیق گوگل‌مپ داری، اینجا نام/مختصات دقیق بگذار
+};
+/* ==================================================== */
+const q = encodeURIComponent(SHOP.mapQuery);
+document.getElementById('addr').textContent = SHOP.address;
+document.getElementById('hours').textContent = SHOP.hours;
+const ph = document.getElementById('phone'), call = document.getElementById('callBtn'), fab = document.getElementById('fab');
+if (SHOP.phone) {
+  ph.innerHTML = '<a href="tel:' + SHOP.phone + '" dir="ltr">' + SHOP.phone + '</a>';
+  call.href = fab.href = 'tel:' + SHOP.phone;
+} else {
+  ph.textContent = 'به‌زودی';
+  call.style.display = 'none';
+  fab.textContent = 'آدرس مغازه';
+}
+document.getElementById('mapFrame').src = 'https://www.google.com/maps?q=' + q + '&hl=fa&z=16&output=embed';
+document.getElementById('routeBtn').href = 'https://www.google.com/maps/dir/?api=1&destination=' + q;
+
+const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('on'); io.unobserve(e.target); } }), {threshold:.15});
+document.querySelectorAll('.rv').forEach(el => io.observe(el));
+</script>
+</body>
+</html>
