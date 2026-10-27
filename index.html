@@ -4,29 +4,24 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>موبایل آریا | لوازم جانبی موبایل در شهرک کاوه اصفهان</title>
-<meta name="description" content="موبایل آریا؛ شارژر، کابل، هندزفری، ایرپاد، قاب گوشی، پاوربانک، اسپیکر و مموری در شهرک کاوه اصفهان.">
+<meta name="description" content="موبایل آریا؛ شارژر، کابل، هندزفری، ایرپاد، قاب گوشی، پاوربانک، اسپیکر و مموری در شهرک کاوه اصفهان. بیا، دست بزن، مطمئن بخر.">
 <meta name="theme-color" content="#2b1a12">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Lalezar&family=Vazirmatn:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
 :root{
-  --tile:#f3ecd6;      /* کاشی دیوار مغازه */
-  --wood:#2b1a12;      /* تخته‌ی آویز */
-  --wood2:#3a2418;
-  --orange:#ff5a1f;    /* جعبه‌ی شارژر فندکی */
-  --lime:#c6ee3a;      /* جعبه‌ی QCY */
-  --ink:#1c1410;
-  --paper:#fffaf0;
+  --tile:#f3ecd6; --wood:#2b1a12; --wood2:#3a2418;
+  --orange:#ff5a1f; --lime:#c6ee3a; --ink:#1c1410; --paper:#fffaf0; --sky:#6ec6ff; --sun:#ffd23f;
 }
 *{box-sizing:border-box;margin:0}
-html{scroll-behavior:smooth}
-body{font-family:Vazirmatn,Tahoma,sans-serif;background:var(--tile);color:var(--ink);line-height:1.8;overflow-x:hidden}
+html{scroll-behavior:smooth;overflow-x:clip}
+body{font-family:Vazirmatn,Tahoma,sans-serif;background:var(--tile);color:var(--ink);line-height:1.9;overflow-x:clip}
 h1,h2,h3,.display{font-family:Lalezar,Vazirmatn,sans-serif;font-weight:400;line-height:1.15}
 a{color:inherit}
 .wrap{width:min(1120px,100% - 32px);margin-inline:auto}
+::selection{background:var(--orange);color:#fff}
 
-/* تخته سوراخ‌دار */
 .peg{
   background:
     radial-gradient(circle at center,rgba(0,0,0,.55) 0 3px,transparent 3.5px) 0 0/34px 34px,
@@ -34,71 +29,169 @@ a{color:inherit}
   color:var(--paper);
 }
 
-/* ---------- Hero ---------- */
-header.hero{position:relative;padding:28px 0 0;min-height:92vh;display:flex;flex-direction:column}
-nav{display:flex;align-items:center;justify-content:space-between;gap:12px}
+/* ===== باتری اسکرول ===== */
+.batt{position:fixed;top:14px;inset-inline-start:14px;z-index:50;display:flex;align-items:center;gap:6px;font:700 .8rem Vazirmatn;color:#fff;mix-blend-mode:normal;pointer-events:none}
+.batt .body{position:relative;width:38px;height:18px;border:2px solid #fff;border-radius:5px;padding:1px;background:rgba(0,0,0,.35);backdrop-filter:blur(4px)}
+.batt .body::after{content:"";position:absolute;inset-inline-end:-6px;top:4px;width:3px;height:6px;background:#fff;border-radius:0 2px 2px 0}
+.batt .fill{height:100%;width:1%;background:var(--lime);border-radius:2px;transition:background .3s}
+.batt span{background:rgba(0,0,0,.45);padding:0 8px;border-radius:999px;backdrop-filter:blur(4px)}
+.progress{position:fixed;top:0;inset-inline:0;height:3px;z-index:60;background:linear-gradient(90deg,var(--orange),var(--lime));transform-origin:right;transform:scaleX(0)}
+
+/* ===== Hero ===== */
+header.hero{position:relative;padding:28px 0 0;min-height:94vh;display:flex;flex-direction:column;overflow:hidden}
+.spot{position:absolute;inset:0;pointer-events:none;background:radial-gradient(420px circle at var(--mx,70%) var(--my,30%),rgba(255,210,63,.22),transparent 60%);transition:background .1s}
+nav{display:flex;align-items:center;justify-content:space-between;gap:12px;position:relative;z-index:3}
 .logo{font-family:Lalezar;font-size:1.9rem;text-decoration:none;display:flex;align-items:center;gap:10px}
-.logo i{width:14px;height:14px;border-radius:50%;background:var(--orange);box-shadow:0 0 0 4px rgba(255,90,31,.25)}
+.logo i{width:14px;height:14px;border-radius:50%;background:var(--orange);animation:ping 2s infinite}
+@keyframes ping{0%{box-shadow:0 0 0 0 rgba(255,90,31,.7)}100%{box-shadow:0 0 0 16px rgba(255,90,31,0)}}
 nav .links{display:flex;gap:22px;font-size:.95rem}
-nav .links a{text-decoration:none;opacity:.85}
-nav .links a:hover{opacity:1;color:var(--lime)}
-.btn{display:inline-flex;align-items:center;gap:8px;padding:11px 22px;border-radius:999px;background:var(--orange);color:#fff;text-decoration:none;font-weight:700;border:0;cursor:pointer;transition:transform .2s}
-.btn:hover{transform:translateY(-2px) rotate(-1deg)}
+nav .links a{text-decoration:none;opacity:.85;position:relative}
+nav .links a::after{content:"";position:absolute;inset-inline:0;bottom:-2px;height:2px;background:var(--lime);transform:scaleX(0);transition:transform .3s}
+nav .links a:hover::after{transform:scaleX(1)}
+.btn{position:relative;overflow:hidden;display:inline-flex;align-items:center;gap:8px;padding:12px 24px;border-radius:999px;background:var(--orange);color:#fff;text-decoration:none;font-weight:700;border:0;cursor:pointer;font-family:inherit;font-size:1rem;transition:transform .25s,box-shadow .25s;will-change:transform}
+.btn:hover{box-shadow:0 10px 24px rgba(255,90,31,.45)}
 .btn.ghost{background:transparent;border:2px solid currentColor;color:inherit}
-.hero-body{flex:1;display:grid;grid-template-columns:1.1fr 1fr;align-items:center;gap:30px;padding:40px 0 20px}
-.hero h1{font-size:clamp(3.2rem,9vw,7rem)}
-.hero h1 em{font-style:normal;color:var(--lime);display:inline-block;transform:rotate(-3deg)}
-.hero p.lead{font-size:1.15rem;max-width:30ch;margin:18px 0 28px;opacity:.9}
-.hero .cta{display:flex;gap:12px;flex-wrap:wrap}
-.place{display:inline-block;margin-bottom:14px;padding:3px 14px;border:1px dashed rgba(255,250,240,.5);border-radius:6px;font-size:.9rem}
+.btn.pulse{animation:pulse 2.4s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(255,90,31,.6)}70%{box-shadow:0 0 0 18px rgba(255,90,31,0)}100%{box-shadow:0 0 0 0 rgba(255,90,31,0)}}
+.rip{position:absolute;border-radius:50%;background:rgba(255,255,255,.5);transform:scale(0);animation:rip .6s ease-out forwards;pointer-events:none}
+@keyframes rip{to{transform:scale(4);opacity:0}}
+
+.hero-body{flex:1;display:grid;grid-template-columns:1.1fr 1fr;align-items:center;gap:30px;padding:36px 0 30px;position:relative;z-index:2}
+.hero h1{font-size:clamp(3rem,8.4vw,6.6rem)}
+.ln{display:block;overflow:hidden;padding-block:.04em}
+.ln>span{display:inline-block;transform:translateY(115%) rotate(4deg);animation:up .9s cubic-bezier(.2,.9,.2,1) forwards}
+.ln:nth-child(1)>span{animation-delay:.15s}.ln:nth-child(2)>span{animation-delay:.3s}.ln:nth-child(3)>span{animation-delay:.45s}
+@keyframes up{to{transform:none}}
+.hero h1 em{font-style:normal;color:var(--lime);display:inline-block;animation:wob 3s ease-in-out infinite}
+@keyframes wob{0%,100%{transform:rotate(-3deg)}50%{transform:rotate(2deg) scale(1.04)}}
+.hero p.lead{font-size:1.15rem;max-width:34ch;margin:18px 0 28px;opacity:0;animation:fade .9s .8s forwards}
+.hero .cta{display:flex;gap:12px;flex-wrap:wrap;opacity:0;animation:fade .9s 1s forwards}
+@keyframes fade{to{opacity:1}}
+.place{display:inline-flex;align-items:center;gap:8px;margin-bottom:14px;padding:4px 14px;border:1px dashed rgba(255,250,240,.5);border-radius:6px;font-size:.9rem;opacity:0;animation:fade .8s .05s forwards}
+.place::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--lime);animation:ping 2s infinite;--x:0}
+.type{display:inline-block;min-width:6ch;color:var(--sun);border-inline-start:3px solid var(--sun);padding-inline-start:8px;margin-inline-start:4px}
 
 /* برچسب‌های آویزان */
-.rail{position:relative;height:420px}
-.rail::before{content:"";position:absolute;inset-inline:0;top:34px;height:8px;background:#9c9c9c;border-radius:4px;box-shadow:0 3px 0 #555}
-.tag{position:absolute;top:38px;width:116px;transform-origin:50% 0;animation:swing 4.5s ease-in-out infinite;animation-delay:var(--d,0s);text-align:center}
+.rail{position:relative;height:430px;transition:transform .2s ease-out}
+.rail::before{content:"";position:absolute;inset-inline:0;top:34px;height:8px;background:linear-gradient(#cfcfcf,#8d8d8d);border-radius:4px;box-shadow:0 3px 0 #555}
+.tag{position:absolute;top:38px;width:116px;transform-origin:50% 0;animation:swing 4.5s ease-in-out infinite;animation-delay:var(--d,0s);text-align:center;cursor:pointer;opacity:0;animation-name:drop,swing;animation-duration:.9s,4.5s;animation-fill-mode:forwards,none;animation-iteration-count:1,infinite;animation-delay:calc(var(--i)*.15s + .5s),calc(var(--i)*.15s + 1.4s)}
 .tag::before{content:"";display:block;width:2px;height:var(--len,30px);background:#bbb;margin:0 auto}
-.tag span{display:block;padding:14px 8px 12px;background:var(--c,var(--paper));color:var(--t,var(--ink));border-radius:10px;font-family:Lalezar;font-size:1.25rem;box-shadow:0 8px 0 rgba(0,0,0,.25);position:relative}
+.tag span{display:block;padding:14px 8px 12px;background:var(--c,var(--paper));color:var(--t,var(--ink));border-radius:10px;font-family:Lalezar;font-size:1.25rem;box-shadow:0 8px 0 rgba(0,0,0,.25);position:relative;transition:transform .2s}
+.tag:hover span{transform:scale(1.1)}
 .tag span::before{content:"";position:absolute;top:-6px;left:50%;width:12px;height:12px;margin-left:-6px;border-radius:50%;background:var(--wood);border:2px solid #bbb}
 .tag small{display:block;font:500 .7rem Vazirmatn;opacity:.7}
-@keyframes swing{0%,100%{transform:rotate(-4deg)}50%{transform:rotate(4deg)}}
+.tag.kick{animation:kick 1.2s ease-out}
+@keyframes swing{0%,100%{transform:rotate(-4deg);opacity:1}50%{transform:rotate(4deg);opacity:1}}
+@keyframes drop{0%{transform:translateY(-300px) rotate(-20deg);opacity:0}60%{transform:translateY(10px) rotate(8deg);opacity:1}100%{transform:none;opacity:1}}
+@keyframes kick{0%{transform:rotate(0)}15%{transform:rotate(34deg)}35%{transform:rotate(-24deg)}55%{transform:rotate(14deg)}75%{transform:rotate(-7deg)}100%{transform:rotate(0)}}
+.hint{position:absolute;bottom:0;inset-inline:0;text-align:center;font-size:.8rem;opacity:.6}
+.scroll-cue{position:absolute;bottom:14px;inset-inline-start:50%;width:22px;height:36px;border:2px solid rgba(255,250,240,.6);border-radius:14px;z-index:3}
+.scroll-cue::after{content:"";position:absolute;top:6px;left:50%;width:4px;height:8px;margin-left:-2px;border-radius:2px;background:var(--lime);animation:cue 1.6s infinite}
+@keyframes cue{0%{transform:translateY(0);opacity:1}100%{transform:translateY(14px);opacity:0}}
 
-/* ---------- Marquee ---------- */
-.brands{background:var(--orange);color:#fff;padding:14px 0;overflow:hidden;transform:rotate(-1.2deg);margin:-14px -10px 0;position:relative;z-index:2}
-.brands div{display:flex;gap:46px;white-space:nowrap;width:max-content;animation:run 28s linear infinite;font-family:Lalezar;font-size:1.6rem;letter-spacing:.02em;direction:ltr}
+/* ===== Marquee ===== */
+.brands{background:var(--orange);color:#fff;padding:10px 0;overflow:hidden;transform:rotate(-1.2deg);margin:-16px -10px 0;position:relative;z-index:2}
+.brands.b2{background:var(--ink);transform:rotate(1deg);margin-top:-6px;z-index:1;color:var(--lime)}
+.brands div{display:flex;gap:46px;white-space:nowrap;width:max-content;animation:run 30s linear infinite;font-family:Lalezar;font-size:1.5rem;direction:ltr}
+.brands.b2 div{animation-direction:reverse;animation-duration:38s}
+.brands:hover div{animation-play-state:paused}
 .brands b{font-weight:400;opacity:.55}
 @keyframes run{to{transform:translateX(-50%)}}
 
-/* ---------- Sections ---------- */
-section{padding:84px 0}
+/* ===== عمومی ===== */
+section{padding:90px 0}
 .kicker{font-size:.9rem;font-weight:700;color:var(--orange);letter-spacing:.04em}
 h2{font-size:clamp(2.1rem,5vw,3.4rem);margin:4px 0 14px}
-.sub{max-width:52ch;opacity:.8}
+.sub{max-width:56ch;opacity:.82;font-size:1.05rem}
+.rv{opacity:0;transform:translateY(30px);transition:opacity .8s cubic-bezier(.2,.8,.2,1),transform .8s cubic-bezier(.2,.8,.2,1);transition-delay:var(--dl,0s)}
+.rv.on{opacity:1;transform:none}
+mark{background:linear-gradient(transparent 55%,var(--lime) 55%);color:inherit;padding:0 2px}
 
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:22px;margin-top:40px}
-.card{background:var(--paper);border-radius:16px 16px 16px 4px;padding:22px 20px 20px;position:relative;border:2px solid var(--ink);box-shadow:6px 6px 0 var(--ink);transition:transform .25s,box-shadow .25s}
-.card:hover{transform:translate(-3px,-3px) rotate(-.6deg);box-shadow:9px 9px 0 var(--ink)}
+/* ===== داستان ===== */
+.story{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center}
+.story .pic{position:relative}
+.story .pic img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:20px;border:3px solid var(--ink);box-shadow:10px 10px 0 var(--ink);clip-path:inset(0 0 100% 0);transition:clip-path 1.2s cubic-bezier(.2,.8,.2,1)}
+.story .pic.on img{clip-path:inset(0)}
+.story .sticker{position:absolute;bottom:-18px;inset-inline-start:-14px;background:var(--lime);border:3px solid var(--ink);border-radius:14px;padding:8px 16px;font-family:Lalezar;font-size:1.2rem;transform:rotate(-5deg);animation:float 4s ease-in-out infinite}
+@keyframes float{0%,100%{transform:rotate(-5deg) translateY(0)}50%{transform:rotate(-3deg) translateY(-8px)}}
+.story p{margin-bottom:14px;font-size:1.05rem}
+.stats{display:flex;gap:26px;flex-wrap:wrap;margin-top:24px}
+.stats div{border-top:3px solid var(--orange);padding-top:6px}
+.stats b{font-family:Lalezar;font-size:2.6rem;line-height:1;display:block}
+.stats small{opacity:.75}
+
+/* ===== درد و درمان (کارت چرخان) ===== */
+.pain{background:var(--paper);border-block:3px solid var(--ink)}
+.flips{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px;margin-top:40px}
+.flip{perspective:1000px;height:230px;cursor:pointer}
+.flip .in{position:relative;width:100%;height:100%;transition:transform .8s cubic-bezier(.3,1.3,.5,1);transform-style:preserve-3d}
+.flip:hover .in,.flip.open .in{transform:rotateY(180deg)}
+.flip .f,.flip .b{position:absolute;inset:0;backface-visibility:hidden;border:3px solid var(--ink);border-radius:18px;padding:24px;box-shadow:6px 6px 0 var(--ink);display:flex;flex-direction:column;justify-content:center}
+.flip .f{background:var(--wood);color:var(--paper)}
+.flip .f h3{font-size:1.7rem;color:var(--sun)}
+.flip .f small{margin-top:10px;opacity:.6}
+.flip .b{background:var(--lime);transform:rotateY(180deg)}
+.flip .b h3{font-size:1.5rem;margin-bottom:6px}
+.flip .b p{font-size:.95rem}
+
+/* ===== محصولات ===== */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:24px;margin-top:44px}
+.card{background:var(--paper);border-radius:16px 16px 16px 4px;padding:24px 20px 20px;position:relative;border:2px solid var(--ink);box-shadow:6px 6px 0 var(--ink);transition:box-shadow .25s;transform-style:preserve-3d;will-change:transform}
+.card:hover{box-shadow:12px 12px 0 var(--ink)}
 .card .no{font-family:Lalezar;font-size:.95rem;position:absolute;top:-14px;inset-inline-start:16px;background:var(--lime);padding:0 12px;border:2px solid var(--ink);border-radius:999px}
 .card h3{font-size:1.6rem;margin-bottom:6px}
 .card p{font-size:.92rem;opacity:.8}
-.card svg{width:44px;height:44px;margin-bottom:8px;stroke:var(--ink);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.card svg{width:46px;height:46px;margin-bottom:8px;stroke:var(--ink);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;transition:transform .4s}
+.card:hover svg{transform:rotate(-12deg) scale(1.2);stroke:var(--orange)}
 
-/* گالری */
+/* ===== پیشنهاددهنده ===== */
+.finder{background:var(--wood);color:var(--paper);border-radius:28px;padding:44px;border:3px solid var(--ink);box-shadow:10px 10px 0 var(--orange);position:relative;overflow:hidden}
+.finder::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at center,rgba(0,0,0,.5) 0 3px,transparent 3.5px) 0 0/34px 34px;opacity:.6;pointer-events:none}
+.finder>*{position:relative}
+.finder h2{color:var(--paper)}
+.step{margin-top:22px}
+.step b{display:block;margin-bottom:10px;color:var(--lime)}
+.chips{display:flex;gap:10px;flex-wrap:wrap}
+.chip{padding:10px 20px;border-radius:999px;border:2px solid rgba(255,250,240,.5);background:transparent;color:inherit;font:500 1rem Vazirmatn;cursor:pointer;transition:all .2s}
+.chip:hover{border-color:var(--lime);transform:translateY(-2px)}
+.chip.sel{background:var(--lime);color:var(--ink);border-color:var(--lime);transform:scale(1.06)}
+.answer{margin-top:28px;background:var(--paper);color:var(--ink);border-radius:18px;padding:22px 26px;display:none;border:3px solid var(--ink)}
+.answer.show{display:block;animation:pop .5s cubic-bezier(.3,1.5,.5,1)}
+@keyframes pop{from{transform:scale(.8) translateY(20px);opacity:0}}
+.answer h3{font-size:1.6rem;color:var(--orange)}
+.answer ul{margin:8px 0 14px;padding-inline-start:22px}
+.answer li{margin-bottom:2px}
+
+/* ===== گالری ===== */
 .gal{margin-top:44px;display:grid;grid-template-columns:repeat(4,1fr);gap:18px;align-items:start}
-.gal figure{background:#fff;padding:10px 10px 14px;box-shadow:0 10px 24px rgba(43,26,18,.25);transform:rotate(var(--r,0deg));transition:transform .3s}
+.gal figure{background:#fff;padding:10px 10px 14px;box-shadow:0 10px 24px rgba(43,26,18,.25);transform:rotate(var(--r,0deg));transition:transform .35s cubic-bezier(.3,1.4,.5,1);cursor:zoom-in;position:relative}
+.gal figure::before{content:"";position:absolute;top:-10px;left:50%;width:70px;height:22px;margin-left:-35px;background:rgba(255,210,63,.75);transform:rotate(-3deg)}
 .gal figure:nth-child(even){margin-top:34px}
-.gal figure:hover{transform:rotate(0) scale(1.04);z-index:3;position:relative}
+.gal figure:hover{transform:rotate(0) scale(1.06);z-index:3}
 .gal img{width:100%;aspect-ratio:3/4;object-fit:cover;display:block}
 .gal figcaption{font-size:.85rem;padding-top:8px;text-align:center}
+.lb{position:fixed;inset:0;background:rgba(20,12,8,.9);z-index:100;display:none;align-items:center;justify-content:center;cursor:zoom-out;padding:20px}
+.lb.show{display:flex;animation:fade .3s forwards}
+.lb img{max-height:92vh;max-width:92vw;border:6px solid #fff;border-radius:6px;animation:pop .4s}
 
-/* چرا ما */
-.why{background:var(--wood);color:var(--paper);position:relative}
+/* ===== چرا ما ===== */
+.why{position:relative}
 .why .grid{grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
 .why .item{border-top:3px solid var(--lime);padding-top:14px}
-.why .item b{font-family:Lalezar;font-size:3rem;color:var(--orange);display:block;line-height:1}
+.why .item b{font-family:Lalezar;font-size:3.4rem;color:var(--orange);display:block;line-height:1}
 .why h3{font-size:1.5rem;margin:6px 0}
-.why p{opacity:.8;font-size:.95rem}
+.why p{opacity:.85;font-size:.97rem}
 
-/* تماس */
+/* ===== کابل و پریز ===== */
+.plug{margin:50px auto 0;max-width:640px;display:flex;align-items:center;justify-content:center;direction:ltr}
+.plug svg{width:100%;height:auto;overflow:visible}
+.plug .wire{stroke:var(--ink);stroke-width:6;fill:none;stroke-linecap:round;stroke-dasharray:420;stroke-dashoffset:420;transition:stroke-dashoffset 1.6s ease}
+.plug.on .wire{stroke-dashoffset:0}
+.plug .bolt{opacity:0;transform-origin:center;transition:opacity .3s 1.5s}
+.plug.on .bolt{opacity:1;animation:zap 1.2s 1.6s infinite}
+@keyframes zap{50%{transform:scale(1.25);filter:drop-shadow(0 0 8px var(--sun))}}
+
+/* ===== تماس ===== */
 .contact{display:grid;grid-template-columns:1fr 1.2fr;gap:36px;margin-top:36px;align-items:stretch}
 .info{background:var(--paper);border:2px solid var(--ink);box-shadow:6px 6px 0 var(--ink);border-radius:16px;padding:26px}
 .info dl{display:grid;gap:16px;margin-bottom:22px}
@@ -108,58 +201,70 @@ h2{font-size:clamp(2.1rem,5vw,3.4rem);margin:4px 0 14px}
 .info .btn.ghost{color:var(--ink)}
 .map{border:2px solid var(--ink);border-radius:16px;overflow:hidden;box-shadow:6px 6px 0 var(--ink);min-height:360px;background:#ddd}
 .map iframe{width:100%;height:100%;min-height:360px;border:0;display:block;filter:sepia(.25) saturate(1.1)}
+.final{margin-top:60px;text-align:center}
+.final h2{font-size:clamp(2.2rem,6vw,4.2rem)}
 
 footer{background:var(--ink);color:rgba(255,250,240,.7);padding:26px 0;font-size:.85rem;text-align:center}
 .fab{display:none}
 
-/* ---------- Mobile ---------- */
 @media(max-width:860px){
   .hero-body{grid-template-columns:1fr;padding-top:20px}
-  .rail{height:330px}
+  .rail{height:340px}
   .tag{width:92px}.tag span{font-size:1.05rem}
   nav .links{display:none}
+  .story,.contact{grid-template-columns:1fr}
   .gal{grid-template-columns:repeat(2,1fr)}
-  .contact{grid-template-columns:1fr}
-  section{padding:60px 0}
+  section{padding:64px 0}
+  .finder{padding:26px 20px}
+  .scroll-cue{display:none}
   .fab{display:flex;position:fixed;bottom:16px;inset-inline-start:16px;z-index:9;box-shadow:0 8px 20px rgba(0,0,0,.35)}
 }
-@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
-
-/* ظاهر شدن با اسکرول */
-.rv{opacity:0;transform:translateY(24px);transition:opacity .7s,transform .7s}
-.rv.on{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+  .rv,.ln>span,.hero p.lead,.hero .cta,.place,.tag{opacity:1!important;transform:none!important}
+  .story .pic img{clip-path:none}
+}
 </style>
 </head>
 <body>
+<div class="progress" id="prog"></div>
+<div class="batt" aria-hidden="true"><div class="body"><div class="fill" id="fill"></div></div><span id="pct">۱٪</span></div>
 
 <header class="hero peg" id="top">
+  <div class="spot" id="spot"></div>
   <div class="wrap" style="display:flex;flex-direction:column;flex:1">
     <nav>
       <a class="logo" href="#top"><i></i>موبایل آریا</a>
-      <div class="links"><a href="#products">محصولات</a><a href="#shop">فروشگاه</a><a href="#why">چرا آریا</a><a href="#contact">آدرس</a></div>
-      <a class="btn" href="#contact">آدرس و تماس</a>
+      <div class="links"><a href="#story">داستان ما</a><a href="#products">محصولات</a><a href="#finder">چی لازم دارم؟</a><a href="#contact">آدرس</a></div>
+      <a class="btn mag" href="#contact">آدرس و تماس</a>
     </nav>
 
     <div class="hero-body">
       <div>
         <span class="place">شهرک کاوه، اصفهان</span>
-        <h1>هرچی گوشیت <em>لازم داره</em>،<br>همین‌جا آویزونه.</h1>
-        <p class="lead">شارژر و کابل و هندزفری، قاب و ایرپاد، پاوربانک و اسپیکر. بیا ببین، دست بزن، انتخاب کن.</p>
+        <h1>
+          <span class="ln"><span>دیگه شارژ</span></span>
+          <span class="ln"><span><em>تموم نمی‌شه</em>،</span></span>
+          <span class="ln"><span>وقتی آریایی.</span></span>
+        </h1>
+        <p class="lead">کابل، شارژر، ایرپاد، قاب، پاوربانک و اسپیکر؛ همه آویزون روی دیوار. بیا <b>دست بزن</b>، ببین، بعد انتخاب کن<span class="type" id="type"></span></p>
         <div class="cta">
-          <a class="btn" href="#contact">مسیریابی تا مغازه</a>
-          <a class="btn ghost" href="#products">دیدن محصولات</a>
+          <a class="btn mag pulse" href="#contact">مسیریابی تا مغازه</a>
+          <a class="btn ghost mag" href="#finder">گوشیم چی لازم داره؟</a>
         </div>
       </div>
 
-      <div class="rail" aria-hidden="true">
-        <div class="tag" style="right:2%;--d:-.4s;--len:26px;--c:var(--orange);--t:#fff"><span>شارژر<small>فست ۶۵ وات</small></span></div>
-        <div class="tag" style="right:22%;--d:-1.6s;--len:92px;--c:var(--lime)"><span>ایرپاد<small>بی‌سیم</small></span></div>
-        <div class="tag" style="right:42%;--d:-2.4s;--len:40px"><span>کابل<small>تایپ‌سی / لایتنینگ</small></span></div>
-        <div class="tag" style="right:62%;--d:-3.1s;--len:150px;--c:#6ec6ff"><span>قاب<small>همه مدل‌ها</small></span></div>
-        <div class="tag" style="right:82%;--d:-.9s;--len:70px;--c:#ffd23f"><span>پاوربانک<small>سبک و پرظرفیت</small></span></div>
+      <div class="rail" id="rail" aria-hidden="true">
+        <div class="tag" style="right:2%;--i:0;--len:26px;--c:var(--orange);--t:#fff"><span>شارژر<small>فست ۶۵ وات</small></span></div>
+        <div class="tag" style="right:22%;--i:1;--len:92px;--c:var(--lime)"><span>ایرپاد<small>بی‌سیم</small></span></div>
+        <div class="tag" style="right:42%;--i:2;--len:40px"><span>کابل<small>تایپ‌سی / لایتنینگ</small></span></div>
+        <div class="tag" style="right:62%;--i:3;--len:150px;--c:var(--sky)"><span>قاب<small>همه مدل‌ها</small></span></div>
+        <div class="tag" style="right:82%;--i:4;--len:70px;--c:var(--sun)"><span>پاوربانک<small>سبک و پرظرفیت</small></span></div>
+        <div class="hint">به برچسب‌ها دست بزن</div>
       </div>
     </div>
   </div>
+  <div class="scroll-cue" aria-hidden="true"></div>
 </header>
 
 <div class="brands" aria-hidden="true">
@@ -168,51 +273,116 @@ footer{background:var(--ink);color:rgba(255,250,240,.7);padding:26px 0;font-size
     <span>LDNIO</span><b>✦</b><span>QCY</span><b>✦</b><span>KEZEN</span><b>✦</b><span>TWIN MAX</span><b>✦</b><span>VSMART</span><b>✦</b><span>MOXOM</span><b>✦</b><span>PHILIPS</span><b>✦</b><span>SANDISK</span><b>✦</b><span>TOSHIBA</span><b>✦</b><span>PANASONIC</span><b>✦</b><span>RAYMAX</span><b>✦</b><span>BAREO</span><b>✦</b>
   </div>
 </div>
+<div class="brands b2" aria-hidden="true">
+  <div>
+    <span>شارژر</span><b>●</b><span>کابل</span><b>●</b><span>هندزفری</span><b>●</b><span>ایرپاد</span><b>●</b><span>قاب</span><b>●</b><span>گلس</span><b>●</b><span>پاوربانک</span><b>●</b><span>اسپیکر</span><b>●</b><span>فلش</span><b>●</b><span>مموری</span><b>●</b><span>باتری</span><b>●</b>
+    <span>شارژر</span><b>●</b><span>کابل</span><b>●</b><span>هندزفری</span><b>●</b><span>ایرپاد</span><b>●</b><span>قاب</span><b>●</b><span>گلس</span><b>●</b><span>پاوربانک</span><b>●</b><span>اسپیکر</span><b>●</b><span>فلش</span><b>●</b><span>مموری</span><b>●</b><span>باتری</span><b>●</b>
+  </div>
+</div>
 
+<!-- ===== داستان ===== -->
+<section id="story">
+  <div class="wrap story">
+    <div class="pic rv" id="pic">
+      <img src="assets/wall-cables.jpg" alt="دیوار کابل و شارژر موبایل آریا" loading="lazy">
+      <div class="sticker">دست بزن، ببین!</div>
+    </div>
+    <div>
+      <div class="kicker rv">درباره آریا</div>
+      <h2 class="rv">مغازه‌ای که دیوارش<br>جواب سؤالاتو می‌ده</h2>
+      <p class="rv">وارد که می‌شی، <mark>همه‌چیز جلوی چشمته</mark>. نه توی کشو قایم شده، نه باید اسم قطعه رو حفظ باشی. کابل‌ها ردیف روی تخته آویزونن، ایرپادها پشت ویترینن و قاب هر گوشی سر جای خودشه.</p>
+      <p class="rv">می‌دونیم لوازم جانبی «اون چیز کوچیکیه» که وقتی خراب بشه، <mark>کل روزت خراب می‌شه</mark>. برای همین قبل از خرید می‌پرسیم گوشیت چیه، چقدر شارژ لازم داری و کجا استفاده‌ش می‌کنی تا چیزی بدیم که واقعاً به دردت بخوره، نه چیزی که فقط موجوده.</p>
+      <p class="rv">ما همسایه‌ی شهرک کاوه‌ایم؛ یعنی فردا هم همین‌جاییم. اگه چیزی مشکل داشت، بیا همین‌جا حلش می‌کنیم.</p>
+      <div class="stats rv">
+        <div><b data-n="8">۰</b><small>دسته‌ی اصلی کالا</small></div>
+        <div><b data-n="12" data-plus="1">۰</b><small>برند معتبر روی دیوار</small></div>
+        <div><b data-n="0" data-zero="1">۰</b><small>تومن هزینه‌ی مشاوره</small></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== درد و درمان ===== */ -->
+<section class="pain" id="pain">
+  <div class="wrap">
+    <div class="kicker rv">آشنا نیست؟</div>
+    <h2 class="rv">سه لحظه‌ای که همه‌مون داشتیم</h2>
+    <p class="sub rv">روی کارت‌ها دست بزن (یا بزن روشون) تا ببینی آریا چی دارد.</p>
+    <div class="flips">
+      <div class="flip rv"><div class="in">
+        <div class="f"><h3>«شارژم یک درصده!»</h3><small>و شارژر همراهت نیست…</small></div>
+        <div class="b"><h3>شارژر و پاوربانک</h3><p>شارژر دیواری و ماشین، پاوربانک و کابل. همین الان بیا و ۵ دقیقه‌ی بعد دوباره آنلاین باش.</p></div>
+      </div></div>
+      <div class="flip rv" style="--dl:.1s"><div class="in">
+        <div class="f"><h3>«کابل وسط شارژ خراب شد»</h3><small>اون هم شب، سر ساعت بدی.</small></div>
+        <div class="b"><h3>کابل درست حسابی</h3><p>برای هر گوشی کابل مناسبش رو نشون می‌دیم. یه کابل ضعیف ارزون‌تر شروع می‌شه، ولی گرون‌تر تموم می‌شه.</p></div>
+      </div></div>
+      <div class="flip rv" style="--dl:.2s"><div class="in">
+        <div class="f"><h3>«گوشیم تازه‌ست، ولی افتاد!»</h3><small>و صفحه‌ش…</small></div>
+        <div class="b"><h3>قاب و گلس</h3><p>قاب و گلس مناسب مدل گوشیت. قبل از اینکه اتفاق بیفته بیمه‌ش کن؛ گلس چند هزار تومنه، تعویض صفحه نه.</p></div>
+      </div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== محصولات ===== -->
 <section id="products">
   <div class="wrap">
     <div class="kicker rv">قفسه‌ها</div>
     <h2 class="rv">یه دیوار پر از چیزای به‌دردبخور</h2>
     <p class="sub rv">از سیم‌شارژ ساده تا هندزفری بی‌سیم؛ هرچی روی دیوار مغازه هست رو می‌تونی همین‌جا ببینی.</p>
-
     <div class="grid">
-      <article class="card rv"><span class="no">۰۱</span>
-        <svg viewBox="0 0 48 48"><rect x="12" y="6" width="24" height="22" rx="4"/><path d="M18 28v8M30 28v8M24 36v6"/></svg>
-        <h3>شارژر و فندکی</h3><p>شارژر دیواری و ماشین، فست‌شارژ تا ۶۵ وات.</p></article>
-      <article class="card rv"><span class="no">۰۲</span>
-        <svg viewBox="0 0 48 48"><path d="M6 36c10 0 8-24 18-24s8 24 18 24"/><rect x="2" y="32" width="8" height="8" rx="2"/><rect x="38" y="32" width="8" height="8" rx="2"/></svg>
-        <h3>کابل و تبدیل</h3><p>تایپ‌سی، میکرو، لایتنینگ، OTG و کابل AUX.</p></article>
-      <article class="card rv"><span class="no">۰۳</span>
-        <svg viewBox="0 0 48 48"><path d="M8 28v-6a16 16 0 0 1 32 0v6"/><rect x="6" y="26" width="8" height="14" rx="3"/><rect x="34" y="26" width="8" height="14" rx="3"/></svg>
-        <h3>هندزفری و ایرپاد</h3><p>سیمی و بی‌سیم، اپن‌ایر کلیپ، مدل‌های جدید.</p></article>
-      <article class="card rv"><span class="no">۰۴</span>
-        <svg viewBox="0 0 48 48"><rect x="13" y="4" width="22" height="40" rx="5"/><circle cx="21" cy="11" r="2"/><circle cx="28" cy="11" r="2"/></svg>
-        <h3>قاب و گلس</h3><p>سیلیکونی، شفاف، طرح‌دار؛ برای گوشی‌های رایج.</p></article>
-      <article class="card rv"><span class="no">۰۵</span>
-        <svg viewBox="0 0 48 48"><rect x="8" y="14" width="30" height="20" rx="4"/><path d="M38 20h4v8h-4M14 20v8M20 20v8"/></svg>
-        <h3>پاوربانک و باتری</h3><p>پاوربانک، باتری قلمی و نیم‌قلمی معتبر.</p></article>
-      <article class="card rv"><span class="no">۰۶</span>
-        <svg viewBox="0 0 48 48"><rect x="12" y="4" width="24" height="40" rx="5"/><circle cx="24" cy="18" r="6"/><circle cx="24" cy="34" r="3"/></svg>
-        <h3>اسپیکر</h3><p>از اسپیکر کوچیک تا باند بلوتوثی کاراوکه‌دار.</p></article>
-      <article class="card rv"><span class="no">۰۷</span>
-        <svg viewBox="0 0 48 48"><rect x="12" y="6" width="22" height="30" rx="3"/><path d="M18 36v6h10v-6M18 12h10"/></svg>
-        <h3>فلش و مموری</h3><p>فلش، رم میکرو و کارت‌خوان حافظه.</p></article>
-      <article class="card rv"><span class="no">۰۸</span>
-        <svg viewBox="0 0 48 48"><circle cx="24" cy="24" r="16"/><path d="M24 14v10l7 4"/></svg>
-        <h3>و چیزای دیگه</h3><p>پایه نگهدارنده، آویز، چراغ، سه‌راهی و …</p></article>
+      <article class="card tilt rv"><span class="no">۰۱</span><svg viewBox="0 0 48 48"><rect x="12" y="6" width="24" height="22" rx="4"/><path d="M18 28v8M30 28v8M24 36v6"/></svg><h3>شارژر و فندکی</h3><p>شارژر دیواری و ماشین، فست‌شارژ تا ۶۵ وات.</p></article>
+      <article class="card tilt rv" style="--dl:.05s"><span class="no">۰۲</span><svg viewBox="0 0 48 48"><path d="M6 36c10 0 8-24 18-24s8 24 18 24"/><rect x="2" y="32" width="8" height="8" rx="2"/><rect x="38" y="32" width="8" height="8" rx="2"/></svg><h3>کابل و تبدیل</h3><p>تایپ‌سی، میکرو، لایتنینگ، OTG و کابل AUX.</p></article>
+      <article class="card tilt rv" style="--dl:.1s"><span class="no">۰۳</span><svg viewBox="0 0 48 48"><path d="M8 28v-6a16 16 0 0 1 32 0v6"/><rect x="6" y="26" width="8" height="14" rx="3"/><rect x="34" y="26" width="8" height="14" rx="3"/></svg><h3>هندزفری و ایرپاد</h3><p>سیمی و بی‌سیم، اپن‌ایر کلیپ، مدل‌های جدید.</p></article>
+      <article class="card tilt rv" style="--dl:.15s"><span class="no">۰۴</span><svg viewBox="0 0 48 48"><rect x="13" y="4" width="22" height="40" rx="5"/><circle cx="21" cy="11" r="2"/><circle cx="28" cy="11" r="2"/></svg><h3>قاب و گلس</h3><p>سیلیکونی، شفاف، طرح‌دار؛ برای گوشی‌های رایج.</p></article>
+      <article class="card tilt rv"><span class="no">۰۵</span><svg viewBox="0 0 48 48"><rect x="8" y="14" width="30" height="20" rx="4"/><path d="M38 20h4v8h-4M14 20v8M20 20v8"/></svg><h3>پاوربانک و باتری</h3><p>پاوربانک، باتری قلمی و نیم‌قلمی معتبر.</p></article>
+      <article class="card tilt rv" style="--dl:.05s"><span class="no">۰۶</span><svg viewBox="0 0 48 48"><rect x="12" y="4" width="24" height="40" rx="5"/><circle cx="24" cy="18" r="6"/><circle cx="24" cy="34" r="3"/></svg><h3>اسپیکر</h3><p>از اسپیکر کوچیک تا باند بلوتوثی کاراوکه‌دار.</p></article>
+      <article class="card tilt rv" style="--dl:.1s"><span class="no">۰۷</span><svg viewBox="0 0 48 48"><rect x="12" y="6" width="22" height="30" rx="3"/><path d="M18 36v6h10v-6M18 12h10"/></svg><h3>فلش و مموری</h3><p>فلش، رم میکرو و کارت‌خوان حافظه.</p></article>
+      <article class="card tilt rv" style="--dl:.15s"><span class="no">۰۸</span><svg viewBox="0 0 48 48"><circle cx="24" cy="24" r="16"/><path d="M24 14v10l7 4"/></svg><h3>و چیزای دیگه</h3><p>پایه نگهدارنده، آویز، چراغ، سه‌راهی و …</p></article>
     </div>
   </div>
 </section>
 
+<!-- ===== پیشنهاددهنده ===== -->
+<section id="finder" style="padding-top:10px">
+  <div class="wrap">
+    <div class="finder rv">
+      <div class="kicker" style="color:var(--lime)">ابزار ۱۰ ثانیه‌ای</div>
+      <h2>گوشیم چی لازم داره؟</h2>
+      <p class="sub">دو تا سؤال جواب بده؛ لیست خرید آماده‌ت رو می‌گیری. بدون ثبت‌نام.</p>
+      <div class="step"><b>۱. گوشیت چیه؟</b>
+        <div class="chips" id="c1">
+          <button class="chip" data-v="iphone">آیفون</button>
+          <button class="chip" data-v="samsung">سامسونگ</button>
+          <button class="chip" data-v="xiaomi">شیائومی / پوکو</button>
+          <button class="chip" data-v="other">یه برند دیگه</button>
+        </div>
+      </div>
+      <div class="step"><b>۲. الان بیشتر چی لازم داری؟</b>
+        <div class="chips" id="c2">
+          <button class="chip" data-v="charge">شارژ سریع</button>
+          <button class="chip" data-v="music">موزیک و هندزفری</button>
+          <button class="chip" data-v="protect">محافظت از گوشی</button>
+          <button class="chip" data-v="travel">سفر و بیرون از خونه</button>
+        </div>
+      </div>
+      <div class="answer" id="ans" aria-live="polite"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== گالری ===== -->
 <section id="shop" style="padding-top:20px">
   <div class="wrap">
     <div class="kicker rv">از داخل مغازه</div>
     <h2 class="rv">این‌جاییم، منتظرت</h2>
+    <p class="sub rv">عکس‌ها واقعی‌ان؛ همین چیزی که می‌بینی، وقتی بیای هم می‌بینی. روی عکس بزن تا بزرگ بشه.</p>
     <div class="gal">
       <figure class="rv" style="--r:-2.5deg"><img loading="lazy" src="assets/earbuds.jpg" alt="ویترین ایرپاد و هندزفری بی‌سیم"><figcaption>ویترین ایرپاد</figcaption></figure>
-      <figure class="rv" style="--r:2deg"><img loading="lazy" src="assets/wall-cables.jpg" alt="دیوار کابل، شارژر و قاب گوشی"><figcaption>دیوار کابل و شارژر</figcaption></figure>
-      <figure class="rv" style="--r:-1.5deg"><img loading="lazy" src="assets/wall-audio.jpg" alt="هندزفری، باتری و کابل روی تخته آویز"><figcaption>هندزفری و باتری</figcaption></figure>
-      <figure class="rv" style="--r:3deg"><img loading="lazy" src="assets/desk.jpg" alt="فلش، مموری و اسپیکر"><figcaption>فلش، مموری، اسپیکر</figcaption></figure>
+      <figure class="rv" style="--r:2deg;--dl:.1s"><img loading="lazy" src="assets/wall-cables.jpg" alt="دیوار کابل، شارژر و قاب گوشی"><figcaption>دیوار کابل و شارژر</figcaption></figure>
+      <figure class="rv" style="--r:-1.5deg;--dl:.2s"><img loading="lazy" src="assets/wall-audio.jpg" alt="هندزفری، باتری و کابل روی تخته آویز"><figcaption>هندزفری و باتری</figcaption></figure>
+      <figure class="rv" style="--r:3deg;--dl:.3s"><img loading="lazy" src="assets/desk.jpg" alt="فلش، مموری و اسپیکر"><figcaption>فلش، مموری، اسپیکر</figcaption></figure>
     </div>
   </div>
 </section>
@@ -220,11 +390,19 @@ footer{background:var(--ink);color:rgba(255,250,240,.7);padding:26px 0;font-size
 <section class="why peg" id="why">
   <div class="wrap">
     <div class="kicker rv" style="color:var(--lime)">چرا آریا</div>
-    <h2 class="rv">ساده، سریع، رو‌راست</h2>
+    <h2 class="rv">سه دلیل که برمی‌گردی</h2>
     <div class="grid">
-      <div class="item rv"><b>۱</b><h3>همه‌چیز یک‌جا</h3><p>به‌جای گشتن چند مغازه، شارژر و کابل و قاب رو یک‌جا بگیر.</p></div>
-      <div class="item rv"><b>۲</b><h3>راهنمایی بدون اصرار</h3><p>بگو گوشیت چیه؛ مناسب‌ترین کابل و شارژر رو نشونت می‌دیم.</p></div>
-      <div class="item rv"><b>۳</b><h3>پرداخت راحت</h3><p>کارتخوان داریم؛ نقد و کارت، هرجور راحتی.</p></div>
+      <div class="item rv"><b>۱</b><h3>همه‌چیز یک‌جا</h3><p>به‌جای گشتن بین چند مغازه، شارژر و کابل و قاب رو یک‌جا بگیر و برو. وقتت از پولت باارزش‌تره.</p></div>
+      <div class="item rv" style="--dl:.1s"><b>۲</b><h3>راهنمایی بدون اصرار</h3><p>بگو گوشیت چیه؛ مناسب‌ترینش رو نشونت می‌دیم. اگه چیزی لازم نداری، همین رو هم می‌گیم.</p></div>
+      <div class="item rv" style="--dl:.2s"><b>۳</b><h3>اول ببین، بعد بخر</h3><p>همه‌چیز روی دیواره. بسته‌بندی رو ببین، مدل رو مقایسه کن و با خیال راحت تصمیم بگیر. کارتخوان هم داریم.</p></div>
+    </div>
+    <div class="plug rv" id="plug" aria-hidden="true">
+      <svg viewBox="0 0 520 90">
+        <path class="wire" d="M10 45 C 90 45, 100 12, 170 12 S 250 78, 320 60 S 380 45, 420 45" stroke="#c6ee3a"/>
+        <rect x="420" y="25" width="40" height="40" rx="8" fill="#ffd23f"/>
+        <rect x="460" y="33" width="20" height="8" rx="2" fill="#bbb"/><rect x="460" y="49" width="20" height="8" rx="2" fill="#bbb"/>
+        <g class="bolt"><path d="M498 14 l-14 26 h12 l-6 28 l22 -34 h-12 z" fill="#ffd23f"/></g>
+      </svg>
     </div>
   </div>
 </section>
@@ -233,6 +411,7 @@ footer{background:var(--ink);color:rgba(255,250,240,.7);padding:26px 0;font-size
   <div class="wrap">
     <div class="kicker rv">پیدامون کن</div>
     <h2 class="rv">آدرس و تماس</h2>
+    <p class="sub rv">قبل از اومدن بپرس اگه مدل خاصی می‌خوای؛ بعضی مدل‌ها زود تموم می‌شن و بهتره مطمئن بشی.</p>
     <div class="contact">
       <div class="info rv">
         <dl>
@@ -241,16 +420,21 @@ footer{background:var(--ink);color:rgba(255,250,240,.7);padding:26px 0;font-size
           <div><dt>ساعت کاری</dt><dd id="hours"></dd></div>
         </dl>
         <div class="acts">
-          <a class="btn" id="callBtn" href="#contact">تماس</a>
-          <a class="btn ghost" id="routeBtn" target="_blank" rel="noopener" href="#">مسیریابی</a>
+          <a class="btn mag" id="callBtn" href="#contact">تماس</a>
+          <a class="btn ghost mag" id="routeBtn" target="_blank" rel="noopener" href="#">مسیریابی</a>
         </div>
       </div>
       <div class="map rv"><iframe id="mapFrame" title="نقشه موبایل آریا" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
     </div>
+    <div class="final rv">
+      <h2>شارژت رو اینجا <mark>پر کن</mark>.</h2>
+      <a class="btn pulse mag" id="finalBtn" href="#contact" style="margin-top:10px;font-size:1.15rem;padding:16px 34px">می‌آم، آریا!</a>
+    </div>
   </div>
 </section>
 
-<a class="btn fab" id="fab" href="#contact">تماس با آریا</a>
+<a class="btn fab pulse" id="fab" href="#contact">تماس با آریا</a>
+<div class="lb" id="lb"><img alt=""></div>
 <footer>© موبایل آریا · شهرک کاوه، اصفهان</footer>
 
 <script>
@@ -260,26 +444,132 @@ const SHOP = {
   address: "اصفهان، شهرک کاوه، (آدرس دقیق را اینجا بنویسید)",
   phone: "",                 // مثال: "03112345678"
   hours: "هر روز، ۹ تا ۲۱ (ساعت واقعی را بنویسید)",
-  mapQuery: "موبایل آریا شهرک کاوه اصفهان"   // اگر لینک دقیق گوگل‌مپ داری، اینجا نام/مختصات دقیق بگذار
+  mapQuery: "موبایل آریا شهرک کاوه اصفهان"
 };
 /* ==================================================== */
+const $ = s => document.querySelector(s), $$ = s => [...document.querySelectorAll(s)];
+const fa = n => String(n).replace(/\d/g, d => '۰۱۲۳۴۵۶۷۸۹'[d]);
 const q = encodeURIComponent(SHOP.mapQuery);
-document.getElementById('addr').textContent = SHOP.address;
-document.getElementById('hours').textContent = SHOP.hours;
-const ph = document.getElementById('phone'), call = document.getElementById('callBtn'), fab = document.getElementById('fab');
+$('#addr').textContent = SHOP.address;
+$('#hours').textContent = SHOP.hours;
 if (SHOP.phone) {
-  ph.innerHTML = '<a href="tel:' + SHOP.phone + '" dir="ltr">' + SHOP.phone + '</a>';
-  call.href = fab.href = 'tel:' + SHOP.phone;
+  $('#phone').innerHTML = '<a href="tel:' + SHOP.phone + '" dir="ltr">' + SHOP.phone + '</a>';
+  $('#callBtn').href = $('#fab').href = 'tel:' + SHOP.phone;
 } else {
-  ph.textContent = 'به‌زودی';
-  call.style.display = 'none';
-  fab.textContent = 'آدرس مغازه';
+  $('#phone').textContent = 'به‌زودی';
+  $('#callBtn').style.display = 'none';
+  $('#fab').textContent = 'آدرس مغازه';
 }
-document.getElementById('mapFrame').src = 'https://www.google.com/maps?q=' + q + '&hl=fa&z=16&output=embed';
-document.getElementById('routeBtn').href = 'https://www.google.com/maps/dir/?api=1&destination=' + q;
+$('#routeBtn').href = $('#finalBtn').href = 'https://www.google.com/maps/dir/?api=1&destination=' + q;
+$('#finalBtn').target = '_blank';
+$('#mapFrame').src = 'https://www.google.com/maps?q=' + q + '&hl=fa&z=16&output=embed';
 
-const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('on'); io.unobserve(e.target); } }), {threshold:.15});
-document.querySelectorAll('.rv').forEach(el => io.observe(el));
+/* اسکرول: باتری + نوار */
+const fill = $('#fill'), pct = $('#pct'), prog = $('#prog');
+function onScroll() {
+  const p = Math.min(1, scrollY / (document.documentElement.scrollHeight - innerHeight || 1));
+  const v = Math.max(1, Math.round(p * 100));
+  fill.style.width = v + '%';
+  fill.style.background = v < 20 ? '#ff5a1f' : v < 50 ? '#ffd23f' : '#c6ee3a';
+  pct.textContent = fa(v) + '٪';
+  prog.style.transform = 'scaleX(' + p + ')';
+}
+addEventListener('scroll', onScroll, {passive: true}); onScroll();
+
+/* ظاهر شدن */
+const io = new IntersectionObserver(es => es.forEach(e => {
+  if (!e.isIntersecting) return;
+  e.target.classList.add('on'); io.unobserve(e.target);
+  if (e.target.classList.contains('stats')) countUp();
+}), {threshold: .15});
+$$('.rv,#pic,.plug').forEach(el => io.observe(el));
+
+/* شمارنده */
+function countUp() {
+  $$('.stats b').forEach(el => {
+    const t = +el.dataset.n, plus = el.dataset.plus; let c = 0;
+    if (!t) { el.textContent = fa(0); return; }
+    const id = setInterval(() => { c++; el.textContent = fa(c) + (plus && c === t ? '+' : ''); if (c >= t) clearInterval(id); }, 1400 / t);
+  });
+}
+
+/* تایپ‌کننده */
+const words = [' ...همین امروز', ' ...بدون عجله', ' ...با مشورت رایگان'];
+let wi = 0, ci = 0, del = false; const tp = $('#type');
+(function tick() {
+  const w = words[wi];
+  tp.textContent = w.slice(0, ci);
+  if (!del && ci === w.length) { del = true; return setTimeout(tick, 1600); }
+  if (del && ci === 0) { del = false; wi = (wi + 1) % words.length; }
+  ci += del ? -1 : 1; setTimeout(tick, del ? 35 : 80);
+})();
+
+/* نور دنبال‌کننده + پارالاکس + ضربه به برچسب */
+const hero = $('.hero'), spot = $('#spot'), rail = $('#rail');
+hero.addEventListener('pointermove', e => {
+  const r = hero.getBoundingClientRect();
+  spot.style.setProperty('--mx', (e.clientX - r.left) + 'px');
+  spot.style.setProperty('--my', (e.clientY - r.top) + 'px');
+  rail.style.transform = 'translate(' + ((e.clientX / innerWidth - .5) * -24) + 'px,' + ((e.clientY / innerHeight - .5) * -12) + 'px)';
+});
+$$('.tag').forEach(t => {
+  const kick = () => { t.classList.remove('kick'); void t.offsetWidth; t.classList.add('kick'); };
+  t.addEventListener('pointerenter', kick); t.addEventListener('click', kick);
+});
+
+/* کارت‌ها: تیلت سه‌بعدی */
+if (matchMedia('(hover:hover)').matches) $$('.tilt').forEach(c => {
+  c.addEventListener('pointermove', e => {
+    const r = c.getBoundingClientRect(), x = (e.clientX - r.left) / r.width - .5, y = (e.clientY - r.top) / r.height - .5;
+    c.style.transition = 'box-shadow .25s';
+    c.style.transform = 'perspective(700px) rotateX(' + (-y * 12) + 'deg) rotateY(' + (x * 12) + 'deg) translateY(-4px)';
+  });
+  c.addEventListener('pointerleave', () => { c.style.transition = 'transform .5s, box-shadow .25s'; c.style.transform = ''; });
+});
+
+/* دکمه‌ها: مغناطیسی + موج */
+$$('.mag').forEach(b => {
+  b.addEventListener('pointermove', e => {
+    const r = b.getBoundingClientRect();
+    b.style.transform = 'translate(' + ((e.clientX - r.left - r.width / 2) * .25) + 'px,' + ((e.clientY - r.top - r.height / 2) * .35) + 'px)';
+  });
+  b.addEventListener('pointerleave', () => b.style.transform = '');
+  b.addEventListener('click', e => {
+    const r = b.getBoundingClientRect(), s = Math.max(r.width, r.height), d = document.createElement('span');
+    d.className = 'rip'; d.style.cssText = 'width:' + s + 'px;height:' + s + 'px;left:' + (e.clientX - r.left - s / 2) + 'px;top:' + (e.clientY - r.top - s / 2) + 'px';
+    b.appendChild(d); setTimeout(() => d.remove(), 600);
+  });
+});
+
+/* کارت‌های چرخان روی موبایل */
+$$('.flip').forEach(f => f.addEventListener('click', () => f.classList.toggle('open')));
+
+/* ابزار پیشنهاد */
+const REC = {
+  iphone:  {name:'آیفون', base:['کابل تایپ‌سی به لایتنینگ یا تایپ‌سی به تایپ‌سی (بسته به مدل)'], charge:['شارژر ۲۰ وات PD'], music:['ایرپاد یا هندزفری بی‌سیم سازگار با iOS'], protect:['قاب سیلیکونی یا مگ‌سیف + گلس'], travel:['پاوربانک سبک با خروجی PD']},
+  samsung: {name:'سامسونگ', base:['کابل تایپ‌سی ۳ آمپر'], charge:['شارژر ۲۵ وات یا بالاتر (PD/PPS)'], music:['هندزفری بی‌سیم یا سیمی تایپ‌سی'], protect:['قاب ضد‌ضربه + گلس'], travel:['پاوربانک ۱۰ هزار با فست‌شارژ']},
+  xiaomi:  {name:'شیائومی / پوکو', base:['کابل تایپ‌سی مقاوم'], charge:['شارژر فست ۶۷ وات و کابل ۶ آمپر'], music:['هندزفری بی‌سیم یا اوپن‌ایر کلیپ'], protect:['قاب شفاف ضدزرد + گلس'], travel:['پاوربانک ۲۰ هزار فست‌شارژ']},
+  other:   {name:'گوشی شما', base:['کابل متناسب با پورت (تایپ‌سی یا میکرو)'], charge:['شارژر ۳۰ تا ۶۵ وات، بسته به گوشی'], music:['هندزفری سیمی یا بی‌سیم'], protect:['قاب و گلس مخصوص مدل شما'], travel:['پاوربانک و شارژر فندکی']}
+};
+const NEED = {charge:'شارژ سریع', music:'موزیک', protect:'محافظت', travel:'سفر'};
+let ph = null, nd = null;
+function sel(box, btn) { $$(box + ' .chip').forEach(x => x.classList.remove('sel')); btn.classList.add('sel'); }
+$('#c1').addEventListener('click', e => { if (e.target.dataset.v) { ph = e.target.dataset.v; sel('#c1', e.target); show(); } });
+$('#c2').addEventListener('click', e => { if (e.target.dataset.v) { nd = e.target.dataset.v; sel('#c2', e.target); show(); } });
+function show() {
+  if (!ph || !nd) return;
+  const r = REC[ph], a = $('#ans');
+  const items = [...r[nd], ...r.base];
+  a.innerHTML = '<h3>لیست خرید ' + r.name + ' برای «' + NEED[nd] + '»</h3><ul>' + items.map(i => '<li>' + i + '</li>').join('') +
+    '</ul><p style="font-size:.9rem;opacity:.75;margin-bottom:12px">مدل دقیق گوشیت رو بیار یا بگو؛ اون‌وقت دقیق‌ترین گزینه‌ها رو کنارِ هم می‌ذاریم.</p><a class="btn mag" href="#contact">بیا نشونت بدیم</a>';
+  a.classList.remove('show'); void a.offsetWidth; a.classList.add('show');
+}
+
+/* لایت‌باکس */
+const lb = $('#lb');
+$$('.gal img').forEach(i => i.addEventListener('click', () => { lb.firstElementChild.src = i.src; lb.classList.add('show'); }));
+lb.addEventListener('click', () => lb.classList.remove('show'));
+addEventListener('keydown', e => { if (e.key === 'Escape') lb.classList.remove('show'); });
 </script>
 </body>
 </html>
